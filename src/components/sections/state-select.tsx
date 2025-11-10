@@ -27,7 +27,7 @@ export function StateSelection() {
         <Button variant="outline" className="justify-start font-normal">
           {value
             ? states.find(
-                (state) => state.value.toLowerCase() === value.toLowerCase()
+                (state) => state.value.toLowerCase() === value.toLowerCase(),
               )?.label || "Select state"
             : "Select state"}
         </Button>
@@ -45,7 +45,7 @@ export function StateSelection() {
                   value={state.value}
                   onSelect={(currentValue) => {
                     setValue((prev) =>
-                      prev === currentValue ? "" : currentValue
+                      prev === currentValue ? "" : currentValue,
                     );
                     setOpen(false);
                   }}
