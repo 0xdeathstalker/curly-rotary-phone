@@ -28,7 +28,7 @@ export function Hero() {
         </Button>
       </div>
 
-      <form className="border p-8 w-full md:w-auto md:p-12 md:grow">
+      <form className="border rounded-md shadow-md p-8 w-full md:w-auto md:p-12 md:grow">
         <h1 className="text-2xl md:text-4xl font-bold mb-9">
           Register your private ltd. company
         </h1>
