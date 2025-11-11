@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 
 export function Hero() {
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-center gap-20 py-12 md:py-28">
+    <section className="flex flex-col lg:flex-row items-center justify-center gap-20 py-12 md:py-28 px-5 md:px-16">
       <div className="space-y-6 max-w-[700px]">
         <h1 className="text-2xl md:text-5xl lg:text-[56px] font-bold leading-[120%]">
           Incorporate Your Private Limited Company Hassle-Free

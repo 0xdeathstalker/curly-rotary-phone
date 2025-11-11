@@ -3,7 +3,7 @@ import WebflowIcon from "@/assets/icons/webflow.svg";
 
 export function Testimonials() {
   return (
-    <section className="flex overflow-x-auto md:overflow-x-hidden items-center md:justify-evenly gap-12">
+    <section className="flex overflow-x-auto md:overflow-x-hidden items-center md:justify-evenly gap-12 px-5 md:px-16">
       {[0, 1, 2].map((idx) => (
         <div
           key={idx}

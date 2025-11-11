@@ -3,7 +3,7 @@ import WebflowIcon from "@/assets/icons/webflow.svg";
 
 export function TrustedCompanies() {
   return (
-    <section className="w-full h-[152px] lg:h-[228px] flex items-center justify-center lg:justify-between">
+    <section className="w-full h-[152px] lg:h-[228px] flex items-center justify-center lg:justify-between px-5 md:px-16">
       <h2 className="hidden lg:inline-block text-2xl font-bold max-w-[320px]">
         Used by the world's most average companies
       </h2>

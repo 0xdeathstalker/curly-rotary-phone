@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 export function Pricing() {
   return (
-    <section className="py-12 md:py-28">
+    <section className="py-12 md:py-28 px-5 md:px-16">
       <div className="space-y-6">
         <h1 className="text-center text-2xl sm:text-4xl lg:text-5xl leading-tight font-bold">
           Right Plan for Your Business
@@ -49,7 +49,7 @@ export function Pricing() {
                   href="#"
                   className={cn(
                     buttonVariants({ variant: "default", size: "lg" }),
-                    "text-base",
+                    "text-base"
                   )}
                 >
                   Get Started
