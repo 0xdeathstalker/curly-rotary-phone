@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { Pricing } from "@/components/sections/pricing";
+import { Testimonials } from "@/components/sections/testimonials";
 import { TrustedCompanies } from "@/components/sections/trusted-companies";
 
 export default function Home() {
@@ -10,6 +11,8 @@ export default function Home() {
       <TrustedCompanies />
 
       <Pricing />
+
+      <Testimonials />
     </main>
   );
 }
