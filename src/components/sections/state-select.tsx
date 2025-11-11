@@ -17,17 +17,28 @@ import {
 } from "@/components/ui/popover";
 import { states } from "@/lib/constants";
 
-export function StateSelection() {
+export function StateSelection({
+  isInvalid,
+  value,
+  onValueChange,
+}: {
+  isInvalid: boolean;
+  value: string;
+  onValueChange: (value: string) => void;
+}) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="justify-start font-normal">
+        <Button
+          variant="outline"
+          className="justify-start font-normal"
+          aria-invalid={isInvalid}
+        >
           {value
             ? states.find(
-                (state) => state.value.toLowerCase() === value.toLowerCase(),
+                (state) => state.value.toLowerCase() === value.toLowerCase()
               )?.label || "Select state"
             : "Select state"}
         </Button>
@@ -44,9 +55,7 @@ export function StateSelection() {
                   key={state.value}
                   value={state.value}
                   onSelect={(currentValue) => {
-                    setValue((prev) =>
-                      prev === currentValue ? "" : currentValue,
-                    );
+                    onValueChange(currentValue === value ? "" : currentValue);
                     setOpen(false);
                   }}
                   className="font-sans rounded-none"
