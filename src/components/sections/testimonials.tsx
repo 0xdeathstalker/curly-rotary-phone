@@ -10,7 +10,13 @@ export function Testimonials() {
           className="max-w-[350px] space-y-6 py-12 md:py-28 shrink-0 w-screen md:w-auto snap-center"
         >
           <div className="flex items-center justify-center gap-1">
-            <WebflowIcon />
+            <Image
+              src={WebflowIcon}
+              alt="webflow icon"
+              width={36}
+              height={36}
+              className="size-9 shrink-0"
+            />
             <span className="text-lg font-semibold">Webflow</span>
           </div>
 

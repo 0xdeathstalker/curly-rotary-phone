@@ -1,3 +1,4 @@
+import Image from "next/image";
 import RelumeIcon from "@/assets/icons/relume.svg";
 import WebflowIcon from "@/assets/icons/webflow.svg";
 
@@ -10,22 +11,46 @@ export function TrustedCompanies() {
 
       <div className="flex items-center gap-8 overflow-hidden">
         <div className="flex items-center gap-1">
-          <WebflowIcon />
+          <Image
+            src={WebflowIcon}
+            alt="webflow logo"
+            width={36}
+            height={36}
+            className="size-9 shrink-0"
+          />
           <span className="text-lg font-semibold">Webflow</span>
         </div>
 
         <div className="flex items-center gap-1">
-          <RelumeIcon />
+          <Image
+            src={RelumeIcon}
+            alt="relume icon"
+            width={36}
+            height={36}
+            className="size-9 shrink-0"
+          />
           <span className="text-lg font-semibold">Relume</span>
         </div>
 
         <div className="flex items-center gap-1">
-          <WebflowIcon />
+          <Image
+            src={WebflowIcon}
+            alt="webflow logo"
+            width={36}
+            height={36}
+            className="size-9 shrink-0"
+          />
           <span className="text-lg font-semibold">Webflow</span>
         </div>
 
         <div className="flex items-center gap-1">
-          <RelumeIcon />
+          <Image
+            src={RelumeIcon}
+            alt="relume icon"
+            width={36}
+            height={36}
+            className="size-9 shrink-0"
+          />
           <span className="text-lg font-semibold">Relume</span>
         </div>
       </div>
