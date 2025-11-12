@@ -38,7 +38,7 @@ export function StateSelection({
         >
           {value
             ? states.find(
-                (state) => state.value.toLowerCase() === value.toLowerCase()
+                (state) => state.value.toLowerCase() === value.toLowerCase(),
               )?.label || "Select state"
             : "Select state"}
         </Button>

@@ -32,7 +32,7 @@ const TELECRM_CONFIG = {
 };
 
 async function mockAutoUpdateLead(
-  data: TeleCRMLeadData
+  data: TeleCRMLeadData,
 ): Promise<{ success: boolean; message: string }> {
   console.log("mock telecrm api call");
   console.log("fields: ", { data });
