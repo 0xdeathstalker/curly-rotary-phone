@@ -13,7 +13,7 @@ function MultiStepForm() {
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
-    mode: "onChange",
+    mode: "all",
     defaultValues: {
       email: "",
       phone: "",

@@ -67,9 +67,13 @@ export function CompanyDetailsForm({
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Size</SelectLabel>
+                      <SelectLabel className="font-sans">Size</SelectLabel>
                       {companySizes.map((size) => (
-                        <SelectItem key={size.value} value={size.value}>
+                        <SelectItem
+                          key={size.value}
+                          value={size.value}
+                          className="font-sans"
+                        >
                           {size.label}
                         </SelectItem>
                       ))}
