@@ -1,5 +1,5 @@
+import { MultiStepForm } from "@/components/sections/multi-step-form";
 import { Button } from "@/components/ui/button";
-import { MultiStepForm } from "./multi-step-form";
 
 export default function Hero() {
   return (

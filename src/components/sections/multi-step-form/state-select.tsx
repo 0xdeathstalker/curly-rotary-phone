@@ -43,7 +43,7 @@ export function StateSelection({
             : "Select state"}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="p-0 rounded-none">
+      <PopoverContent className="p-0">
         <Command>
           <CommandInput placeholder="Search State" className="font-sans" />
           <CommandList>
