@@ -13,9 +13,11 @@ import { StateSelection } from "./state-select";
 
 export function UserDetailsForm({
   form,
+  isSubmitting,
   handleNext,
 }: {
   form: UseFormReturn<FormSchema>;
+  isSubmitting: boolean;
   handleNext: () => void;
 }) {
   return (
@@ -88,8 +90,8 @@ export function UserDetailsForm({
         />
       </FieldGroup>
 
-      <Button onClick={handleNext} className="grow">
-        Next
+      <Button onClick={handleNext} className="grow" disabled={isSubmitting}>
+        {isSubmitting ? "Saving..." : "Next"}
       </Button>
     </FieldSet>
   );

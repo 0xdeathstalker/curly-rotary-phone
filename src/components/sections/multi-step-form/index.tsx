@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { CompanyDetailsForm } from "./company-details";
 import { type FormSchema, formSchema } from "./form-schema";
 import { UserDetailsForm } from "./user-details";
+import { useTeleCRMMutation } from "@/lib/hooks/useTelecrmMutation";
 
 function MultiStepForm() {
   const [currentStep, setCurrentStep] = React.useState<0 | 1>(0);
@@ -23,9 +24,17 @@ function MultiStepForm() {
     },
   });
 
+  const teleCRMMutation = useTeleCRMMutation();
+
   const content = [
     {
-      component: <UserDetailsForm form={form} handleNext={nextStep} />,
+      component: (
+        <UserDetailsForm
+          form={form}
+          handleNext={nextStep}
+          isSubmitting={teleCRMMutation.isPending}
+        />
+      ),
       label: "User details",
     },
     {
@@ -34,6 +43,7 @@ function MultiStepForm() {
           form={form}
           handleBack={previousStep}
           onSubmit={onSubmit}
+          isSubmitting={teleCRMMutation.isPending}
         />
       ),
       label: "Company details",
@@ -50,12 +60,24 @@ function MultiStepForm() {
 
     if (isStep1Valid) {
       // TODO: make POST request to telecrm api
+      await teleCRMMutation.mutateAsync({
+        email: form.getValues("email"),
+        phone: form.getValues("phone"),
+        state: form.getValues("state"),
+      });
+
       setCurrentStep(1);
     }
   }
 
-  function onSubmit(data: FormSchema) {
+  async function onSubmit(data: FormSchema) {
     // TODO: make POST request to telecrm api
+    await teleCRMMutation.mutateAsync({
+      email: form.getValues("email"),
+      phone: form.getValues("phone"),
+      company_name: form.getValues("companyName"),
+      company_size: form.getValues("companySizes"),
+    });
 
     console.log("[submitted-form-data] = ", { data });
   }

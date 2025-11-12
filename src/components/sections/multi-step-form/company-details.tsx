@@ -22,10 +22,12 @@ import type { FormSchema } from "./form-schema";
 
 export function CompanyDetailsForm({
   form,
+  isSubmitting,
   handleBack,
   onSubmit,
 }: {
   form: UseFormReturn<FormSchema>;
+  isSubmitting: boolean;
   handleBack: () => void;
   onSubmit: (data: FormSchema) => void;
 }) {
@@ -89,11 +91,16 @@ export function CompanyDetailsForm({
         </FieldGroup>
 
         <div className="flex items-center gap-4">
-          <Button variant="outline" className="grow" onClick={handleBack}>
+          <Button
+            variant="outline"
+            className="grow"
+            onClick={handleBack}
+            disabled={isSubmitting}
+          >
             Back
           </Button>
-          <Button type="submit" className="grow">
-            Submit
+          <Button type="submit" className="grow" disabled={isSubmitting}>
+            {isSubmitting ? "Saving..." : "Submit"}
           </Button>
         </div>
       </FieldSet>
