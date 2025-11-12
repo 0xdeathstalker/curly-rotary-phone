@@ -148,4 +148,19 @@ const companySizes = [
   },
 ];
 
-export { states, companySizes };
+const cardContents = [
+  {
+    title: "Basic Plan",
+    price: "1499",
+  },
+  {
+    title: "Business Plan",
+    price: "3499",
+  },
+  {
+    title: "Enterprise Plan",
+    price: "8499",
+  },
+];
+
+export { states, companySizes, cardContents };

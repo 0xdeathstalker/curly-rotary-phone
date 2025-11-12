@@ -4,13 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useTeleCRMMutation } from "@/lib/hooks/useTeleCRMMutation";
 import { CompanyDetailsForm } from "./company-details";
 import { type FormSchema, formSchema } from "./form-schema";
 import { UserDetailsForm } from "./user-details";
-import { useTeleCRMMutation } from "@/lib/hooks/useTelecrmMutation";
+import { useRouter } from "next/navigation";
 
 function MultiStepForm() {
   const [currentStep, setCurrentStep] = React.useState<0 | 1>(0);
+  const router = useRouter();
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -59,7 +61,6 @@ function MultiStepForm() {
     const isStep1Valid = await form.trigger(["email", "phone", "state"]);
 
     if (isStep1Valid) {
-      // TODO: make POST request to telecrm api
       await teleCRMMutation.mutateAsync({
         email: form.getValues("email"),
         phone: form.getValues("phone"),
@@ -70,8 +71,7 @@ function MultiStepForm() {
     }
   }
 
-  async function onSubmit(data: FormSchema) {
-    // TODO: make POST request to telecrm api
+  async function onSubmit(_data: FormSchema) {
     await teleCRMMutation.mutateAsync({
       email: form.getValues("email"),
       phone: form.getValues("phone"),
@@ -79,7 +79,8 @@ function MultiStepForm() {
       company_size: form.getValues("companySizes"),
     });
 
-    console.log("[submitted-form-data] = ", { data });
+    // TODO: redirect to pricing page
+    router.push("/pricing");
   }
 
   return (
