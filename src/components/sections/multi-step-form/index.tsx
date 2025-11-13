@@ -4,16 +4,21 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useForm } from "react-hook-form";
-import { useModalState } from "@/context/modal";
+import { useModalOpen } from "@/context/modal";
 import { useTeleCRMMutation } from "@/lib/hooks/useTeleCRMMutation";
 import { CompanyDetailsForm } from "./company-details";
 import { type FormSchema, formSchema } from "./form-schema";
+import { PlanSummary } from "./plan-summary";
 import { UserDetailsForm } from "./user-details";
 
-function MultiStepForm() {
-  const [currentStep, setCurrentStep] = React.useState<0 | 1>(0);
+function MultiStepForm({
+  showPlanSummary = false,
+}: {
+  showPlanSummary?: boolean;
+}) {
+  const [currentStep, setCurrentStep] = React.useState<0 | 1 | 2>(0);
   const router = useRouter();
-  const modalState = useModalState();
+  const modalState = useModalOpen();
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -51,6 +56,10 @@ function MultiStepForm() {
       ),
       label: "Company details",
     },
+    {
+      component: <PlanSummary />,
+      label: "Plan Summary",
+    },
   ];
   const currentStepComponent = content[currentStep].component;
 
@@ -80,8 +89,20 @@ function MultiStepForm() {
       company_size: form.getValues("companySizes"),
     });
 
-    if (!modalState.isOpen) router.push("/pricing");
+    if (showPlanSummary) {
+      setCurrentStep(2);
+    } else {
+      router.push("/pricing");
+    }
   }
+
+  React.useEffect(() => {
+    // resetting only when in modal flow and when modal closes
+    if (showPlanSummary && !modalState.isOpen) {
+      setCurrentStep(0);
+      form.reset();
+    }
+  }, [showPlanSummary, modalState.isOpen, form]);
 
   return <React.Fragment>{currentStepComponent}</React.Fragment>;
 }

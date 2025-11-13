@@ -7,10 +7,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useModalState } from "@/context/modal";
+import { useModalOpen } from "@/context/modal";
 
 function FormPricingModal() {
-  const { isOpen, setIsOpen } = useModalState();
+  const { isOpen, setIsOpen } = useModalOpen();
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -21,7 +21,7 @@ function FormPricingModal() {
           </DialogTitle>
         </DialogHeader>
         <div>
-          <MultiStepForm />
+          <MultiStepForm showPlanSummary={true} />
         </div>
       </DialogContent>
     </Dialog>

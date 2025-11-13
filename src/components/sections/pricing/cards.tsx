@@ -11,13 +11,23 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { useModalState } from "@/context/modal";
+import { useModalOpen, useSelectedPlan } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 function PricingCards() {
   const pathname = usePathname();
-  const modalState = useModalState();
+  const { setIsOpen } = useModalOpen();
+  const { setSelectedPlan } = useSelectedPlan();
+
+  function handleGetStarted(plan: {
+    title: string;
+    description: string;
+    price: string;
+  }) {
+    setSelectedPlan(plan);
+    setIsOpen((prev) => !prev);
+  }
 
   return (
     <div className="flex flex-col lg:flex-row items-center justify-evenly gap-8 mt-8 md:mt-20">
@@ -27,8 +37,7 @@ function PricingCards() {
             {item.title}
           </CardHeader>
           <CardDescription className="text-base text-inherit px-8">
-            Perfect for submitting your company application with expert
-            assistance in 21 days.
+            {item.description}
           </CardDescription>
           <Separator className="px-8" />
           <CardContent className="px-8">
@@ -56,7 +65,7 @@ function PricingCards() {
                 <Button
                   size="lg"
                   className="text-base"
-                  onClick={() => modalState.setIsOpen((prev) => !prev)}
+                  onClick={() => handleGetStarted(item)}
                 >
                   Get Started
                 </Button>

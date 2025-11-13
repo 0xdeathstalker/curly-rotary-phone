@@ -151,14 +151,20 @@ const companySizes = [
 const cardContents = [
   {
     title: "Basic Plan",
+    description:
+      "Perfect for submitting your company application with expert assistance in 21 days.",
     price: "1499",
   },
   {
     title: "Business Plan",
+    description:
+      "Perfect for submitting your company application with expert assistance in 21 days.",
     price: "3499",
   },
   {
     title: "Enterprise Plan",
+    description:
+      "Perfect for submitting your company application with expert assistance in 21 days.",
     price: "8499",
   },
 ];
