@@ -56,7 +56,7 @@ function PricingCards() {
                   href="#"
                   className={cn(
                     buttonVariants({ variant: "default", size: "lg" }),
-                    "text-base"
+                    "text-base",
                   )}
                 >
                   Pay Now
