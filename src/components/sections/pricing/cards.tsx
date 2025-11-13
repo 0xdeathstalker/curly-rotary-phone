@@ -1,6 +1,9 @@
+"use client";
+
 import { Check } from "lucide-react";
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,10 +11,14 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { useModalState } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 function PricingCards() {
+  const pathname = usePathname();
+  const modalState = useModalState();
+
   return (
     <div className="flex flex-col lg:flex-row items-center justify-evenly gap-8 mt-8 md:mt-20">
       {cardContents.map((item) => (
@@ -35,15 +42,25 @@ function PricingCards() {
                 </p>
               </div>
 
-              <Link
-                href="#"
-                className={cn(
-                  buttonVariants({ variant: "default", size: "lg" }),
-                  "text-base",
-                )}
-              >
-                Get Started
-              </Link>
+              {pathname.includes("/pricing") ? (
+                <Link
+                  href="#"
+                  className={cn(
+                    buttonVariants({ variant: "default", size: "lg" }),
+                    "text-base"
+                  )}
+                >
+                  Pay Now
+                </Link>
+              ) : (
+                <Button
+                  size="lg"
+                  className="text-base"
+                  onClick={() => modalState.setIsOpen((prev) => !prev)}
+                >
+                  Get Started
+                </Button>
+              )}
 
               <Separator />
 

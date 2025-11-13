@@ -1,4 +1,5 @@
 import { BottomCTA } from "@/components/sections/bottom-cta";
+import { FormPricingModal } from "@/components/sections/form-pricing-modal";
 import Hero from "@/components/sections/hero";
 import { Pricing } from "@/components/sections/pricing";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -16,6 +17,8 @@ export default function Home() {
       <Testimonials />
 
       <BottomCTA />
+
+      <FormPricingModal />
     </main>
   );
 }

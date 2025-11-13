@@ -1,18 +1,19 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useForm } from "react-hook-form";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useModalState } from "@/context/modal";
 import { useTeleCRMMutation } from "@/lib/hooks/useTeleCRMMutation";
 import { CompanyDetailsForm } from "./company-details";
 import { type FormSchema, formSchema } from "./form-schema";
 import { UserDetailsForm } from "./user-details";
-import { useRouter } from "next/navigation";
 
 function MultiStepForm() {
   const [currentStep, setCurrentStep] = React.useState<0 | 1>(0);
   const router = useRouter();
+  const modalState = useModalState();
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -79,18 +80,10 @@ function MultiStepForm() {
       company_size: form.getValues("companySizes"),
     });
 
-    // TODO: redirect to pricing page
-    router.push("/pricing");
+    if (!modalState.isOpen) router.push("/pricing");
   }
 
-  return (
-    <Card className="w-full gap-9 py-8">
-      <CardHeader className="text-2xl md:text-4xl font-bold px-8">
-        Register your private ltd. company
-      </CardHeader>
-      <CardContent className="px-8">{currentStepComponent}</CardContent>
-    </Card>
-  );
+  return <React.Fragment>{currentStepComponent}</React.Fragment>;
 }
 
 export { MultiStepForm };

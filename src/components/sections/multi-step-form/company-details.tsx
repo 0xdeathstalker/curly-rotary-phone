@@ -1,3 +1,5 @@
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { Controller, type UseFormReturn } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
@@ -89,6 +91,18 @@ export function CompanyDetailsForm({
             )}
           />
         </FieldGroup>
+
+        <p className="text-sm">
+          Yet to finalize your brand name? Don't worry, you can always do this
+          step later!
+        </p>
+        <Link
+          href="/pricing"
+          className="group inline-flex w-fit items-center underline underline-offset-2 text-sm"
+        >
+          Skip it for now{" "}
+          <ChevronRight className="size-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all ease-in-out" />
+        </Link>
 
         <div className="flex items-center gap-4">
           <Button

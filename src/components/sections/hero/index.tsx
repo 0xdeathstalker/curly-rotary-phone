@@ -1,5 +1,6 @@
 import { MultiStepForm } from "@/components/sections/multi-step-form";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export default function Hero() {
   return (
@@ -26,7 +27,14 @@ export default function Hero() {
         </Button>
       </div>
 
-      <MultiStepForm />
+      <Card className="w-full gap-9 py-8">
+        <CardHeader className="text-2xl md:text-4xl font-bold px-8">
+          Register your private ltd. company
+        </CardHeader>
+        <CardContent className="px-8">
+          <MultiStepForm />
+        </CardContent>
+      </Card>
     </section>
   );
 }
