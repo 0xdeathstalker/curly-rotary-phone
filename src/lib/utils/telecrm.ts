@@ -1,3 +1,5 @@
+import { env } from "@/env";
+
 type TeleCRMBaseData = {
   phone: string;
   email: string;
@@ -26,9 +28,9 @@ type TeleCRMLeadData = {
 
 const TELECRM_CONFIG = {
   baseUrl: "https://next-api.telecrm.in/enterprise",
-  enterpriseId: process.env.NEXT_PUBLIC_TELECRM_ENTERPRISE_ID ?? "",
-  apiKey: process.env.NEXT_PUBLIC_TELECRM_API_KEY ?? "",
-  useMock: process.env.NEXT_PUBLIC_TELECRM_USE_MOCK ?? "true",
+  enterpriseId: env.NEXT_PUBLIC_TELECRM_ENTERPRISE_ID ?? "",
+  apiKey: env.NEXT_PUBLIC_TELECRM_API_KEY ?? "",
+  useMock: env.NEXT_PUBLIC_TELECRM_USE_MOCK ?? "true",
 };
 
 async function mockAutoUpdateLead(
