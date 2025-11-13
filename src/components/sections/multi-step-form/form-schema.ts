@@ -2,6 +2,11 @@ import { z } from "zod";
 import { companySizes, states } from "@/lib/constants";
 
 export const formSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .toLowerCase()
+    .min(2, "Name must be atleast 2 characters"),
   email: z
     .string()
     .trim()

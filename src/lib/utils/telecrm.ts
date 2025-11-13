@@ -26,9 +26,9 @@ type TeleCRMLeadData = {
 
 const TELECRM_CONFIG = {
   baseUrl: "https://next-api.telecrm.in/enterprise",
-  enterpriseId: process.env.TELECRM_ENTERPRISE_ID ?? "",
-  apiKey: process.env.TELECRM_API_KEY ?? "",
-  useMock: process.env.NEXT_ENV_TELECRM_USE_MOCK ?? "true",
+  enterpriseId: process.env.NEXT_PUBLIC_TELECRM_ENTERPRISE_ID ?? "",
+  apiKey: process.env.NEXT_PUBLIC_TELECRM_API_KEY ?? "",
+  useMock: process.env.NEXT_PUBLIC_TELECRM_USE_MOCK ?? "true",
 };
 
 async function mockAutoUpdateLead(
@@ -61,15 +61,20 @@ async function prodAutoUpdateLead(data: TeleCRMLeadData) {
 }
 
 async function updateTeleCRMLead(data: TeleCRMLeadData) {
-  if (TELECRM_CONFIG.useMock) {
+  const isMockMode = isTeleCRMMockMode();
+  if (isMockMode) {
     return mockAutoUpdateLead(data);
   } else {
-    return prodAutoUpdateLead(data);
+    return prodAutoUpdateLead({
+      ...data,
+      page_title: "Private Limited Company",
+      page_url: "https://taxocity.com",
+    });
   }
 }
 
 function isTeleCRMMockMode(): boolean {
-  return Boolean(TELECRM_CONFIG.useMock);
+  return TELECRM_CONFIG.useMock === "true";
 }
 
 export {

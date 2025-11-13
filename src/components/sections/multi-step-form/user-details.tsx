@@ -24,6 +24,27 @@ export function UserDetailsForm({
     <FieldSet>
       <FieldGroup>
         <Controller
+          name="name"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid} className="gap-1">
+              <FieldLabel htmlFor="name">Name</FieldLabel>
+              <Input
+                {...field}
+                id="name"
+                type="name"
+                aria-invalid={fieldState.invalid}
+                placeholder="Enter your name"
+                autoComplete="off"
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+      </FieldGroup>
+
+      <FieldGroup>
+        <Controller
           name="email"
           control={form.control}
           render={({ field, fieldState }) => (

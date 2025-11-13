@@ -24,6 +24,7 @@ function MultiStepForm({
     resolver: zodResolver(formSchema),
     mode: "all",
     defaultValues: {
+      name: "",
       email: "",
       phone: "",
       state: "",
@@ -72,6 +73,7 @@ function MultiStepForm({
 
     if (isStep1Valid) {
       await teleCRMMutation.mutateAsync({
+        name: form.getValues("name"),
         email: form.getValues("email"),
         phone: form.getValues("phone"),
         state: form.getValues("state"),
