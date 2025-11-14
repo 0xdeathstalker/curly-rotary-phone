@@ -15,7 +15,8 @@ export async function POST(request: NextRequest) {
     await request.json();
 
   const signature = getSignature(orderId, razorpayPaymentId);
-  if (signature !== razorpaySignature) {
+  const isVerified = signature !== razorpaySignature;
+  if (isVerified) {
     return NextResponse.json(
       { message: "payment verification failed", isOk: false },
       { status: 400 }

@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useForm } from "react-hook-form";
-import { useModalOpen } from "@/context/modal";
+import { useModalOpen, useUserContext } from "@/context/modal";
 import { useTeleCRMMutation } from "@/lib/hooks/useTeleCRMMutation";
 import { CompanyDetailsForm } from "./company-details";
 import { type FormSchema, formSchema } from "./form-schema";
@@ -19,6 +19,7 @@ function MultiStepForm({
   const [currentStep, setCurrentStep] = React.useState<0 | 1 | 2>(0);
   const router = useRouter();
   const modalState = useModalOpen();
+  const userState = useUserContext();
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -69,16 +70,20 @@ function MultiStepForm({
   }
 
   async function nextStep() {
-    const isStep1Valid = await form.trigger(["email", "phone", "state"]);
+    const step1Fields = ["name", "email", "phone", "state"] as const;
+    const isStep1Valid = await form.trigger(step1Fields);
 
     if (isStep1Valid) {
+      const { name, email, phone, state } = form.getValues();
+
       await teleCRMMutation.mutateAsync({
-        name: form.getValues("name"),
-        email: form.getValues("email"),
-        phone: form.getValues("phone"),
-        state: form.getValues("state"),
+        name,
+        email,
+        phone,
+        state,
       });
 
+      userState.setUser({ name, email, phone });
       setCurrentStep(1);
     }
   }

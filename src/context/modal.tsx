@@ -18,6 +18,13 @@ type TSelectedPlanContext = {
   setSelectedPlan: (plan: SelectedPlan) => void;
 };
 
+type User = { name: string; phone: string; email: string };
+
+type TUserContext = {
+  user: User;
+  setUser: (user: User) => void;
+};
+
 const ModalOpenContext = React.createContext<TModalOpenContext | undefined>(
   undefined
 );
@@ -26,11 +33,18 @@ const SelectedPlanContext = React.createContext<
   TSelectedPlanContext | undefined
 >(undefined);
 
+const UserContext = React.createContext<TUserContext | undefined>(undefined);
+
 function ModalContextProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedPlan, setSelectedPlan] = React.useState<SelectedPlan | null>(
     null
   );
+  const [user, setUser] = React.useState<User>({
+    email: "",
+    phone: "",
+    name: "",
+  });
 
   const modalOpenValue = React.useMemo(() => ({ isOpen, setIsOpen }), [isOpen]);
 
@@ -39,10 +53,14 @@ function ModalContextProvider({ children }: { children: React.ReactNode }) {
     [selectedPlan]
   );
 
+  const userValue = React.useMemo(() => ({ user, setUser }), [user]);
+
   return (
     <ModalOpenContext.Provider value={modalOpenValue}>
       <SelectedPlanContext.Provider value={selectedPlanValue}>
-        {children}
+        <UserContext.Provider value={userValue}>
+          {children}
+        </UserContext.Provider>
       </SelectedPlanContext.Provider>
     </ModalOpenContext.Provider>
   );
@@ -68,4 +86,14 @@ function useSelectedPlan() {
   return context;
 }
 
-export { ModalContextProvider, useModalOpen, useSelectedPlan };
+function useUserContext() {
+  const context = React.useContext(UserContext);
+  if (context === undefined) {
+    throw new Error(
+      "useUserContext hook must be used within UserContextProvider"
+    );
+  }
+  return context;
+}
+
+export { ModalContextProvider, useModalOpen, useSelectedPlan, useUserContext };

@@ -11,7 +11,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { useModalOpen, useSelectedPlan } from "@/context/modal";
+import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
 import { purchase } from "@/lib/utils/razorpay";
 
@@ -19,6 +19,7 @@ function PricingCards() {
   const pathname = usePathname();
   const { setIsOpen } = useModalOpen();
   const { setSelectedPlan } = useSelectedPlan();
+  const { user } = useUserContext();
 
   function handleGetStarted(plan: {
     title: string;
@@ -62,6 +63,8 @@ function PricingCards() {
                   className="text-base"
                   onClick={() =>
                     purchase({
+                      phone: user.phone,
+                      email: user.email,
                       plan: item.title,
                       description: item.description,
                       amount: item.price,
