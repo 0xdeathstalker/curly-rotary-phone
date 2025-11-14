@@ -10,7 +10,7 @@ type TModalOpenContext = {
 type SelectedPlan = {
   title: string;
   description: string;
-  price: string;
+  price: number;
 };
 
 type TSelectedPlanContext = {
@@ -19,7 +19,7 @@ type TSelectedPlanContext = {
 };
 
 const ModalOpenContext = React.createContext<TModalOpenContext | undefined>(
-  undefined,
+  undefined
 );
 
 const SelectedPlanContext = React.createContext<
@@ -29,14 +29,14 @@ const SelectedPlanContext = React.createContext<
 function ModalContextProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedPlan, setSelectedPlan] = React.useState<SelectedPlan | null>(
-    null,
+    null
   );
 
   const modalOpenValue = React.useMemo(() => ({ isOpen, setIsOpen }), [isOpen]);
 
   const selectedPlanValue = React.useMemo(
     () => ({ selectedPlan, setSelectedPlan }),
-    [selectedPlan],
+    [selectedPlan]
   );
 
   return (
@@ -52,7 +52,7 @@ function useModalOpen() {
   const context = React.useContext(ModalOpenContext);
   if (context === undefined) {
     throw new Error(
-      "useModalOpen hook must be used within ModalContextProvider",
+      "useModalOpen hook must be used within ModalContextProvider"
     );
   }
   return context;
@@ -62,7 +62,7 @@ function useSelectedPlan() {
   const context = React.useContext(SelectedPlanContext);
   if (context === undefined) {
     throw new Error(
-      "useSelectedPlan hook must be used within ModalContextProvider",
+      "useSelectedPlan hook must be used within ModalContextProvider"
     );
   }
   return context;

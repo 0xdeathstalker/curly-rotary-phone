@@ -1,9 +1,9 @@
 "use client";
 
 import { Check } from "lucide-react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button, buttonVariants } from "@/components/ui/button";
+import Script from "next/script";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,7 +13,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { useModalOpen, useSelectedPlan } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { purchase } from "@/lib/utils/razorpay";
 
 function PricingCards() {
   const pathname = usePathname();
@@ -23,7 +23,7 @@ function PricingCards() {
   function handleGetStarted(plan: {
     title: string;
     description: string;
-    price: string;
+    price: number;
   }) {
     setSelectedPlan(plan);
     setIsOpen((prev) => !prev);
@@ -31,6 +31,11 @@ function PricingCards() {
 
   return (
     <div className="flex flex-col lg:flex-row items-center justify-evenly gap-8 mt-8 md:mt-20">
+      <Script
+        type="text/javascript"
+        src="https://checkout.razorpay.com/v1/checkout.js"
+      />
+
       {cardContents.map((item) => (
         <Card key={`card-${item.title}`} className="py-8 gap-8">
           <CardHeader className="px-8 text-[20px] font-bold gap-0">
@@ -52,15 +57,19 @@ function PricingCards() {
               </div>
 
               {pathname.includes("/pricing") ? (
-                <Link
-                  href="#"
-                  className={cn(
-                    buttonVariants({ variant: "default", size: "lg" }),
-                    "text-base",
-                  )}
+                <Button
+                  size="lg"
+                  className="text-base"
+                  onClick={() =>
+                    purchase({
+                      plan: item.title,
+                      description: item.description,
+                      amount: item.price,
+                    })
+                  }
                 >
                   Pay Now
-                </Link>
+                </Button>
               ) : (
                 <Button
                   size="lg"
