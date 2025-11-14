@@ -26,7 +26,7 @@ type TUserContext = {
 };
 
 const ModalOpenContext = React.createContext<TModalOpenContext | undefined>(
-  undefined
+  undefined,
 );
 
 const SelectedPlanContext = React.createContext<
@@ -38,7 +38,7 @@ const UserContext = React.createContext<TUserContext | undefined>(undefined);
 function ModalContextProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedPlan, setSelectedPlan] = React.useState<SelectedPlan | null>(
-    null
+    null,
   );
   const [user, setUser] = React.useState<User>({
     email: "",
@@ -50,7 +50,7 @@ function ModalContextProvider({ children }: { children: React.ReactNode }) {
 
   const selectedPlanValue = React.useMemo(
     () => ({ selectedPlan, setSelectedPlan }),
-    [selectedPlan]
+    [selectedPlan],
   );
 
   const userValue = React.useMemo(() => ({ user, setUser }), [user]);
@@ -70,7 +70,7 @@ function useModalOpen() {
   const context = React.useContext(ModalOpenContext);
   if (context === undefined) {
     throw new Error(
-      "useModalOpen hook must be used within ModalContextProvider"
+      "useModalOpen hook must be used within ModalContextProvider",
     );
   }
   return context;
@@ -80,7 +80,7 @@ function useSelectedPlan() {
   const context = React.useContext(SelectedPlanContext);
   if (context === undefined) {
     throw new Error(
-      "useSelectedPlan hook must be used within ModalContextProvider"
+      "useSelectedPlan hook must be used within ModalContextProvider",
     );
   }
   return context;
@@ -90,7 +90,7 @@ function useUserContext() {
   const context = React.useContext(UserContext);
   if (context === undefined) {
     throw new Error(
-      "useUserContext hook must be used within UserContextProvider"
+      "useUserContext hook must be used within UserContextProvider",
     );
   }
   return context;

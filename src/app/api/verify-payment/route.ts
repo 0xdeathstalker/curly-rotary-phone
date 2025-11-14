@@ -19,12 +19,12 @@ export async function POST(request: NextRequest) {
   if (isVerified) {
     return NextResponse.json(
       { message: "payment verification failed", isOk: false },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
   return NextResponse.json(
     { message: "payment verified successfully", isOk: true },
-    { status: 200 }
+    { status: 200 },
   );
 }

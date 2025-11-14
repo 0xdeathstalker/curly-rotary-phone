@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     if (!leadData.phone || !leadData.email) {
       return NextResponse.json(
         { error: "Phone and email are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -31,14 +31,14 @@ export async function POST(request: Request) {
           Authorization: `Bearer ${TELECRM_CONFIG.apiKey}`,
         },
         body: JSON.stringify(requestBody),
-      }
+      },
     );
 
     if (!response.ok) {
       console.error(
         "TeleCRM API Error: ",
         response.status,
-        response.statusText
+        response.statusText,
       );
 
       let errorMsg = "Failed to update lead";
@@ -58,7 +58,7 @@ export async function POST(request: Request) {
       } catch (_error) {
         console.log(
           "TeleCRM returned non-JSON response (expected for async API)",
-          responseBody
+          responseBody,
         );
       }
     }
@@ -75,7 +75,7 @@ export async function POST(request: Request) {
         success: false,
         error: error instanceof Error ? error.message : "Internal server error",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
