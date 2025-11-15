@@ -16,6 +16,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { states } from "@/lib/constants";
+import { ChevronDown } from "lucide-react";
 
 export function StateSelection({
   isInvalid,
@@ -33,14 +34,16 @@ export function StateSelection({
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          className="justify-start font-normal"
+          className="justify-between font-normal border-[#6B7280] h-10"
           aria-invalid={isInvalid}
         >
           {value
             ? states.find(
-                (state) => state.value.toLowerCase() === value.toLowerCase(),
-              )?.label || "Select state"
+                (state) => state.value.toLowerCase() === value.toLowerCase()
+              )?.label || "State"
             : "Select state"}
+
+          <ChevronDown className="size-4" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-0">

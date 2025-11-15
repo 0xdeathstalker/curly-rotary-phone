@@ -34,7 +34,7 @@ export function UserDetailsForm({
                 id="name"
                 type="name"
                 aria-invalid={fieldState.invalid}
-                placeholder="Enter your name"
+                placeholder="Name"
                 autoComplete="off"
               />
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -49,13 +49,13 @@ export function UserDetailsForm({
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1">
-              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <FieldLabel htmlFor="email">Enter email</FieldLabel>
               <Input
                 {...field}
                 id="email"
                 type="email"
                 aria-invalid={fieldState.invalid}
-                placeholder="Enter your email"
+                placeholder="Email"
                 autoComplete="off"
               />
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -70,23 +70,30 @@ export function UserDetailsForm({
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1">
-              <FieldLabel htmlFor="phone">Mobile number</FieldLabel>
-              <Input
-                {...field}
-                id="phone"
-                aria-invalid={fieldState.invalid}
-                placeholder="Enter your mobile number"
-                autoComplete="off"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                type="tel"
-                maxLength={10}
-                value={field.value ?? ""}
-                onChange={(e) => {
-                  const digitsOnly = e.target.value.replace(/\D/g, "");
-                  field.onChange(digitsOnly);
-                }}
-              />
+              <FieldLabel htmlFor="phone">Enter phone number</FieldLabel>
+              <div className="flex items-center border border-[#6B7280] rounded-md">
+                <div className="px-3">+91</div>
+
+                <div className="w-px h-6 bg-[#6B7280]" />
+
+                <Input
+                  {...field}
+                  id="phone"
+                  aria-invalid={fieldState.invalid}
+                  placeholder=""
+                  autoComplete="off"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  type="tel"
+                  maxLength={10}
+                  value={field.value ?? ""}
+                  onChange={(e) => {
+                    const digitsOnly = e.target.value.replace(/\D/g, "");
+                    field.onChange(digitsOnly);
+                  }}
+                  className="border-none focus-visible:ring-0"
+                />
+              </div>
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
@@ -99,7 +106,7 @@ export function UserDetailsForm({
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1">
-              <FieldLabel>State</FieldLabel>
+              <FieldLabel>Select state</FieldLabel>
               <StateSelection
                 isInvalid={fieldState.invalid}
                 value={field.value}
