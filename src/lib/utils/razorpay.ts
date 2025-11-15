@@ -61,7 +61,7 @@ async function purchase({
           phone,
           email,
           order_id: response.razorpay_order_id,
-          payment_amount: order.amount,
+          payment_amount: order.amount / 100,
           payment_id: response.razorpay_payment_id,
           payment_status: "completed",
         });
