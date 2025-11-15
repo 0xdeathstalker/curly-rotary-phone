@@ -63,6 +63,7 @@ function PricingCards() {
                   className="text-base"
                   onClick={() =>
                     purchase({
+                      name: user.name,
                       phone: user.phone,
                       email: user.email,
                       plan: item.title,

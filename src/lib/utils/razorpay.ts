@@ -1,5 +1,6 @@
 import { env } from "@/env";
 import { updateTeleCRMLead } from "./telecrm";
+import { sendPaymentConfirmationEmail } from "./resend";
 
 async function createOrder(amount: number) {
   const response = await fetch("/api/create-order", {
@@ -23,12 +24,14 @@ async function verifyPayment(response: any) {
 }
 
 async function purchase({
+  name,
   phone,
   email,
   plan,
   description,
   amount,
 }: {
+  name: string;
   phone: string;
   email: string;
   plan: string;
@@ -57,6 +60,16 @@ async function purchase({
           payment_id: response.razorpay_payment_id,
           payment_status: "completed",
         });
+
+        await sendPaymentConfirmationEmail({
+          name,
+          email,
+          plan,
+          amount: order.amount,
+          paymentId: response.razorpay_payment_id,
+          orderId: response.razorpay_order_id,
+        });
+
         alert("Payment successful");
       } else {
         alert("Payment failed");

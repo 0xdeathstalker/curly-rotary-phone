@@ -5,6 +5,8 @@ export const env = createEnv({
   server: {
     RAZORPAY_KEY_ID: z.string(),
     RAZORPAY_SECRET: z.string(),
+
+    RESEND_API_KEY: z.string(),
   },
   client: {
     NEXT_PUBLIC_TELECRM_API_KEY: z.string().min(1),
@@ -21,8 +23,11 @@ export const env = createEnv({
     NEXT_PUBLIC_TELECRM_API_KEY: process.env.NEXT_PUBLIC_TELECRM_API_KEY,
     NEXT_PUBLIC_TELECRM_ENTERPRISE_ID:
       process.env.NEXT_PUBLIC_TELECRM_ENTERPRISE_ID,
+
     NEXT_PUBLIC_TELECRM_USE_MOCK: process.env.NEXT_PUBLIC_TELECRM_USE_MOCK,
 
     NEXT_PUBLIC_RAZORPAY_KEY_ID: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
   },
 });
