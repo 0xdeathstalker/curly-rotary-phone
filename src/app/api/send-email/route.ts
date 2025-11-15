@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     ) {
       return NextResponse.json(
         { success: false, error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     console.error("Send email API failed:", error);
     return NextResponse.json(
       { success: false, error: "Failed to send email" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
