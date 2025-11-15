@@ -1,6 +1,7 @@
 import { env } from "@/env";
-import { updateTeleCRMLead } from "./telecrm";
+import { deleteCookie } from "./cookies";
 import { sendPaymentConfirmationEmail } from "./resend";
+import { updateTeleCRMLead } from "./telecrm";
 
 async function createOrder(amount: number) {
   const response = await fetch("/api/create-order", {
@@ -31,13 +32,17 @@ async function purchase({
   description,
   amount,
 }: {
-  name: string;
-  phone: string;
-  email: string;
-  plan: string;
-  description?: string;
-  amount: number;
+  name: string | null;
+  phone: string | null;
+  email: string | null;
+  plan: string | null;
+  amount: number | null;
+  description?: string | null;
 }) {
+  if (!name || !phone || !email || !plan || !description || !amount) {
+    throw new Error("Values passed to purchase function can't be null");
+  }
+
   const order = await createOrder(amount);
 
   const paymentData = {
@@ -69,6 +74,10 @@ async function purchase({
           paymentId: response.razorpay_payment_id,
           orderId: response.razorpay_order_id,
         });
+
+        // clearing session data after successful payment
+        deleteCookie("form_completed");
+        localStorage.removeItem("user_data");
 
         alert("Payment successful");
       } else {

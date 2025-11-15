@@ -3,11 +3,13 @@
 import { SquarePen } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { useModalOpen, useSelectedPlan } from "@/context/modal";
+import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
+import { purchase } from "@/lib/utils/razorpay";
 
 function PlanSummary() {
   const { setIsOpen } = useModalOpen();
   const { selectedPlan } = useSelectedPlan();
+  const { user } = useUserContext();
   const router = useRouter();
 
   function handleChangePlan() {
@@ -15,6 +17,18 @@ function PlanSummary() {
     router.push("/pricing");
   }
 
+  async function handlePayment() {
+    setIsOpen(false);
+
+    await purchase({
+      name: user?.name,
+      phone: user?.phone,
+      email: user?.email,
+      plan: selectedPlan?.title,
+      description: selectedPlan?.description,
+      amount: selectedPlan?.price,
+    });
+  }
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -32,7 +46,9 @@ function PlanSummary() {
 
       <p className="pt-4">{selectedPlan?.description}</p>
 
-      <Button className="w-full mt-32">Pay Now</Button>
+      <Button className="w-full mt-32" onClick={handlePayment}>
+        Pay Now
+      </Button>
     </div>
   );
 }

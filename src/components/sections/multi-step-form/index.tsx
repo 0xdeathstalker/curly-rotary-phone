@@ -6,6 +6,7 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import { useModalOpen, useUserContext } from "@/context/modal";
 import { useTeleCRMMutation } from "@/lib/hooks/useTeleCRMMutation";
+import { setCookie } from "@/lib/utils/cookies";
 import { CompanyDetailsForm } from "./company-details";
 import { type FormSchema, formSchema } from "./form-schema";
 import { PlanSummary } from "./plan-summary";
@@ -83,7 +84,12 @@ function MultiStepForm({
         state,
       });
 
-      userState.setUser({ name, email, phone });
+      const userData = { name, email, phone };
+      userState.setUser(userData);
+
+      localStorage.setItem("user_data", JSON.stringify(userData));
+      setCookie("form_completed", "true", 1); // valid for 1 day
+
       setCurrentStep(1);
     }
   }
@@ -108,6 +114,7 @@ function MultiStepForm({
     if (showPlanSummary && !modalState.isOpen) {
       setCurrentStep(0);
       form.reset();
+      // Note: We don't clear user data here as it's needed for the pricing page
     }
   }, [showPlanSummary, modalState.isOpen, form]);
 
