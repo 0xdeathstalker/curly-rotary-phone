@@ -1,7 +1,7 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,9 +17,12 @@ import { purchase } from "@/lib/utils/razorpay";
 
 function PricingCards() {
   const pathname = usePathname();
+  const router = useRouter();
   const { setIsOpen } = useModalOpen();
   const { setSelectedPlan } = useSelectedPlan();
   const { user } = useUserContext();
+
+  const isUserDataAvailable = user.name && user.email && user.phone;
 
   function handleGetStarted(plan: {
     title: string;
@@ -28,6 +31,27 @@ function PricingCards() {
   }) {
     setSelectedPlan(plan);
     setIsOpen((prev) => !prev);
+  }
+
+  function handlePayment(item: {
+    title: string;
+    description: string;
+    price: number;
+  }) {
+    if (!isUserDataAvailable) {
+      alert("Session expired. Please complete the registration form again.");
+      router.push("/");
+      return;
+    }
+
+    purchase({
+      name: user.name,
+      phone: user.phone,
+      email: user.email,
+      plan: item.title,
+      description: item.description,
+      amount: item.price,
+    });
   }
 
   return (
@@ -61,16 +85,8 @@ function PricingCards() {
                 <Button
                   size="lg"
                   className="text-base"
-                  onClick={() =>
-                    purchase({
-                      name: user.name,
-                      phone: user.phone,
-                      email: user.email,
-                      plan: item.title,
-                      description: item.description,
-                      amount: item.price,
-                    })
-                  }
+                  disabled={!isUserDataAvailable}
+                  onClick={() => handlePayment(item)}
                 >
                   Pay Now
                 </Button>

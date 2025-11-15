@@ -87,7 +87,11 @@ function MultiStepForm({
       const userData = { name, email, phone };
       userState.setUser(userData);
 
-      localStorage.setItem("user_data", JSON.stringify(userData));
+      try {
+        localStorage.setItem("user_data", JSON.stringify(userData));
+      } catch (error) {
+        console.error("Failed to save user data to localStorage.", error);
+      }
       setCookie("form_completed", "true", 1); // valid for 1 day
 
       setCurrentStep(1);
