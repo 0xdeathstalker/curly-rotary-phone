@@ -30,7 +30,10 @@ export function Header() {
         </Button>
       </div>
 
-      <Button variant="ghost" className="md:hidden -mr-2">
+      <Button
+        variant="outline"
+        className="bg-transparent shadow-none border-[#DEE8F2] hover:bg-transparent md:hidden -mr-2"
+      >
         <Menu className="size-6" />
       </Button>
     </header>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./styles/globals.css";
 import Providers from "@/components/providers";
+import { Footer } from "@/components/sections/footer";
 import { Header } from "@/components/sections/header";
 
 const urbanist = Urbanist({
@@ -24,8 +25,8 @@ export default function RootLayout({
       <body className={`${urbanist.variable} antialiased`}>
         <Providers>
           <Header />
-          {/* <Banner /> */}
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
