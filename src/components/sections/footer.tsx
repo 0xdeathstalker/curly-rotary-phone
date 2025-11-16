@@ -11,7 +11,7 @@ const roboto = Roboto({
 function Footer() {
   return (
     <footer className={cn("font-sans", roboto.className)}>
-      <div className="mx-auto px-5 md:px-16 py-20">
+      <div className="max-w-[1256px] mx-auto px-5 md:px-16 py-20">
         <div className="grid grid-cols-2 gap-8 md:flex md:items-stretch md:justify-between">
           {/* Brand Section */}
           <div className="col-span-2 flex flex-col items-start justify-between md:col-span-1">

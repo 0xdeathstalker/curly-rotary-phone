@@ -1,5 +1,8 @@
 "use client";
 
+import { ChevronDown, CircleCheckBig, Info } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,14 +12,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Tooltip } from "@/components/ui/tooltip-card";
 import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { purchase } from "@/lib/utils/razorpay";
-import { ChevronDown, CircleCheckBig, Info } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
-import Script from "next/script";
+import { GovtFeesDetails } from "../govt-fees-details";
 
 function PricingCards() {
   const pathname = usePathname();
@@ -58,7 +58,7 @@ function PricingCards() {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-evenly gap-8 mt-8 md:mt-20">
+    <div className="max-w-[1256px] mx-auto flex flex-col lg:flex-row items-center justify-evenly gap-8 mt-8 md:mt-20">
       <Script
         type="text/javascript"
         src="https://checkout.razorpay.com/v1/checkout.js"
@@ -69,7 +69,7 @@ function PricingCards() {
           key={`card-${item.title}`}
           className={cn(
             "max-w-[400px] w-full h-fit sm:h-[560px] gap-4 px-6 border-[#1D364D]/40 flex flex-col",
-            item.title === "Advanced" ? "bg-[#58B09C]/10" : "bg-[#D9D9D9]/10",
+            item.title === "Advanced" ? "bg-[#58B09C]/10" : "bg-[#D9D9D9]/10"
           )}
         >
           <CardHeader className="px-0">
@@ -98,11 +98,15 @@ function PricingCards() {
 
                 <div className="text-[#1E1E1E] text-sm xl:text-base">
                   <div className="flex items-center gap-1 text-nowrap">
-                    +
-                    <Tooltip content="Govt. Fees details will come here">
-                      <span>Govt. Fees</span>
-                    </Tooltip>
-                    <Info className="size-3" />
+                    <GovtFeesDetails>
+                      <Button
+                        variant="ghost"
+                        className="font-normal hover:bg-transparent border border-transparent hover:border-input font-sans"
+                      >
+                        <span className="text-base">+ Govt. Fees</span>
+                        <Info className="size-3" />
+                      </Button>
+                    </GovtFeesDetails>
                   </div>
 
                   <p> (to be paid later)</p>
@@ -133,7 +137,7 @@ function PricingCards() {
                     "w-full bg-transparent justify-between",
                     item.title === "Advanced"
                       ? "hover:bg-[#58B09C]/15"
-                      : "hover:bg-accent",
+                      : "hover:bg-accent"
                   )}
                 >
                   View all inclusions <ChevronDown className="size-4" />

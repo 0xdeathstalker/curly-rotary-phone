@@ -107,13 +107,17 @@ export function CompanyDetailsForm({
         <div className="flex items-center gap-4">
           <Button
             variant="outline"
-            className="grow"
+            className="grow border-[#6B7280] text-base"
             onClick={handleBack}
             disabled={isSubmitting}
           >
             Back
           </Button>
-          <Button type="submit" className="grow" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="grow bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors"
+          >
             {isSubmitting ? "Saving..." : "Submit"}
           </Button>
         </div>
