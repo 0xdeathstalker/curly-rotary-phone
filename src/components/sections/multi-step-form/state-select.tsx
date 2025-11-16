@@ -39,7 +39,7 @@ export function StateSelection({
         >
           {value
             ? states.find(
-                (state) => state.value.toLowerCase() === value.toLowerCase()
+                (state) => state.value.toLowerCase() === value.toLowerCase(),
               )?.label || "State"
             : "Select state"}
 

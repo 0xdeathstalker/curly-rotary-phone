@@ -69,7 +69,7 @@ function PricingCards() {
           key={`card-${item.title}`}
           className={cn(
             "max-w-[400px] w-full h-fit sm:h-[560px] gap-4 px-6 border-[#1D364D]/40 flex flex-col",
-            item.title === "Advanced" ? "bg-[#58B09C]/10" : "bg-[#D9D9D9]/10"
+            item.title === "Advanced" ? "bg-[#58B09C]/10" : "bg-[#D9D9D9]/10",
           )}
         >
           <CardHeader className="px-0">
@@ -133,7 +133,7 @@ function PricingCards() {
                     "w-full bg-transparent justify-between",
                     item.title === "Advanced"
                       ? "hover:bg-[#58B09C]/15"
-                      : "hover:bg-accent"
+                      : "hover:bg-accent",
                   )}
                 >
                   View all inclusions <ChevronDown className="size-4" />

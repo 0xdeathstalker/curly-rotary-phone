@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Rating } from "../ui/rating";
+import { Rating } from "@/components/ui/rating";
 
 export function BottomCTA() {
   return (
