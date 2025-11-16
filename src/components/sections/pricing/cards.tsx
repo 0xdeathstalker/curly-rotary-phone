@@ -1,19 +1,22 @@
 "use client";
 
-import { Check } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
-import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Tooltip } from "@/components/ui/tooltip-card";
 import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 import { purchase } from "@/lib/utils/razorpay";
+import { ChevronDown, CircleCheckBig, Info } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import Script from "next/script";
 
 function PricingCards() {
   const pathname = usePathname();
@@ -61,30 +64,88 @@ function PricingCards() {
         src="https://checkout.razorpay.com/v1/checkout.js"
       />
 
-      {cardContents.map((item) => (
-        <Card key={`card-${item.title}`} className="py-8 gap-8">
-          <CardHeader className="px-8 text-[20px] font-bold gap-0">
-            {item.title}
+      {cardContents.map((item, index) => (
+        <Card
+          key={`card-${item.title}`}
+          className={cn(
+            "max-w-[400px] w-full h-fit sm:h-[560px] gap-4 px-6 border-[#1D364D]/40 flex flex-col",
+            item.title === "Advanced" ? "bg-[#58B09C]/10" : "bg-[#D9D9D9]/10"
+          )}
+        >
+          <CardHeader className="px-0">
+            <CardTitle className="flex items-center justify-between text-[32px] text-[#162A3A] font-bold">
+              {item.title}
+
+              {item.recommended ? (
+                <span className="bg-[#1E293B] rounded-full py-1 px-2 font-medium text-white text-xs">
+                  Recommended
+                </span>
+              ) : null}
+            </CardTitle>
+            <CardDescription className="text-[#3F3F3F] text-base font-semibold">
+              {item.description}
+            </CardDescription>
           </CardHeader>
-          <CardDescription className="text-base text-inherit px-8">
-            {item.description}
-          </CardDescription>
-          <Separator className="px-8" />
-          <CardContent className="px-8">
-            <div className="flex flex-col gap-8">
-              <div>
-                <h1 className="text-[56px] font-bold leading-[120%] tabular-nums">
+
+          <Separator className="bg-[#D9D9D9]" />
+
+          <CardContent className="px-0 flex-1 flex flex-col justify-between">
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-2">
+                <h1 className="text-5xl xl:text-[56px] font-bold leading-[120%] text-[#1D364D] tabular-nums">
                   ₹{item.price}
                 </h1>
-                <p className="text-muted-foreground">
-                  + Govt. Fees (to be paid later)
-                </p>
+
+                <div className="text-[#1E1E1E] text-sm xl:text-base">
+                  <div className="flex items-center gap-1 text-nowrap">
+                    +
+                    <Tooltip content="Govt. Fees details will come here">
+                      <span>Govt. Fees</span>
+                    </Tooltip>
+                    <Info className="size-3" />
+                  </div>
+
+                  <p> (to be paid later)</p>
+                </div>
               </div>
 
+              <div className="space-y-4">
+                {item.title !== "Basic" && (
+                  <span className="font-medium">
+                    Everything in {cardContents[index - 1].title} +
+                  </span>
+                )}
+                <ul className="mt-2 space-y-2">
+                  {item.inclusions.map((inc, index) => (
+                    <li
+                      key={`${inc.title}-${index}`}
+                      className="flex items-center gap-2 leading-tight"
+                    >
+                      <CircleCheckBig className="text-[#58B09C] size-5 shrink-0" />{" "}
+                      {inc.title}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  variant="outline"
+                  className={cn(
+                    "w-full bg-transparent justify-between",
+                    item.title === "Advanced"
+                      ? "hover:bg-[#58B09C]/15"
+                      : "hover:bg-accent"
+                  )}
+                >
+                  View all inclusions <ChevronDown className="size-4" />
+                </Button>
+              </div>
+            </div>
+
+            <div className="mt-6 sm:mt-0">
               {pathname.includes("/pricing") ? (
                 <Button
                   size="lg"
-                  className="text-base"
+                  className="bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors w-full"
                   disabled={!isUserDataAvailable}
                   onClick={() => handlePayment(item)}
                 >
@@ -93,30 +154,12 @@ function PricingCards() {
               ) : (
                 <Button
                   size="lg"
-                  className="text-base"
+                  className="bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors w-full"
                   onClick={() => handleGetStarted(item)}
                 >
-                  Get Started
+                  Get {item.title}
                 </Button>
               )}
-
-              <Separator />
-
-              <ul className="space-y-4">
-                <li className="flex items-center gap-4">
-                  <Check className="size-5 shrink-0" /> Incorporation
-                  Certificate in 30 days
-                </li>
-                <li className="flex items-center gap-4">
-                  <Check className="size-5 shrink-0" /> Expert Advice by CA/CS
-                </li>
-                <li className="flex items-center gap-4">
-                  <Check className="size-5 shrink-0" /> MOA/AOA , PAN/TAN
-                </li>
-                <li className="flex items-center gap-4">
-                  <Check className="size-5 shrink-0" /> DIN for Directors
-                </li>
-              </ul>
             </div>
           </CardContent>
         </Card>

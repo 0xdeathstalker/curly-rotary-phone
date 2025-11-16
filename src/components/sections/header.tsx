@@ -24,7 +24,7 @@ export function Header() {
         </div>
         <Button
           size="lg"
-          className="bg-[#F9B934] border border-[#1E293B] text-base text-black px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors"
+          className="bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors"
         >
           Get Started
         </Button>

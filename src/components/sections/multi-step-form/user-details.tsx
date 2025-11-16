@@ -118,9 +118,15 @@ export function UserDetailsForm({
         />
       </FieldGroup>
 
-      <Button onClick={handleNext} className="grow" disabled={isSubmitting}>
-        {isSubmitting ? "Saving..." : "Next"}
+      <Button
+        onClick={handleNext}
+        className="h-10 grow bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Saving..." : "Get Started"}
       </Button>
+
+      <p>Limited slots for today. Get started in under a minute.</p>
     </FieldSet>
   );
 }

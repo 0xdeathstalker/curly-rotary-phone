@@ -150,22 +150,52 @@ const companySizes = [
 
 const cardContents = [
   {
-    title: "Basic Plan",
+    title: "Basic",
+    recommended: false,
     description:
-      "Perfect for submitting your company application with expert assistance in 21 days.",
-    price: 1499,
+      "Start your Pvt Ltd company at the lowest cost in just 30 days",
+    price: 2999,
+    inclusions: [
+      {
+        title: "Company Registration - End to End",
+      },
+    ],
   },
   {
-    title: "Business Plan",
+    title: "Advanced",
+    recommended: true,
     description:
-      "Perfect for submitting your company application with expert assistance in 21 days.",
-    price: 3499,
+      "Get your company up and running quickly with must-have compliances included.",
+    price: 7999,
+    inclusions: [
+      {
+        title: "MSME Reg",
+      },
+      {
+        title: "GST Registration",
+      },
+    ],
   },
   {
-    title: "Enterprise Plan",
+    title: "Pro",
+    recommended: false,
     description:
-      "Perfect for submitting your company application with expert assistance in 21 days.",
-    price: 8499,
+      "All registrations done in one go. Launch your business fully compliant from day one.",
+    price: 16999,
+    inclusions: [
+      {
+        title: "Financial Statement",
+      },
+      {
+        title: "ITR",
+      },
+      {
+        title: "All Post incorporation",
+      },
+      {
+        title: "MCA compliances",
+      },
+    ],
   },
 ];
 

@@ -1,58 +1,107 @@
 import Image from "next/image";
-import RelumeIcon from "@/assets/icons/relume.svg";
-import WebflowIcon from "@/assets/icons/webflow.svg";
+
+const companyLogos = [
+  {
+    src: "/logos/aromatics-logo.png",
+    alt: "Aromatics Pvt. Ltd.",
+    width: 260,
+    height: 72,
+  },
+  {
+    src: "/logos/aromatics-logo.png",
+    alt: "Aromatics Pvt. Ltd.",
+    width: 260,
+    height: 72,
+  },
+  {
+    src: "/logos/aromatics-logo.png",
+    alt: "Aromatics Pvt. Ltd.",
+    width: 260,
+    height: 72,
+  },
+  {
+    src: "/logos/aromatics-logo.png",
+    alt: "Aromatics Pvt. Ltd.",
+    width: 260,
+    height: 72,
+  },
+  {
+    src: "/logos/aromatics-logo.png",
+    alt: "Aromatics Pvt. Ltd.",
+    width: 260,
+    height: 72,
+  },
+  // Add more logos here as needed
+];
 
 export function TrustedCompanies() {
   return (
-    <section className="w-full h-[152px] lg:h-[228px] flex items-center justify-center lg:justify-between px-5 md:px-16">
-      <h2 className="hidden lg:inline-block text-2xl font-bold max-w-[320px]">
-        Used by the world's most average companies
-      </h2>
+    <section className="flex flex-col items-center gap-6 md:gap-20 px-4 md:px-16 py-18 md:py-32">
+      <div className="space-y-2">
+        <h2 className="text-[32px] md:text-4xl font-bold text-center">
+          Brands that trusts us
+        </h2>
+        <p className="md:text-lg text-center px-8 md:px-0">
+          Over 200+ companies incorporated in last 30 years
+        </p>
+      </div>
 
-      <div className="flex items-center gap-8 overflow-hidden">
-        <div className="flex items-center gap-1">
-          <Image
-            src={WebflowIcon}
-            alt="webflow logo"
-            width={36}
-            height={36}
-            className="size-9 shrink-0"
-          />
-          <span className="text-lg font-semibold">Webflow</span>
+      <div className="w-full relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-10 h-full bg-linear-to-r from-background to-transparent z-10" />
+
+        <div className="flex gap-16 animate-scrolling">
+          {companyLogos.map((logo) => (
+            <div key={`${logo.alt}-1`} className="shrink-0">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+              />
+            </div>
+          ))}
+          {companyLogos.map((logo) => (
+            <div key={`${logo.alt}-2`} aria-hidden className="shrink-0">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+              />
+            </div>
+          ))}
         </div>
 
-        <div className="flex items-center gap-1">
-          <Image
-            src={RelumeIcon}
-            alt="relume icon"
-            width={36}
-            height={36}
-            className="size-9 shrink-0"
-          />
-          <span className="text-lg font-semibold">Relume</span>
+        <div className="absolute top-0 right-0 w-10 h-full bg-linear-to-l from-background to-transparent z-10" />
+      </div>
+
+      <div className="w-full relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-10 h-full bg-linear-to-r from-background to-transparent z-10" />
+
+        <div className="flex gap-16 animate-scrolling-reverse">
+          {companyLogos.map((logo) => (
+            <div key={`${logo.alt}-3`} className="shrink-0">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+              />
+            </div>
+          ))}
+          {companyLogos.map((logo) => (
+            <div key={`${logo.alt}-4`} aria-hidden className="shrink-0">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+              />
+            </div>
+          ))}
         </div>
 
-        <div className="flex items-center gap-1">
-          <Image
-            src={WebflowIcon}
-            alt="webflow logo"
-            width={36}
-            height={36}
-            className="size-9 shrink-0"
-          />
-          <span className="text-lg font-semibold">Webflow</span>
-        </div>
-
-        <div className="flex items-center gap-1">
-          <Image
-            src={RelumeIcon}
-            alt="relume icon"
-            width={36}
-            height={36}
-            className="size-9 shrink-0"
-          />
-          <span className="text-lg font-semibold">Relume</span>
-        </div>
+        <div className="absolute top-0 right-0 w-10 h-full bg-linear-to-l from-background to-transparent z-10" />
       </div>
     </section>
   );
