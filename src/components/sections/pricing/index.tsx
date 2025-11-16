@@ -4,7 +4,7 @@ export function Pricing() {
   return (
     <section className="py-12 md:py-28 px-5 md:px-16">
       <div className="space-y-6 mb-20">
-        <h2 className="text-[32px] md:text-4xl font-bold text-center">
+        <h2 className="text-[32px] md:text-5xl font-bold text-center">
           Right Plan for Your Business
         </h2>
         <p className="md:text-lg text-center">

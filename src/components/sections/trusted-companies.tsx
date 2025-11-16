@@ -38,7 +38,7 @@ export function TrustedCompanies() {
   return (
     <section className="flex flex-col items-center gap-6 md:gap-20 px-4 md:px-16 py-18 md:py-32">
       <div className="space-y-2">
-        <h2 className="text-[32px] md:text-4xl font-bold text-center">
+        <h2 className="text-[32px] md:text-5xl font-bold text-center">
           Brands that trusts us
         </h2>
         <p className="md:text-lg text-center px-8 md:px-0">

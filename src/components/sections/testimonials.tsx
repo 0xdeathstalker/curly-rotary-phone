@@ -5,7 +5,7 @@ import { testimonials } from "@/lib/constants";
 export function Testimonials() {
   return (
     <section className="py-20 md:py-28 px-5 md:px-16">
-      <h1 className="text-[32px] md:text-4xl leading-[130%] font-bold text-center mb-20">
+      <h1 className="text-[32px] md:text-5xl leading-[130%] font-bold text-center mb-20">
         Everything you need to build a
         <br />
         recurring revenue business...
