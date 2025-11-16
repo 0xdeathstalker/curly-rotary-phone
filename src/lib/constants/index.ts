@@ -199,4 +199,37 @@ const cardContents = [
   },
 ];
 
-export { states, companySizes, cardContents };
+const testimonials = [
+  {
+    id: 1,
+    rating: 4.8,
+    message:
+      "A customer testimonial that highlights features and answers potential customer doubts about your product or service. Showcase testimonials from a similar demographic to your customers.",
+    image: null,
+    name: "Customer name",
+    position: "Position",
+    company: "Company name",
+  },
+  {
+    id: 2,
+    rating: 4,
+    message:
+      "A customer testimonial that highlights features and answers potential customer doubts about your product or service. Showcase testimonials from a similar demographic to your customers.",
+    image: null,
+    name: "Customer name",
+    position: "Position",
+    company: "Company name",
+  },
+  {
+    id: 3,
+    rating: 3.5,
+    message:
+      "A customer testimonial that highlights features and answers potential customer doubts about your product or service. Showcase testimonials from a similar demographic to your customers.",
+    image: null,
+    name: "Customer name",
+    position: "Position",
+    company: "Company name",
+  },
+];
+
+export { states, companySizes, cardContents, testimonials };
