@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 function Hero() {
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-20 py-28 md:py-32 px-4 md:px-16 bg-[linear-gradient(318deg,rgba(255,177,50,0.5)_10%,rgba(251,249,243,1)_60%,rgba(246,238,255,1)_100%)]">
+    <section className="flex flex-col xl:flex-row items-center justify-center gap-8 md:gap-20 py-28 md:py-32 px-4 md:px-16 bg-[linear-gradient(318deg,rgba(255,177,50,0.5)_10%,rgba(251,249,243,1)_60%,rgba(246,238,255,1)_100%)]">
       <div className="space-y-6">
         <GoogleReviews />
 
