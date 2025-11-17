@@ -126,7 +126,9 @@ export function UserDetailsForm({
         {isSubmitting ? "Saving..." : "Get Started"}
       </Button>
 
-      <p>Limited slots for today. Get started in under a minute.</p>
+      <p className="text-center">
+        Limited slots for today. Get started in under a minute.
+      </p>
     </FieldSet>
   );
 }
