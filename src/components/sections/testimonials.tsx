@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Marquee } from "@/components/ui/marquee";
 import { Rating } from "@/components/ui/rating";
 import { testimonials } from "@/lib/constants";
 
@@ -12,38 +13,58 @@ export function Testimonials() {
           recurring revenue business...
         </h1>
 
-        <div className="flex flex-col md:flex-row items-center md:justify-between gap-8 overflow-x-auto">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="max-w-[350px] space-y-6 shrink-0 border border-[#D9D9D9] rounded-xl p-6"
-            >
-              <Rating rating={testimonial.rating} />
-
-              <p className="text-lg text-[#1E1E1E] leading-[140%]">
-                {testimonial.message}
-              </p>
-
-              <div className="flex items-center justify-start gap-4">
-                <Image
-                  src={testimonial.image ?? "/images/avatar-fallback.png"}
-                  alt="avatar image"
-                  width={56}
-                  height={56}
-                  className="size-14 shrink-0"
-                />
-
-                <div>
-                  <h4 className="text-lg font-bold">{testimonial.name}</h4>
-                  <span>
-                    {testimonial.position}, {testimonial.company}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+          <Marquee pauseOnHover className="[--duration:20s]  [--gap:32px]">
+            {testimonials.map((testimonial) => (
+              <ReviewCard key={testimonial.id} {...testimonial} />
+            ))}
+          </Marquee>
+          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-14 bg-linear-to-r" />
+          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-14 bg-linear-to-l" />
         </div>
       </div>
     </section>
   );
 }
+
+type ReviewCardProps = {
+  rating: number;
+  image: string | null;
+  name: string;
+  position: string;
+  company: string;
+  message: string;
+};
+
+const ReviewCard = ({
+  rating,
+  image,
+  name,
+  position,
+  company,
+  message,
+}: ReviewCardProps) => {
+  return (
+    <figure className="relative h-full max-w-[390px] cursor-pointer overflow-hidden rounded-xl border p-4">
+      <Rating rating={rating} />
+      <blockquote className="mt-2.5 mb-6 text-lg">{message}</blockquote>
+      <div className="flex flex-row items-center gap-2">
+        <Image
+          className="rounded-full"
+          width="56"
+          height="56"
+          alt="customer avatar"
+          src={image ?? "/images/avatar-fallback.png"}
+        />
+        <div className="flex flex-col">
+          <figcaption className="text-lg font-medium dark:text-white">
+            {name}
+          </figcaption>
+          <p className="font-medium dark:text-white/40">
+            {position}, {company}
+          </p>
+        </div>
+      </div>
+    </figure>
+  );
+};

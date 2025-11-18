@@ -93,7 +93,7 @@ function GoogleReviews() {
 function TrustableFeaturesCarousel() {
   return (
     <div className="relative flex items-center gap-2 overflow-x-hidden">
-      <div className="absolute top-0 left-0 w-7 h-full bg-linear-to-r from-[#F9FAFB] to-transparent z-10" />
+      <div className="absolute inset-y-0 left-0 w-10 bg-linear-to-r from-[#F9FAFB] z-10" />
       <div
         className="flex items-center gap-2"
         style={{
@@ -114,7 +114,7 @@ function TrustableFeaturesCarousel() {
           );
         })}
       </div>
-      <div className="absolute top-0 right-0 w-7 h-full bg-linear-to-l from-[#F9FAFB] to-transparent z-10" />
+      <div className="absolute inset-y-0 right-0 w-10 h-full bg-linear-to-l from-[#F9FAFB] z-10" />
     </div>
   );
 }
