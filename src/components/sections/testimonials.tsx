@@ -19,8 +19,8 @@ export function Testimonials() {
               <ReviewCard key={testimonial.id} {...testimonial} />
             ))}
           </Marquee>
-          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-14 bg-linear-to-r" />
-          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-14 bg-linear-to-l" />
+          <div className="from-background to-transparent pointer-events-none absolute inset-y-0 -left-0.5 w-5 md:w-14 bg-linear-to-r" />
+          <div className="from-background to-transparent pointer-events-none absolute inset-y-0 -right-0.5 w-5 md:w-14 bg-linear-to-l" />
         </div>
       </div>
     </section>
