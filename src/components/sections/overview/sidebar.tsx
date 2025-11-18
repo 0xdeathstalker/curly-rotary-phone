@@ -57,8 +57,8 @@ function Sidebar() {
   };
 
   return (
-    <div className="hidden lg:block sticky shrink-0">
-      <div className="bg-[#eef4f9] rounded-lg sticky top-24">
+    <div className=" w-[256px] shrink-0">
+      <div className="bg-[#eef4f9] rounded-lg sticky top-36">
         <SidebarItem
           title="Private Limited Company"
           active={activeSection === "overview"}

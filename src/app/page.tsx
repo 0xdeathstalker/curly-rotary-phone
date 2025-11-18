@@ -10,7 +10,7 @@ import { WhyTaxocity } from "@/components/sections/why-taxocity";
 
 export default function Home() {
   return (
-    <main className="font-sans overflow-hidden">
+    <main className="font-sans">
       <Hero />
 
       <TrustedCompanies />
@@ -18,7 +18,7 @@ export default function Home() {
       <Pricing />
 
       <Testimonials />
-
+      
       <Overview />
 
       <WhyTaxocity />
