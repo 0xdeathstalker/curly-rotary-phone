@@ -4,14 +4,58 @@ import * as React from "react";
 
 function Sidebar() {
   const [activeSection, setActiveSection] = React.useState("overview");
+  const observerRef = React.useRef<IntersectionObserver | null>(null);
+
+  React.useEffect(() => {
+    const sections = [
+      "overview",
+      "types",
+      "requirements",
+      "process",
+      "documents",
+      "benefits",
+      "faq",
+    ];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: 0,
+    };
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          if (sections.includes(sectionId)) {
+            setActiveSection(sectionId);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // observing all sections
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element && observerRef.current) {
+        observerRef.current.observe(element);
+      }
+    });
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
   return (
     <div className="hidden lg:block sticky shrink-0">
       <div className="bg-[#eef4f9] rounded-lg sticky top-24">
