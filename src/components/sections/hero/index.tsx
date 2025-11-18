@@ -48,16 +48,11 @@ function Hero() {
         </div>
 
         <div className="max-w-[500px] border border-[#E5E7EB] rounded-2xl p-3 w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.16)_0%,rgba(153,153,153,0.16)_100%)] backdrop-blur-md">
-          <Card className="relative z-10 w-full shadow-lg border-[#E5E7EB]">
+          <Card className="relative justify-evenly z-10 w-full h-full shadow-lg border-[#E5E7EB] gap-4">
             <CardHeader className="text-2xl font-bold text-center">
-              <span className="hidden md:inline">
-                Get personalised guidance from our company registration experts.
-              </span>
-              <span className="md:hidden">
-                Need help with Company Registration?
-              </span>
+              <span>Need help with Company Registration?</span>
             </CardHeader>
-            <CardContent className="px-8">
+            <CardContent className="px-8 flex-1 flex flex-col">
               <MultiStepForm />
             </CardContent>
           </Card>
