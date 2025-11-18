@@ -26,7 +26,7 @@ function DesktopNavigation() {
                 >
                   <Link href="/" className="text-sm lg:text-base">
                     <span>Private Limited Company</span>
-                    <ChevronRight className="size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
+                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
                   </Link>
                 </NavigationMenuLink>
                 <NavigationMenuLink
@@ -35,7 +35,7 @@ function DesktopNavigation() {
                 >
                   <Link href="#" className="text-sm lg:text-base">
                     Sole Proprietorship
-                    <ChevronRight className="size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
+                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
                   </Link>
                 </NavigationMenuLink>
                 <NavigationMenuLink
@@ -44,7 +44,7 @@ function DesktopNavigation() {
                 >
                   <Link href="#" className="text-sm lg:text-base">
                     Partnership Firm
-                    <ChevronRight className="size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
+                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
                   </Link>
                 </NavigationMenuLink>
                 <NavigationMenuLink
@@ -53,7 +53,7 @@ function DesktopNavigation() {
                 >
                   <Link href="#" className="text-sm lg:text-base">
                     One Person Company
-                    <ChevronRight className="size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
+                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
                   </Link>
                 </NavigationMenuLink>
                 <NavigationMenuLink
@@ -62,7 +62,7 @@ function DesktopNavigation() {
                 >
                   <Link href="#" className="text-sm lg:text-base">
                     Limited Liability Partnership
-                    <ChevronRight className="size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
+                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
                   </Link>
                 </NavigationMenuLink>
               </li>

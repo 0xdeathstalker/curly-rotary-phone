@@ -17,7 +17,7 @@ function PricingButton() {
     <Button
       variant="outline"
       size="lg"
-      className="bg-[#F9FAFB] border-[#6B7280] mt-4 md:mt-0"
+      className="bg-[#F9FAFB] border-[#6B7280] mt-4 md:mt-0 text-base"
       onClick={scrollToPricing}
     >
       See all the pricing
