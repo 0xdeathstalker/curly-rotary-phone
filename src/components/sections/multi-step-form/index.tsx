@@ -68,7 +68,7 @@ function MultiStepForm({
         state,
       });
 
-      const userData = { name, email, phone };
+      const userData = { name, email, phone, state };
       userState.setUser(userData);
 
       try {

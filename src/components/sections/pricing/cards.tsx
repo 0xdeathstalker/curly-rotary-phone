@@ -15,7 +15,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { cn, formatNumber } from "@/lib/utils";
 import { purchase } from "@/lib/utils/razorpay";
 
 function PricingCards() {
@@ -95,17 +95,18 @@ function PricingCards() {
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-2">
                 <h1 className="text-5xl xl:text-[56px] font-bold leading-[120%] text-[#1D364D] tabular-nums">
-                  ₹{item.price}
+                  ₹{formatNumber(item.price)}
                 </h1>
 
                 <div className="text-[#1E1E1E] text-sm xl:text-base">
                   <div className="flex items-center gap-1 text-nowrap">
+                    <span className="text-base">+ Govt. Fees</span>
                     <GovtFeesDetails>
                       <Button
+                        size="icon"
                         variant="ghost"
                         className="font-normal hover:bg-transparent border border-transparent hover:border-input font-sans"
                       >
-                        <span className="text-base">+ Govt. Fees</span>
                         <Info className="size-3" />
                       </Button>
                     </GovtFeesDetails>

@@ -24,7 +24,12 @@ type TSelectedPlanContext = {
   setSelectedPlan: (plan: SelectedPlan) => void;
 };
 
-type User = { name: string | null; phone: string | null; email: string | null };
+type User = {
+  name: string | null;
+  phone: string | null;
+  email: string | null;
+  state: string | null;
+};
 
 type TUserContext = {
   user: User;
@@ -53,6 +58,7 @@ function ModalContextProvider({ children }: { children: React.ReactNode }) {
     email: null,
     phone: null,
     name: null,
+    state: null,
   });
 
   // Restore user data from localStorage on mount
