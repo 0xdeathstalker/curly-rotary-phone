@@ -3,6 +3,7 @@
 import { ChevronDown, CircleCheckBig, Info } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import Script from "next/script";
+import { GovtFeesDetails } from "@/components/sections/govt-fees-details";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,12 +17,12 @@ import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { purchase } from "@/lib/utils/razorpay";
-import { GovtFeesDetails } from "../govt-fees-details";
 
 function PricingCards() {
   const pathname = usePathname();
   const router = useRouter();
-  const { setIsOpen } = useModalOpen();
+  const modalState = useModalOpen();
+  const { setIsOpen } = modalState;
   const { setSelectedPlan } = useSelectedPlan();
   const { user } = useUserContext();
 
@@ -33,7 +34,8 @@ function PricingCards() {
     price: number;
   }) {
     setSelectedPlan(plan);
-    setIsOpen((prev) => !prev);
+    modalState.setModalSource("pricing");
+    setIsOpen(true);
   }
 
   function handlePayment(item: {
@@ -58,7 +60,7 @@ function PricingCards() {
   }
 
   return (
-    <div className="max-w-[1256px] mx-auto flex flex-col lg:flex-row items-center justify-evenly gap-8 mt-8 md:mt-20">
+    <div className="max-w-[1256px] mx-auto flex flex-col lg:flex-row items-center justify-evenly gap-8 mt-8 md:mt-20 overflow-x-auto">
       <Script
         type="text/javascript"
         src="https://checkout.razorpay.com/v1/checkout.js"

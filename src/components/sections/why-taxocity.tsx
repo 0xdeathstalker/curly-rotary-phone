@@ -17,7 +17,7 @@ function WhyTaxocity() {
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-evenly gap-6">
-          <Card className="h-fit lg:h-[680px] bg-[#58B09C]/10 text-[#165B4B] text-lg border-[#165B4B]">
+          <Card className="h-fit lg:h-[680px] bg-[#58B09C]/10 text-[#165B4B] text-lg border-[#165B4B] group">
             <CardHeader>
               <CardTitle>Our Legacy and Experience</CardTitle>
               <div className="bg-linear-to-r from-[#58B09C] to-transparent w-44 h-px" />
@@ -29,7 +29,7 @@ function WhyTaxocity() {
                 alt="legacy and trust"
                 width={350}
                 height={350}
-                className="mx-auto hidden sm:block"
+                className="mx-auto hidden sm:block group-hover:scale-105 transition-transform duration-200"
               />
 
               <p>
@@ -42,7 +42,7 @@ function WhyTaxocity() {
             </CardContent>
           </Card>
 
-          <Card className="h-fit lg:h-[680px] bg-[#F99F0E1A]/10 text-[#DF8900] text-lg border-[#DF8900]">
+          <Card className="h-fit lg:h-[680px] bg-[#F99F0E1A]/10 text-[#DF8900] text-lg border-[#DF8900] group">
             <CardHeader>
               <CardTitle>Our Mission & Values</CardTitle>
               <div className="bg-linear-to-r from-[#DF8900] to-transparent w-44 h-px" />
@@ -54,7 +54,7 @@ function WhyTaxocity() {
                 alt="mission and values"
                 width={350}
                 height={350}
-                className="mx-auto hidden sm:block"
+                className="mx-auto hidden sm:block group-hover:scale-105 transition-transform duration-200"
               />
 
               <p>
@@ -67,7 +67,7 @@ function WhyTaxocity() {
             </CardContent>
           </Card>
 
-          <Card className="h-fit lg:h-[680px] bg-[#DEE8F2] text-[#1E293B] text-lg border-[#1E293B]">
+          <Card className="h-fit lg:h-[680px] bg-[#DEE8F2] text-[#1E293B] text-lg border-[#1E293B] group">
             <CardHeader>
               <CardTitle>Our Legacy and Experience</CardTitle>
               <div className="bg-linear-to-r from-[#1E293B] to-transparent w-44 h-px" />
@@ -79,7 +79,7 @@ function WhyTaxocity() {
                 alt="comprehensive approach"
                 width={350}
                 height={350}
-                className="mx-auto hidden sm:block"
+                className="mx-auto hidden sm:block group-hover:scale-105 transition-transform duration-200"
               />
 
               <p>

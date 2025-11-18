@@ -2,9 +2,15 @@
 
 import * as React from "react";
 
+type ModalSource = "header" | "pricing" | null;
+
 type TModalOpenContext = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  modalSource: ModalSource;
+  setModalSource: React.Dispatch<
+    React.SetStateAction<"header" | "pricing" | null>
+  >;
 };
 
 type SelectedPlan = {
@@ -26,7 +32,7 @@ type TUserContext = {
 };
 
 const ModalOpenContext = React.createContext<TModalOpenContext | undefined>(
-  undefined,
+  undefined
 );
 
 const SelectedPlanContext = React.createContext<
@@ -37,6 +43,7 @@ const UserContext = React.createContext<TUserContext | undefined>(undefined);
 
 function ModalContextProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [modalSource, setModalSource] = React.useState<ModalSource>(null);
   const [selectedPlan, setSelectedPlan] = React.useState<SelectedPlan>({
     title: null,
     description: null,
@@ -61,11 +68,14 @@ function ModalContextProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const modalOpenValue = React.useMemo(() => ({ isOpen, setIsOpen }), [isOpen]);
+  const modalOpenValue = React.useMemo(
+    () => ({ isOpen, setIsOpen, modalSource, setModalSource }),
+    [isOpen, modalSource]
+  );
 
   const selectedPlanValue = React.useMemo(
     () => ({ selectedPlan, setSelectedPlan }),
-    [selectedPlan],
+    [selectedPlan]
   );
 
   const userValue = React.useMemo(() => ({ user, setUser }), [user]);
@@ -85,7 +95,7 @@ function useModalOpen() {
   const context = React.useContext(ModalOpenContext);
   if (context === undefined) {
     throw new Error(
-      "useModalOpen hook must be used within ModalContextProvider",
+      "useModalOpen hook must be used within ModalContextProvider"
     );
   }
   return context;
@@ -95,7 +105,7 @@ function useSelectedPlan() {
   const context = React.useContext(SelectedPlanContext);
   if (context === undefined) {
     throw new Error(
-      "useSelectedPlan hook must be used within ModalContextProvider",
+      "useSelectedPlan hook must be used within ModalContextProvider"
     );
   }
   return context;
@@ -105,7 +115,7 @@ function useUserContext() {
   const context = React.useContext(UserContext);
   if (context === undefined) {
     throw new Error(
-      "useUserContext hook must be used within UserContextProvider",
+      "useUserContext hook must be used within UserContextProvider"
     );
   }
   return context;

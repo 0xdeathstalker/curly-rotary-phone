@@ -81,6 +81,7 @@ function MultiStepForm({
       if (showPlanSummary) {
         setCurrentStep(1);
       } else {
+        modalState.setIsOpen(false); // closing the modal before navigating to another page
         router.push("/pricing");
       }
     }
