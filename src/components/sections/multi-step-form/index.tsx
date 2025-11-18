@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import { useModalOpen, useUserContext } from "@/context/modal";
 import { useTeleCRMMutation } from "@/lib/hooks/useTeleCRMMutation";
 import { setCookie } from "@/lib/utils/cookies";
-import { CompanyDetailsForm } from "./company-details";
 import { type FormSchema, formSchema } from "./form-schema";
 import { PlanSummary } from "./plan-summary";
 import { UserDetailsForm } from "./user-details";
@@ -17,7 +16,7 @@ function MultiStepForm({
 }: {
   showPlanSummary?: boolean;
 }) {
-  const [currentStep, setCurrentStep] = React.useState<0 | 1 | 2>(0);
+  const [currentStep, setCurrentStep] = React.useState<0 | 1>(0);
   const router = useRouter();
   const modalState = useModalOpen();
   const userState = useUserContext();
@@ -42,22 +41,11 @@ function MultiStepForm({
       component: (
         <UserDetailsForm
           form={form}
-          handleNext={nextStep}
+          handleNext={onSubmit}
           isSubmitting={teleCRMMutation.isPending}
         />
       ),
       label: "User details",
-    },
-    {
-      component: (
-        <CompanyDetailsForm
-          form={form}
-          handleBack={previousStep}
-          onSubmit={onSubmit}
-          isSubmitting={teleCRMMutation.isPending}
-        />
-      ),
-      label: "Company details",
     },
     {
       component: <PlanSummary />,
@@ -66,11 +54,7 @@ function MultiStepForm({
   ];
   const currentStepComponent = content[currentStep].component;
 
-  function previousStep() {
-    setCurrentStep(0);
-  }
-
-  async function nextStep() {
+  async function onSubmit() {
     const step1Fields = ["name", "email", "phone", "state"] as const;
     const isStep1Valid = await form.trigger(step1Fields);
 
@@ -84,7 +68,7 @@ function MultiStepForm({
         state,
       });
 
-      const userData = { name, email, phone };
+      const userData = { name, email, phone, state };
       userState.setUser(userData);
 
       try {
@@ -94,22 +78,12 @@ function MultiStepForm({
       }
       setCookie("form_completed", "true", 1); // valid for 1 day
 
-      setCurrentStep(1);
-    }
-  }
-
-  async function onSubmit(_data: FormSchema) {
-    await teleCRMMutation.mutateAsync({
-      email: form.getValues("email"),
-      phone: form.getValues("phone"),
-      company_name: form.getValues("companyName"),
-      company_size: form.getValues("companySizes"),
-    });
-
-    if (showPlanSummary) {
-      setCurrentStep(2);
-    } else {
-      router.push("/pricing");
+      if (showPlanSummary) {
+        setCurrentStep(1);
+      } else {
+        modalState.setIsOpen(false); // closing the modal before navigating to another page
+        router.push("/pricing");
+      }
     }
   }
 

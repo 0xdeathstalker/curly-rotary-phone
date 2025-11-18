@@ -1,5 +1,9 @@
 const states = [
   {
+    value: "andaman-and-nicobar-islands",
+    label: "Andaman and Nicobar Islands",
+  },
+  {
     value: "andhra-pradesh",
     label: "Andhra Pradesh",
   },
@@ -16,8 +20,24 @@ const states = [
     label: "Bihar",
   },
   {
+    value: "chandigarh",
+    label: "Chandigarh",
+  },
+  {
     value: "chhattisgarh",
     label: "Chhattisgarh",
+  },
+  {
+    value: "dadar-nagar",
+    label: "Dadar Nagar",
+  },
+  {
+    value: "daman-and-diu",
+    label: "Daman and Diu",
+  },
+  {
+    value: "delhi",
+    label: "Delhi",
   },
   {
     value: "goa",
@@ -36,6 +56,10 @@ const states = [
     label: "Himachal Pradesh",
   },
   {
+    value: "jammu-and-kashmir",
+    label: "Jammu and Kashmir",
+  },
+  {
     value: "jharkhand",
     label: "Jharkhand",
   },
@@ -46,6 +70,10 @@ const states = [
   {
     value: "kerala",
     label: "Kerala",
+  },
+  {
+    value: "lakshadweep",
+    label: "Lakshadweep",
   },
   {
     value: "madhya-pradesh",
@@ -76,16 +104,16 @@ const states = [
     label: "Odisha",
   },
   {
+    value: "puducherry",
+    label: "Puducherry",
+  },
+  {
     value: "punjab",
     label: "Punjab",
   },
   {
     value: "rajasthan",
     label: "Rajasthan",
-  },
-  {
-    value: "sikkim",
-    label: "Sikkim",
   },
   {
     value: "tamil-nadu",
@@ -232,4 +260,252 @@ const testimonials = [
   },
 ];
 
-export { states, companySizes, cardContents, testimonials };
+const governmentFees = [
+  {
+    state: "Andaman and Nicobar Islands",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 520,
+    total: 6696,
+  },
+  {
+    state: "Andhra Pradesh",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1520,
+    total: 7696,
+  },
+  {
+    state: "Arunachal Pradesh",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 710,
+    total: 6886,
+  },
+  {
+    state: "Assam",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 525,
+    total: 6701,
+  },
+  {
+    state: "Bihar",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1600,
+    total: 7776,
+  },
+  {
+    state: "Chandigarh",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1503,
+    total: 7679,
+  },
+  {
+    state: "Chhattisgarh",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1510,
+    total: 7686,
+  },
+  {
+    state: "Dadar Nagar",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 41,
+    total: 6217,
+  },
+  {
+    state: "Daman and Diu",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1170,
+    total: 7346,
+  },
+  {
+    state: "Delhi",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 360,
+    total: 6536,
+  },
+  {
+    state: "Goa",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1200,
+    total: 7376,
+  },
+  {
+    state: "Gujarat",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 620,
+    total: 6796,
+  },
+  {
+    state: "Haryana",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 135,
+    total: 6311,
+  },
+  {
+    state: "Himachal Pradesh",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 183,
+    total: 7359,
+  },
+  {
+    state: "Jammu and Kashmir",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 310,
+    total: 6486,
+  },
+  {
+    state: "Jharkhand",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 173,
+    total: 6349,
+  },
+  {
+    state: "Karnataka",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 10020,
+    total: 16196,
+  },
+  {
+    state: "Kerala",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 3025,
+    total: 9201,
+  },
+  {
+    state: "Lakshadweep",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1525,
+    total: 7701,
+  },
+  {
+    state: "Madhya Pradesh",
+    dscPrice: 4720,
+    runPanTan: 1236,
+    stateFilingFee: 7550,
+    total: 13726,
+  },
+  {
+    state: "Maharashtra",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1300,
+    total: 7476,
+  },
+  {
+    state: "Manipur",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 260,
+    total: 6436,
+  },
+  {
+    state: "Meghalaya",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 410,
+    total: 6586,
+  },
+  {
+    state: "Mizoram",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 260,
+    total: 6436,
+  },
+  {
+    state: "Nagaland",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 260,
+    total: 6436,
+  },
+  {
+    state: "Odisha",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 610,
+    total: 6786,
+  },
+  {
+    state: "Puducherry",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 510,
+    total: 6686,
+  },
+  {
+    state: "Punjab",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 10025,
+    total: 16201,
+  },
+  {
+    state: "Rajasthan",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 5500,
+    total: 11676,
+  },
+  {
+    state: "Tamil Nadu",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 520,
+    total: 6696,
+  },
+  {
+    state: "Telangana",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1520,
+    total: 7696,
+  },
+  {
+    state: "Tripura",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 260,
+    total: 6436,
+  },
+  {
+    state: "Uttar Pradesh",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1010,
+    total: 7186,
+  },
+  {
+    state: "Uttarakhand",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 1010,
+    total: 7186,
+  },
+  {
+    state: "West Bengal",
+    dscPrice: 4720,
+    runPanTan: 1456,
+    stateFilingFee: 370,
+    total: 6546,
+  },
+];
+
+export { states, companySizes, cardContents, testimonials, governmentFees };

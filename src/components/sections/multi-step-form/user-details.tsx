@@ -1,13 +1,8 @@
 import { Controller, type UseFormReturn } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import {
-  Field,
-  FieldError,
-  FieldGroup,
-  FieldLabel,
-  FieldSet,
-} from "@/components/ui/field";
+import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import type { FormSchema } from "./form-schema";
 import { StateSelection } from "./state-select";
 
@@ -36,8 +31,12 @@ export function UserDetailsForm({
                 aria-invalid={fieldState.invalid}
                 placeholder="Name"
                 autoComplete="off"
+                className={cn(
+                  fieldState.invalid
+                    ? "placeholder:text-destructive"
+                    : "placeholder:text-muted-foreground"
+                )}
               />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />
@@ -57,8 +56,12 @@ export function UserDetailsForm({
                 aria-invalid={fieldState.invalid}
                 placeholder="Email"
                 autoComplete="off"
+                className={cn(
+                  fieldState.invalid
+                    ? "placeholder:text-destructive"
+                    : "placeholder:text-muted-foreground"
+                )}
               />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />
@@ -71,10 +74,27 @@ export function UserDetailsForm({
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1">
               <FieldLabel htmlFor="phone">Enter phone number</FieldLabel>
-              <div className="flex items-center border border-[#6B7280] rounded-md">
-                <div className="px-3">+91</div>
+              <div
+                className={cn(
+                  "flex items-center border rounded-md",
+                  fieldState.invalid ? "border-destructive" : "border-[#6B7280]"
+                )}
+              >
+                <div
+                  className={cn(
+                    "px-3 text-sm",
+                    fieldState.invalid ? "text-destructive" : "text-foreground"
+                  )}
+                >
+                  +91
+                </div>
 
-                <div className="w-px h-6 bg-[#6B7280]" />
+                <div
+                  className={cn(
+                    "w-px h-6",
+                    fieldState.invalid ? "bg-destructive" : "bg-[#6B7280]"
+                  )}
+                />
 
                 <Input
                   {...field}
@@ -94,7 +114,6 @@ export function UserDetailsForm({
                   className="border-none focus-visible:ring-0"
                 />
               </div>
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />
@@ -112,7 +131,6 @@ export function UserDetailsForm({
                 value={field.value}
                 onValueChange={field.onChange}
               />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />

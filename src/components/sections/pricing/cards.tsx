@@ -3,6 +3,7 @@
 import { ChevronDown, CircleCheckBig, Info } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import Script from "next/script";
+import { GovtFeesDetails } from "@/components/sections/govt-fees-details";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -14,14 +15,14 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { cn, formatNumber } from "@/lib/utils";
 import { purchase } from "@/lib/utils/razorpay";
-import { GovtFeesDetails } from "../govt-fees-details";
 
 function PricingCards() {
   const pathname = usePathname();
   const router = useRouter();
-  const { setIsOpen } = useModalOpen();
+  const modalState = useModalOpen();
+  const { setIsOpen } = modalState;
   const { setSelectedPlan } = useSelectedPlan();
   const { user } = useUserContext();
 
@@ -33,7 +34,8 @@ function PricingCards() {
     price: number;
   }) {
     setSelectedPlan(plan);
-    setIsOpen((prev) => !prev);
+    modalState.setModalSource("pricing");
+    setIsOpen(true);
   }
 
   function handlePayment(item: {
@@ -58,7 +60,7 @@ function PricingCards() {
   }
 
   return (
-    <div className="max-w-[1256px] mx-auto flex flex-col lg:flex-row items-center justify-evenly gap-8 mt-8 md:mt-20">
+    <div className="max-w-[1256px] mx-auto flex flex-col lg:flex-row items-center justify-evenly gap-8 mt-8 md:mt-20 overflow-x-auto">
       <Script
         type="text/javascript"
         src="https://checkout.razorpay.com/v1/checkout.js"
@@ -93,17 +95,18 @@ function PricingCards() {
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-2">
                 <h1 className="text-5xl xl:text-[56px] font-bold leading-[120%] text-[#1D364D] tabular-nums">
-                  ₹{item.price}
+                  ₹{formatNumber(item.price)}
                 </h1>
 
                 <div className="text-[#1E1E1E] text-sm xl:text-base">
                   <div className="flex items-center gap-1 text-nowrap">
+                    <span className="text-base">+ Govt. Fees</span>
                     <GovtFeesDetails>
                       <Button
+                        size="icon"
                         variant="ghost"
                         className="font-normal hover:bg-transparent border border-transparent hover:border-input font-sans"
                       >
-                        <span className="text-base">+ Govt. Fees</span>
                         <Info className="size-3" />
                       </Button>
                     </GovtFeesDetails>
