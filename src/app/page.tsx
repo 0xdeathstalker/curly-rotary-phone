@@ -1,4 +1,5 @@
 import { BottomCTA } from "@/components/sections/bottom-cta";
+import { FloatingGetStarted } from "@/components/sections/floating-get-started-button";
 import { FormPricingModal } from "@/components/sections/form-pricing-modal";
 import { Hero } from "@/components/sections/hero";
 import { Overview } from "@/components/sections/overview";
@@ -25,6 +26,8 @@ export default function Home() {
       <BottomCTA />
 
       <FormPricingModal />
+
+      <FloatingGetStarted />
     </main>
   );
 }
