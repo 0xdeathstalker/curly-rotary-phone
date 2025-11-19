@@ -12,13 +12,21 @@ async function createOrder(amount: number) {
   return await response.json();
 }
 
-async function verifyPayment(response: any) {
+async function verifyPayment(
+  response: any,
+  amount: number,
+  plan: string,
+  paymentDate: string
+) {
   const _response = await fetch("/api/verify-payment", {
     method: "POST",
     body: JSON.stringify({
       orderId: response.razorpay_order_id,
       razorpayPaymentId: response.razorpay_payment_id,
       razorpaySignature: response.razorpay_signature,
+      amount: amount.toString(),
+      plan,
+      paymentDate,
     }),
   });
   return await _response.json();
@@ -54,7 +62,22 @@ async function purchase({
     plan: `Private Limited Company - ${plan}`,
     description,
     handler: async (response: any) => {
-      const data = await verifyPayment(response);
+      const paymentDate = new Date().toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      });
+
+      const data = await verifyPayment(
+        response,
+        order.amount,
+        plan,
+        paymentDate
+      );
 
       if (data.isOk) {
         await updateTeleCRMLead({
@@ -64,16 +87,6 @@ async function purchase({
           payment_amount: order.amount / 100,
           payment_id: response.razorpay_payment_id,
           payment_status: "completed",
-        });
-
-        const paymentDate = new Date().toLocaleString("en-GB", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
         });
 
         await sendPaymentConfirmationEmail({
@@ -86,11 +99,12 @@ async function purchase({
           paymentDate,
         });
 
-        // clearing session data after successful payment
+        // clearing data after successful payment
         deleteCookie("form_completed");
         localStorage.removeItem("user_data");
 
-        alert("Payment successful");
+        // redirecting to payment success page with token
+        window.location.href = `/payment-success?token=${data.token}`;
       } else {
         alert("Payment failed");
       }

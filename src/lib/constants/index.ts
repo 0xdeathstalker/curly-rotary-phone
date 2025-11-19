@@ -1,4 +1,5 @@
 const MODAL_INTERVAL = 30000; // 30seconds
+const REDIRECTION_TIME = 10000; // 10seconds
 
 const STATES = [
   {
@@ -522,6 +523,7 @@ const GOVERNMENT_FEES = [
 
 export {
   MODAL_INTERVAL,
+  REDIRECTION_TIME,
   STATES,
   COMPANY_SIZES,
   CARD_CONTENTS,
