@@ -16,7 +16,7 @@ function MobileNavigation({ isOpen }: { isOpen: boolean }) {
         "font-sans w-full min-[920px]:hidden border-t border-[#E5E7EB] overflow-hidden transition-all duration-300 ease-in-out",
         isOpen
           ? "max-h-[600px] mt-3 opacity-100"
-          : "max-h-0 mt-0 opacity-0 border-t-transparent"
+          : "max-h-0 mt-0 opacity-0 border-t-transparent",
       )}
     >
       <nav className="flex flex-col gap-3">

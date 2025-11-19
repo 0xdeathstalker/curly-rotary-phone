@@ -34,7 +34,7 @@ export function UserDetailsForm({
                 className={cn(
                   fieldState.invalid
                     ? "placeholder:text-destructive"
-                    : "placeholder:text-muted-foreground"
+                    : "placeholder:text-muted-foreground",
                 )}
               />
             </Field>
@@ -59,7 +59,7 @@ export function UserDetailsForm({
                 className={cn(
                   fieldState.invalid
                     ? "placeholder:text-destructive"
-                    : "placeholder:text-muted-foreground"
+                    : "placeholder:text-muted-foreground",
                 )}
               />
             </Field>
@@ -77,13 +77,15 @@ export function UserDetailsForm({
               <div
                 className={cn(
                   "flex items-center border rounded-md",
-                  fieldState.invalid ? "border-destructive" : "border-[#6B7280]"
+                  fieldState.invalid
+                    ? "border-destructive"
+                    : "border-[#6B7280]",
                 )}
               >
                 <div
                   className={cn(
                     "px-3 text-sm",
-                    fieldState.invalid ? "text-destructive" : "text-foreground"
+                    fieldState.invalid ? "text-destructive" : "text-foreground",
                   )}
                 >
                   +91
@@ -92,7 +94,7 @@ export function UserDetailsForm({
                 <div
                   className={cn(
                     "w-px h-6",
-                    fieldState.invalid ? "bg-destructive" : "bg-[#6B7280]"
+                    fieldState.invalid ? "bg-destructive" : "bg-[#6B7280]",
                   )}
                 />
 

@@ -20,7 +20,7 @@ function FloatingGetStarted() {
               text.startsWith("Get Pro")) &&
             !button.closest('[data-floating-cta="true"]')
           );
-        }
+        },
       );
       return buttons;
     };
@@ -33,7 +33,7 @@ function FloatingGetStarted() {
       {
         threshold: 0,
         rootMargin: "0px 0px -100px 0px",
-      }
+      },
     );
 
     const buttons = getCTAButtons();
