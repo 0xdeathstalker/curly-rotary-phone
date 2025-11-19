@@ -14,7 +14,7 @@ import { TypesOfCompanies } from "./types-of-companies";
 
 function Overview() {
   return (
-    <div className="py-28 px-4 lg:px-16 mx-auto">
+    <div className="py-28 px-4 lg:px-16 mx-auto max-w-[1345px]">
       <div className="flex gap-7 relative lg:gap-14">
         {/* Sticky Sidebar - Hidden on mobile */}
         <Sidebar />
