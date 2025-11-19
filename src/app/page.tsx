@@ -24,7 +24,7 @@ export default function Home() {
 
       <WhyTaxocity />
 
-      <CTASection>
+      <CTASection className="rounded-xl md:rounded-none mx-4 md:mx-0">
         <h1 className="text-2xl md:text-5xl text-center leading-[120%] font-bold max-w-[310px] md:max-w-3xl">
           Get fast, affordable company registration with complete CA/CS support.{" "}
           <span className="text-[#F9B934]">Start now.</span>

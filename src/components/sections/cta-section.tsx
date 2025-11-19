@@ -4,12 +4,23 @@ import type * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Rating } from "@/components/ui/rating";
 import { useModalOpen } from "@/context/modal";
+import { cn } from "@/lib/utils";
 
-function CTASection({ children }: { children: React.ReactNode }) {
+function CTASection({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<"div"> & { children: React.ReactNode }) {
   const modalState = useModalOpen();
 
   return (
-    <div className="bg-[#1E293B] flex flex-col items-center justify-center gap-8 md:gap-12 py-12 md:py-28 px-0 md:px-16 fmd:mx-0">
+    <div
+      className={cn(
+        "bg-[#1E293B] flex flex-col items-center justify-center gap-8 md:gap-12 py-12 md:py-28 px-0 md:px-16 fmd:mx-0",
+        className
+      )}
+      {...props}
+    >
       <Rating
         rating={4.8}
         starSize="size-6 md:size-10"

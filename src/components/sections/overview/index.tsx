@@ -50,7 +50,7 @@ function Overview() {
 
           <RequiredDocuments />
 
-          <CTASection>
+          <CTASection className="rounded-3xl">
             <h1 className="text-2xl md:text-5xl text-center leading-[120%] font-bold max-w-[310px] md:max-w-3xl">
               Ready to register your company?
               <br />
