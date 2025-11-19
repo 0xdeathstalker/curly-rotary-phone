@@ -66,7 +66,7 @@ const ReviewCard = ({
           </span>
         )}
         <div className="flex flex-col">
-          <figcaption className="text-lg font-medium dark:text-white">
+          <figcaption className="text-lg dark:text-white font-semibold">
             {name}
           </figcaption>
           <p className="font-medium dark:text-white/40">

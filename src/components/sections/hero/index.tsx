@@ -48,7 +48,7 @@ function Hero() {
           <PricingButton />
         </div>
 
-        <div className="max-w-[500px] border border-[#E5E7EB] rounded-2xl p-3 w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.16)_0%,rgba(153,153,153,0.16)_100%)] backdrop-blur-md">
+        <div className="max-w-[500px] border border-[#CECFD3] rounded-2xl p-3 w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.16)_0%,rgba(153,153,153,0.16)_100%)] backdrop-blur-md">
           <Card className="relative justify-evenly z-10 w-full h-full shadow-lg border-[#E5E7EB] gap-4">
             <CardHeader className="text-2xl font-bold text-center">
               <span>Need help with Company Registration?</span>
