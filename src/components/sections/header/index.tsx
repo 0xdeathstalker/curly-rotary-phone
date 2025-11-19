@@ -41,7 +41,7 @@ export function Header() {
 
         <Button
           size="lg"
-          className="bg-[#F9B934] border border-[#1E293B] text-base text-[#1E293B] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors"
+          className="bg-[#F9B934] border-[0.8px] border-[#1E293B]/60 text-base text-[#1E293B] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors"
           onClick={() => {
             modalState.setModalSource("header");
             modalState.setIsOpen(true);

@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
 import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
-import { cardContents } from "@/lib/constants";
+import { CARD_CONTENTS } from "@/lib/constants";
 import { cn, formatNumber } from "@/lib/utils";
 import { purchase } from "@/lib/utils/razorpay";
 import Image from "next/image";
@@ -72,7 +72,7 @@ function PricingCards() {
         src="https://checkout.razorpay.com/v1/checkout.js"
       />
 
-      {cardContents.map((item, index) => (
+      {CARD_CONTENTS.map((item, index) => (
         <Card
           key={`card-${item.title}`}
           className={cn(
@@ -85,7 +85,7 @@ function PricingCards() {
               {item.title}
 
               {item.recommended ? (
-                <span className="bg-[#F99F0E]/45 flex items-center gap-2 rounded-full py-1 px-2 font-medium text-[#1E293B] text-xs border border-[#F99F0E]">
+                <span className="bg-[#F99F0E]/45 flex items-center gap-1 rounded-full py-1 px-2 font-medium text-[#1E293B] text-xs border border-[#F99F0E]">
                   <Image
                     src="/logos/badge.svg"
                     alt="badge logo"
@@ -132,7 +132,7 @@ function PricingCards() {
               <div className="space-y-4">
                 {item.title !== "Basic" && (
                   <span className="font-medium">
-                    Everything in {cardContents[index - 1].title} +
+                    Everything in {CARD_CONTENTS[index - 1].title} +
                   </span>
                 )}
                 <ul className="mt-2 space-y-2">

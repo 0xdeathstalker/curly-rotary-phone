@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { companySizes, states } from "@/lib/constants";
+import { COMPANY_SIZES, STATES } from "@/lib/constants";
 
 export const formSchema = z.object({
   name: z
@@ -19,7 +19,7 @@ export const formSchema = z.object({
     .transform((value) => `+91 ${value}`),
   state: z
     .string()
-    .refine((value) => states.map((state) => state.value).includes(value), {
+    .refine((value) => STATES.map((state) => state.value).includes(value), {
       message: "Please select a valid state",
     }),
   companyName: z
@@ -27,11 +27,14 @@ export const formSchema = z.object({
     .trim()
     .min(2, "Company name must be atleast 2 characters")
     .max(100, "Company name must be atmost 100 characters"),
-  companySizes: z
+  COMPANY_SIZES: z
     .string()
-    .refine((value) => companySizes.map((size) => size.value).includes(value), {
-      message: "Please select a valid company size",
-    }),
+    .refine(
+      (value) => COMPANY_SIZES.map((size) => size.value).includes(value),
+      {
+        message: "Please select a valid company size",
+      }
+    ),
 });
 
 export type FormSchema = z.infer<typeof formSchema>;

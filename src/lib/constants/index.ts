@@ -1,4 +1,6 @@
-const states = [
+const MODAL_INTERVAL = 30000; // 30seconds
+
+const STATES = [
   {
     value: "andaman-and-nicobar-islands",
     label: "Andaman and Nicobar Islands",
@@ -141,7 +143,7 @@ const states = [
   },
 ];
 
-const companySizes = [
+const COMPANY_SIZES = [
   {
     value: "1-10",
     label: "1-10",
@@ -176,7 +178,7 @@ const companySizes = [
   },
 ];
 
-const cardContents = [
+const CARD_CONTENTS = [
   {
     title: "Basic",
     recommended: false,
@@ -227,7 +229,7 @@ const cardContents = [
   },
 ];
 
-const testimonials = [
+const TESTIMONIALS = [
   {
     id: 1,
     rating: 4.8,
@@ -270,7 +272,7 @@ const testimonials = [
   },
 ];
 
-const governmentFees = [
+const GOVERNMENT_FEES = [
   {
     state: "Andaman and Nicobar Islands",
     dscPrice: 4720,
@@ -518,4 +520,11 @@ const governmentFees = [
   },
 ];
 
-export { states, companySizes, cardContents, testimonials, governmentFees };
+export {
+  MODAL_INTERVAL,
+  STATES,
+  COMPANY_SIZES,
+  CARD_CONTENTS,
+  TESTIMONIALS,
+  GOVERNMENT_FEES,
+};

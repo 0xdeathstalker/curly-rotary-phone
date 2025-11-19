@@ -18,7 +18,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useUserContext } from "@/context/modal";
-import { governmentFees, states } from "@/lib/constants";
+import { GOVERNMENT_FEES, STATES } from "@/lib/constants";
 import { formatNumber } from "@/lib/utils";
 
 function GovtFeesDetails({ children }: { children: React.ReactNode }) {
@@ -27,12 +27,12 @@ function GovtFeesDetails({ children }: { children: React.ReactNode }) {
   const hasUserState = useMemo(() => {
     if (!user.state) return false;
 
-    const userStateData = states.find((s) => s.value === user.state);
+    const userStateData = STATES.find((s) => s.value === user.state);
 
     if (!userStateData) return false;
 
-    const userStateFee = governmentFees.find(
-      (fee) => fee.state === userStateData.label,
+    const userStateFee = GOVERNMENT_FEES.find(
+      (fee) => fee.state === userStateData.label
     );
 
     return !!userStateFee;
@@ -40,25 +40,25 @@ function GovtFeesDetails({ children }: { children: React.ReactNode }) {
 
   const orderedFees = useMemo(() => {
     if (!user.state) {
-      return governmentFees;
+      return GOVERNMENT_FEES;
     }
 
-    const userStateData = states.find((s) => s.value === user.state);
+    const userStateData = STATES.find((s) => s.value === user.state);
     if (!userStateData) {
-      return governmentFees;
+      return GOVERNMENT_FEES;
     }
 
-    const userStateFee = governmentFees.find(
-      (fee) => fee.state === userStateData.label,
+    const userStateFee = GOVERNMENT_FEES.find(
+      (fee) => fee.state === userStateData.label
     );
 
     if (!userStateFee) {
-      return governmentFees;
+      return GOVERNMENT_FEES;
     }
 
     return [
       userStateFee,
-      ...governmentFees.filter((fee) => fee.state !== userStateData.label),
+      ...GOVERNMENT_FEES.filter((fee) => fee.state !== userStateData.label),
     ];
   }, [user.state]);
 

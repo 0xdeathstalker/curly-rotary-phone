@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Marquee } from "@/components/ui/marquee";
 import { Rating } from "@/components/ui/rating";
-import { testimonials } from "@/lib/constants";
+import { TESTIMONIALS } from "@/lib/constants";
 import { getInitials } from "@/lib/utils";
 
 export function Testimonials() {
@@ -16,7 +16,7 @@ export function Testimonials() {
 
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
           <Marquee pauseOnHover className="[--duration:20s]  [--gap:32px]">
-            {testimonials.map((testimonial) => (
+            {TESTIMONIALS.map((testimonial) => (
               <ReviewCard key={testimonial.id} {...testimonial} />
             ))}
           </Marquee>

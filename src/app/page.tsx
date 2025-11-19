@@ -2,6 +2,7 @@ import { CTASection } from "@/components/sections/cta-section";
 import { FloatingGetStarted } from "@/components/sections/floating-get-started-button";
 import { FormPricingModal } from "@/components/sections/form-pricing-modal";
 import { Hero } from "@/components/sections/hero";
+import { ModalAutoTrigger } from "@/components/sections/modal-auto-trigger";
 import { Overview } from "@/components/sections/overview";
 import { Pricing } from "@/components/sections/pricing";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -33,6 +34,8 @@ export default function Home() {
       <FormPricingModal />
 
       <FloatingGetStarted />
+
+      <ModalAutoTrigger />
     </main>
   );
 }

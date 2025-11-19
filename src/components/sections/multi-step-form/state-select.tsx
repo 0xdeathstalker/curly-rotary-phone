@@ -16,7 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { states } from "@/lib/constants";
+import { STATES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function StateSelection({
@@ -39,13 +39,13 @@ export function StateSelection({
           aria-invalid={isInvalid}
         >
           {value ? (
-            states.find(
-              (state) => state.value.toLowerCase() === value.toLowerCase(),
+            STATES.find(
+              (state) => state.value.toLowerCase() === value.toLowerCase()
             )?.label || "State"
           ) : (
             <span
               className={cn(
-                isInvalid ? "text-destructive" : "text-muted-foreground",
+                isInvalid ? "text-destructive" : "text-muted-foreground"
               )}
             >
               Select state
@@ -55,7 +55,7 @@ export function StateSelection({
           <ChevronDown
             className={cn(
               "size-4",
-              isInvalid ? "text-destructive" : "text-muted-foreground",
+              isInvalid ? "text-destructive" : "text-muted-foreground"
             )}
           />
         </Button>
@@ -67,7 +67,7 @@ export function StateSelection({
             <CommandEmpty>No state found.</CommandEmpty>
 
             <CommandGroup>
-              {states.map((state) => (
+              {STATES.map((state) => (
                 <CommandItem
                   key={state.value}
                   value={state.value}
