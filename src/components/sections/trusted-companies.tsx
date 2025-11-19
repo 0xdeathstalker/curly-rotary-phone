@@ -15,7 +15,7 @@ export function TrustedCompanies() {
         </div>
 
         <div className="relative flex w-full flex-col items-center justify-center gap-20 overflow-hidden">
-          <Marquee pauseOnHover className="[--duration:20s] [--gap:60px]">
+          <Marquee pauseOnHover className="[--duration:20s] [--gap:100px]">
             {companyLogos.map((logo, index) => (
               <ReviewCard key={`${logo}-${index + 1}`} {...logo} />
             ))}
@@ -23,7 +23,7 @@ export function TrustedCompanies() {
           <Marquee
             reverse
             pauseOnHover
-            className="[--duration:20s] [--gap:60px]"
+            className="[--duration:20s] [--gap:100px]"
           >
             {companyLogos.map((logo, index) => (
               <ReviewCard key={`${logo}-${index + -1}`} {...logo} />
@@ -47,9 +47,13 @@ const ReviewCard = ({
   alt: string;
   width: number;
   height: number;
+  bgColor: string;
 }) => {
   return (
-    <figure className="relative h-full cursor-pointer overflow-hidden">
+    <figure
+      className="relative h-full cursor-pointer overflow-hidden flex items-center"
+      // style={{ backgroundColor: bgColor }}
+    >
       <Image
         src={src ?? "/images/avatar-fallback.png"}
         alt={alt}
@@ -62,33 +66,66 @@ const ReviewCard = ({
 
 const companyLogos = [
   {
-    src: "/logos/aromatics-logo.png",
+    src: "/images/companies/aromatics-logo.png",
     alt: "Aromatics Pvt. Ltd.",
     width: 260,
     height: 72,
+    bgColor: "#FFF",
   },
   {
-    src: "/logos/aromatics-logo.png",
-    alt: "Aromatics Pvt. Ltd.",
-    width: 260,
-    height: 72,
+    src: "/images/companies/bhartia.png",
+    alt: "Bhartia International School",
+    width: 120,
+    height: 120,
+    bgColor: "#FFF",
   },
   {
-    src: "/logos/aromatics-logo.png",
-    alt: "Aromatics Pvt. Ltd.",
-    width: 260,
-    height: 72,
+    src: "/images/companies/easykartlabels.webp",
+    alt: "Easy Kart Labels",
+    width: 120,
+    height: 120,
+    bgColor: "#FFF",
   },
   {
-    src: "/logos/aromatics-logo.png",
-    alt: "Aromatics Pvt. Ltd.",
-    width: 260,
-    height: 72,
+    src: "/images/companies/hugel.jpg",
+    alt: "Hugel",
+    width: 120,
+    height: 120,
+    bgColor: "#FFF",
   },
   {
-    src: "/logos/aromatics-logo.png",
-    alt: "Aromatics Pvt. Ltd.",
+    src: "/images/companies/orchids.png",
+    alt: "Orchids",
     width: 260,
     height: 72,
+    bgColor: "#9D0022",
+  },
+  {
+    src: "/images/companies/sahilkochhar.avif",
+    alt: "Sahil Kochhar",
+    width: 260,
+    height: 72,
+    bgColor: "#FFF",
+  },
+  {
+    src: "/images/companies/vytals.png",
+    alt: "Vytals",
+    width: 260,
+    height: 72,
+    bgColor: "#FFF",
+  },
+  {
+    src: "/images/companies/zavenir-daubert.png",
+    alt: "Zavenir Daubert",
+    width: 260,
+    height: 72,
+    bgColor: "#FFF",
+  },
+  {
+    src: "/images/companies/delhitesthouse.png",
+    alt: "Delhi test house",
+    width: 100,
+    height: 100,
+    bgColor: "#FFF",
   },
 ];
