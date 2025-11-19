@@ -16,8 +16,8 @@ export function Testimonials() {
 
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
           <Marquee pauseOnHover className="[--duration:20s]  [--gap:32px]">
-            {TESTIMONIALS.map((testimonial) => (
-              <ReviewCard key={testimonial.id} {...testimonial} />
+            {TESTIMONIALS.map((testimonial, index) => (
+              <ReviewCard key={`${testimonial.id}-${index}`} {...testimonial} />
             ))}
           </Marquee>
           <div className="from-background to-transparent pointer-events-none absolute inset-y-0 -left-0.5 w-5 md:w-14 bg-linear-to-r" />

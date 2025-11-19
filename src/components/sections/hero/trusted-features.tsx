@@ -13,8 +13,8 @@ function TrustableFeaturesCarousel() {
           </figure>
         ))}
       </Marquee>
-      <div className="from-[#F9FAFB] to-transparent pointer-events-none absolute inset-y-0 -left-0.5 w-5 md:w-14 bg-linear-to-r" />
-      <div className="from-[#F9FAFB] to-transparent pointer-events-none absolute inset-y-0 -right-0.5 w-5 md:w-14 bg-linear-to-l" />
+      <div className="from-[#F9FAFB] to-transparent pointer-events-none absolute inset-y-0 -left-0.5 w-5 md:w-10 bg-linear-to-r" />
+      <div className="from-[#F9FAFB] to-transparent pointer-events-none absolute inset-y-0 -right-0.5 w-5 md:w-10 bg-linear-to-l" />
     </div>
   );
 }

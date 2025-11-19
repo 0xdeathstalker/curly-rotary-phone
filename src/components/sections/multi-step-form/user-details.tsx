@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { CountryCodeSelect } from "./country-code-select";
 import type { FormSchema } from "./form-schema";
 import { StateSelection } from "./state-select";
 
@@ -68,34 +69,48 @@ export function UserDetailsForm({
       </FieldGroup>
 
       <FieldGroup>
-        <Controller
-          name="phone"
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid} className="gap-1">
-              <FieldLabel htmlFor="phone">Enter phone number</FieldLabel>
-              <div
-                className={cn(
-                  "flex items-center border rounded-md",
-                  fieldState.invalid ? "border-destructive" : "border-[#6B7280]"
-                )}
-              >
-                <div
-                  className={cn(
-                    "px-3 text-sm",
-                    fieldState.invalid ? "text-destructive" : "text-foreground"
-                  )}
-                >
-                  +91
-                </div>
-
-                <div
-                  className={cn(
-                    "w-px h-6",
-                    fieldState.invalid ? "bg-destructive" : "bg-[#6B7280]"
-                  )}
+        <Field className="gap-1">
+          <FieldLabel
+            htmlFor="phone"
+            className={cn(
+              form.formState.errors.phone || form.formState.errors.countryCode
+                ? "text-destructive"
+                : ""
+            )}
+          >
+            Enter phone number
+          </FieldLabel>
+          <div
+            className={cn(
+              "flex items-center border rounded-md",
+              form.formState.errors.phone || form.formState.errors.countryCode
+                ? "border-destructive"
+                : "border-[#6B7280]"
+            )}
+          >
+            <Controller
+              name="countryCode"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <CountryCodeSelect
+                  value={field.value}
+                  onValueChange={field.onChange}
+                  isInvalid={fieldState.invalid}
                 />
+              )}
+            />
 
+            <div
+              className={cn(
+                "w-px h-6",
+                form.formState.errors.phone ? "bg-destructive" : "bg-[#6B7280]"
+              )}
+            />
+
+            <Controller
+              name="phone"
+              control={form.control}
+              render={({ field, fieldState }) => (
                 <Input
                   {...field}
                   id="phone"
@@ -113,10 +128,10 @@ export function UserDetailsForm({
                   }}
                   className="border-none focus-visible:ring-0"
                 />
-              </div>
-            </Field>
-          )}
-        />
+              )}
+            />
+          </div>
+        </Field>
       </FieldGroup>
 
       <FieldGroup>

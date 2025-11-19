@@ -27,6 +27,7 @@ function MultiStepForm({
     defaultValues: {
       name: "",
       email: "",
+      countryCode: "+91",
       phone: "",
       state: "",
       companyName: "",
@@ -55,20 +56,27 @@ function MultiStepForm({
   const currentStepComponent = content[currentStep].component;
 
   async function onSubmit() {
-    const step1Fields = ["name", "email", "phone", "state"] as const;
+    const step1Fields = [
+      "name",
+      "email",
+      "countryCode",
+      "phone",
+      "state",
+    ] as const;
     const isStep1Valid = await form.trigger(step1Fields);
 
     if (isStep1Valid) {
-      const { name, email, phone, state } = form.getValues();
+      const { name, email, countryCode, phone, state } = form.getValues();
+      const fullPhone = `${countryCode} ${phone}`;
 
       await teleCRMMutation.mutateAsync({
         name,
         email,
-        phone,
+        phone: fullPhone,
         state,
       });
 
-      const userData = { name, email, phone, state };
+      const userData = { name, email, phone: fullPhone, state };
       userState.setUser(userData);
 
       try {

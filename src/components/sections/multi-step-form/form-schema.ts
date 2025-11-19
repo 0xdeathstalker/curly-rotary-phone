@@ -12,11 +12,11 @@ export const formSchema = z.object({
     .trim()
     .toLowerCase()
     .pipe(z.email({ message: "Please enter a valid email address" })),
+  countryCode: z.string().min(1, "Please select a country code"),
   phone: z
     .string()
     .trim()
-    .regex(/^\d{10}$/, "Enter a valid 10-digit mobile number")
-    .transform((value) => `+91 ${value}`),
+    .regex(/^\d{10}$/, "Enter a valid 10-digit mobile number"),
   state: z
     .string()
     .refine((value) => STATES.map((state) => state.value).includes(value), {
@@ -27,7 +27,7 @@ export const formSchema = z.object({
     .trim()
     .min(2, "Company name must be atleast 2 characters")
     .max(100, "Company name must be atmost 100 characters"),
-  COMPANY_SIZES: z
+  companySizes: z
     .string()
     .refine(
       (value) => COMPANY_SIZES.map((size) => size.value).includes(value),
