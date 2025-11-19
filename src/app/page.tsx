@@ -1,4 +1,4 @@
-import { BottomCTA } from "@/components/sections/bottom-cta";
+import { CTASection } from "@/components/sections/cta-section";
 import { FloatingGetStarted } from "@/components/sections/floating-get-started-button";
 import { FormPricingModal } from "@/components/sections/form-pricing-modal";
 import { Hero } from "@/components/sections/hero";
@@ -23,7 +23,12 @@ export default function Home() {
 
       <WhyTaxocity />
 
-      <BottomCTA />
+      <CTASection>
+        <h1 className="text-2xl md:text-5xl text-center leading-[120%] font-bold max-w-[310px] md:max-w-3xl">
+          Get fast, affordable company registration with complete CA/CS support.{" "}
+          <span className="text-[#F9B934]">Start now.</span>
+        </h1>
+      </CTASection>
 
       <FormPricingModal />
 

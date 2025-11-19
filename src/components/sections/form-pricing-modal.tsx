@@ -13,7 +13,7 @@ function FormPricingModal() {
   const { isOpen, setIsOpen, modalSource } = useModalOpen();
 
   // if opened from pricing cards, showing plan summary after step 1
-  // if opened from header, redirecting to pricing page after step 1
+  // if opened from header, footer or any other cta then redirecting to pricing page after step 1
   const showPlanSummary = modalSource === "pricing";
 
   return (

@@ -2,15 +2,13 @@
 
 import * as React from "react";
 
-type ModalSource = "header" | "pricing" | null;
+type ModalSource = "header" | "pricing" | "cta" | null;
 
 type TModalOpenContext = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   modalSource: ModalSource;
-  setModalSource: React.Dispatch<
-    React.SetStateAction<"header" | "pricing" | null>
-  >;
+  setModalSource: React.Dispatch<React.SetStateAction<ModalSource>>;
 };
 
 type SelectedPlan = {
