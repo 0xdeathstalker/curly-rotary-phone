@@ -127,7 +127,7 @@ export default function DesktopNavigation() {
               <li>
                 <NavigationMenuLink asChild>
                   <Link href="https://taxocity.com/product/business-itr">
-                    Backlog
+                    Business ITR
                   </Link>
                 </NavigationMenuLink>
               </li>
