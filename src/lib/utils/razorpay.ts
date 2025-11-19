@@ -66,6 +66,16 @@ async function purchase({
           payment_status: "completed",
         });
 
+        const paymentDate = new Date().toLocaleString("en-GB", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        });
+
         await sendPaymentConfirmationEmail({
           name,
           email,
@@ -73,6 +83,7 @@ async function purchase({
           amount: order.amount,
           paymentId: response.razorpay_payment_id,
           orderId: response.razorpay_order_id,
+          paymentDate,
         });
 
         // clearing session data after successful payment

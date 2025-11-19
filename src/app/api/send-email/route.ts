@@ -11,11 +11,12 @@ export async function POST(request: NextRequest) {
       !data.plan ||
       !data.amount ||
       !data.paymentId ||
-      !data.orderId
+      !data.orderId ||
+      !data.paymentDate
     ) {
       return NextResponse.json(
         { success: false, error: "Missing required fields" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -26,6 +27,9 @@ export async function POST(request: NextRequest) {
       amount: data.amount / 100,
       paymentId: data.paymentId,
       orderId: data.orderId,
+      brandName: "Taxocity",
+      paymentDate: data.paymentDate,
+      formLink: "", // TODO: add typeform link
     });
 
     return NextResponse.json({ success: true, result });
@@ -33,7 +37,7 @@ export async function POST(request: NextRequest) {
     console.error("Send email API failed:", error);
     return NextResponse.json(
       { success: false, error: "Failed to send email" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
