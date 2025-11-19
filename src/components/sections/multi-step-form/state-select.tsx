@@ -1,5 +1,6 @@
 "use client";
 
+import { Check, ChevronDown } from "lucide-react";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,7 +17,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { states } from "@/lib/constants";
-import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function StateSelection({
@@ -60,7 +60,7 @@ export function StateSelection({
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="p-0">
+      <PopoverContent className="p-0 w-[var(--radix-popover-trigger-width)]">
         <Command>
           <CommandInput placeholder="Search State" className="font-sans" />
           <CommandList>
@@ -75,9 +75,13 @@ export function StateSelection({
                     onValueChange(currentValue === value ? "" : currentValue);
                     setOpen(false);
                   }}
-                  className="font-sans rounded-none"
+                  className="font-sans"
                 >
                   {state.label}
+
+                  {state.value === value ? (
+                    <Check className="size-4 text-[#1E293B]" />
+                  ) : null}
                 </CommandItem>
               ))}
             </CommandGroup>

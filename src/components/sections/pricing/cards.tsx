@@ -12,6 +12,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
 import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
@@ -105,7 +110,7 @@ function PricingCards() {
                       <Button
                         size="icon"
                         variant="ghost"
-                        className="font-normal hover:bg-transparent border border-transparent hover:border-input font-sans"
+                        className="size-6 cursor-pointer font-normal hover:bg-transparent border border-transparent hover:border-input font-sans"
                       >
                         <Info className="size-3" />
                       </Button>
@@ -134,17 +139,41 @@ function PricingCards() {
                   ))}
                 </ul>
 
-                <Button
-                  variant="outline"
-                  className={cn(
-                    "w-full bg-transparent justify-between",
-                    item.title === "Advanced"
-                      ? "hover:bg-[#58B09C]/15"
-                      : "hover:bg-accent"
-                  )}
-                >
-                  View all inclusions <ChevronDown className="size-4" />
-                </Button>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full bg-transparent justify-between text-base",
+                        item.title === "Advanced"
+                          ? "hover:bg-[#58B09C]/15"
+                          : "hover:bg-accent"
+                      )}
+                    >
+                      View all inclusions <ChevronDown className="size-4" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="p-2 font-sans w-[var(--radix-popover-trigger-width)]">
+                    <ul>
+                      <li className="flex items-center gap-2 py-1 px-2">
+                        <CircleCheckBig className="size-[18px] text-[#58B09C]" />
+                        <span>2 DSC</span>
+                      </li>
+                      <li className="flex items-center gap-2 py-1 px-2">
+                        <CircleCheckBig className="size-[18px] text-[#58B09C]" />
+                        <span>2 DIN</span>
+                      </li>
+                      <li className="flex items-center gap-2 py-1 px-2">
+                        <CircleCheckBig className="size-[18px] text-[#58B09C]" />
+                        <span>Company PAN & TAN</span>
+                      </li>
+                      <li className="flex items-center gap-2 py-1 px-2">
+                        <CircleCheckBig className="size-[18px] text-[#58B09C]" />
+                        <span>ESI and EPFO Regsitration</span>
+                      </li>
+                    </ul>
+                  </PopoverContent>
+                </Popover>
               </div>
             </div>
 

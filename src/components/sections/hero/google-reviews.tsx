@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function GoogleReviews() {
   return (
-    <div className="flex flex-col md:flex-row md:items-center gap-2">
+    <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
       <div className="flex items-center gap-2">
         <Image
           src="/images/google-reviews.png"
