@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import {
@@ -7,9 +9,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { useModalOpen } from "@/context/modal";
 import { cn } from "@/lib/utils";
 
 function MobileNavigation({ isOpen }: { isOpen: boolean }) {
+  const modalState = useModalOpen();
+
   return (
     <div
       className={cn(
@@ -177,7 +182,11 @@ function MobileNavigation({ isOpen }: { isOpen: boolean }) {
 
         <Button
           size="lg"
-          className="bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors w-full my-2"
+          variant="brand"
+          onClick={() => {
+            modalState.setModalSource("header");
+            modalState.setIsOpen(true);
+          }}
         >
           Get Started
         </Button>

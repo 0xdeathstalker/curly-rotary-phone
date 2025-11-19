@@ -20,7 +20,7 @@ function FloatingGetStarted() {
               text.startsWith("Get Pro")) &&
             !button.closest('[data-floating-cta="true"]')
           );
-        },
+        }
       );
       return buttons;
     };
@@ -33,7 +33,7 @@ function FloatingGetStarted() {
       {
         threshold: 0,
         rootMargin: "0px 0px -100px 0px",
-      },
+      }
     );
 
     const buttons = getCTAButtons();
@@ -55,7 +55,8 @@ function FloatingGetStarted() {
     >
       <Button
         size="lg"
-        className="w-full bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors"
+        variant="brand"
+        className="w-full"
         onClick={() => {
           modalState.setModalSource("header");
           modalState.setIsOpen(true);

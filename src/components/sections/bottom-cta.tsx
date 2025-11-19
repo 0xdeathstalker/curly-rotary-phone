@@ -28,7 +28,7 @@ export function BottomCTA() {
 
         <Button
           size="lg"
-          className="w-3xs bg-[#F9B934] text-base border border-[#1E293B] text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors"
+          variant="brand"
           onClick={() => {
             modalState.setModalSource("cta");
             modalState.setIsOpen(true);

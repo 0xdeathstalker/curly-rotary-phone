@@ -26,7 +26,8 @@ function CTASection({ children }: { children: React.ReactNode }) {
 
         <Button
           size="lg"
-          className="w-3xs text-base font-semibold bg-[#F9B934] border border-[#1E293B] text-[#1A1A1A] px-3 py-2 rounded-lg font-sans hover:bg-[#ecb131] transition-colors"
+          variant="brand"
+          className="w-3xs"
           onClick={() => {
             modalState.setModalSource("cta");
             modalState.setIsOpen(true);

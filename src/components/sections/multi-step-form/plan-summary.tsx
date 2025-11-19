@@ -63,7 +63,9 @@ function PlanSummary() {
       <p className="pt-4">{selectedPlan?.description}</p>
 
       <Button
-        className="w-full mt-32 bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors"
+        variant="brand"
+        className="w-full mt-32"
+        size="lg"
         onClick={handlePayment}
       >
         Pay Now

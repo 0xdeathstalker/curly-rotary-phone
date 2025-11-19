@@ -189,7 +189,8 @@ function PricingCards() {
               {pathname.includes("/pricing") ? (
                 <Button
                   size="lg"
-                  className="bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors w-full"
+                  variant="brand"
+                  className="w-full"
                   disabled={!isUserDataAvailable}
                   onClick={() => handlePayment(item)}
                 >
@@ -198,7 +199,8 @@ function PricingCards() {
               ) : (
                 <Button
                   size="lg"
-                  className="bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors w-full"
+                  variant="brand"
+                  className="w-full"
                   onClick={() => handleGetStarted(item)}
                 >
                   Get {item.title}
