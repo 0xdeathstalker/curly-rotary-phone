@@ -16,7 +16,7 @@ async function verifyPayment(
   response: any,
   amount: number,
   plan: string,
-  paymentDate: string
+  paymentDate: string,
 ) {
   const _response = await fetch("/api/verify-payment", {
     method: "POST",
@@ -76,7 +76,7 @@ async function purchase({
         response,
         order.amount,
         plan,
-        paymentDate
+        paymentDate,
       );
 
       if (data.isOk) {

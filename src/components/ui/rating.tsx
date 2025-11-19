@@ -64,7 +64,7 @@ export function Rating({
             className={cn(
               textSize,
               "font-semibold text-[#FFA500]",
-              !showDivider && "pl-1"
+              !showDivider && "pl-1",
             )}
           >
             {rating}/{maxRating}

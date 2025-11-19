@@ -17,7 +17,7 @@ function CTASection({
     <div
       className={cn(
         "bg-[#1E293B] flex flex-col items-center justify-center gap-8 md:gap-12 py-12 md:py-28 px-0 md:px-16 fmd:mx-0",
-        className
+        className,
       )}
       {...props}
     >

@@ -20,7 +20,7 @@ function PaymentSuccessContent() {
   const [countdown, setCountdown] = React.useState(REDIRECTION_TIME);
   const [isValidating, setIsValidating] = React.useState(true);
   const [paymentData, setPaymentData] = React.useState<PaymentData | null>(
-    null
+    null,
   );
   const [error, setError] = React.useState<string | null>(null);
 
