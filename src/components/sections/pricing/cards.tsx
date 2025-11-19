@@ -22,6 +22,7 @@ import { useModalOpen, useSelectedPlan, useUserContext } from "@/context/modal";
 import { cardContents } from "@/lib/constants";
 import { cn, formatNumber } from "@/lib/utils";
 import { purchase } from "@/lib/utils/razorpay";
+import Image from "next/image";
 
 function PricingCards() {
   const pathname = usePathname();
@@ -76,15 +77,22 @@ function PricingCards() {
           key={`card-${item.title}`}
           className={cn(
             "max-w-[400px] w-full h-fit sm:h-[560px] gap-4 px-6 border-[#1D364D]/40 flex flex-col",
-            item.title === "Advanced" ? "bg-[#58B09C]/10" : "bg-[#D9D9D9]/10",
+            item.title === "Advanced" ? "bg-[#58B09C]/10" : "bg-[#D9D9D9]/10"
           )}
         >
           <CardHeader className="px-0">
-            <CardTitle className="flex items-center justify-between text-[32px] text-[#162A3A] font-bold">
+            <CardTitle className="flex items-center justify-between text-[32px] text-[#1E293B] font-bold">
               {item.title}
 
               {item.recommended ? (
-                <span className="bg-[#1E293B] rounded-full py-1 px-2 font-medium text-white text-xs">
+                <span className="bg-[#F99F0E]/45 flex items-center gap-2 rounded-full py-1 px-2 font-medium text-[#1E293B] text-xs border border-[#F99F0E]">
+                  <Image
+                    src="/logos/badge.svg"
+                    alt="badge logo"
+                    width={16}
+                    height={16}
+                    className="size-4"
+                  />{" "}
                   Recommended
                 </span>
               ) : null}
@@ -147,7 +155,7 @@ function PricingCards() {
                         "w-full bg-transparent justify-between text-base",
                         item.title === "Advanced"
                           ? "hover:bg-[#58B09C]/15"
-                          : "hover:bg-accent",
+                          : "hover:bg-accent"
                       )}
                     >
                       View all inclusions <ChevronDown className="size-4" />

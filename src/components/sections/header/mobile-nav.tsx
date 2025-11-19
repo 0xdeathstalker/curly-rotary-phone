@@ -16,7 +16,7 @@ function MobileNavigation({ isOpen }: { isOpen: boolean }) {
         "font-sans w-full min-[920px]:hidden border-t border-[#E5E7EB] overflow-hidden transition-all duration-300 ease-in-out",
         isOpen
           ? "max-h-[600px] mt-3 opacity-100"
-          : "max-h-0 mt-0 opacity-0 border-t-transparent",
+          : "max-h-0 mt-0 opacity-0 border-t-transparent"
       )}
     >
       <nav className="flex flex-col gap-3">
@@ -177,7 +177,7 @@ function MobileNavigation({ isOpen }: { isOpen: boolean }) {
 
         <Button
           size="lg"
-          className="bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors w-full mt-2"
+          className="bg-[#F9B934] border border-[#1E293B] text-base text-[#1A1A1A] px-3 py-2 rounded-lg font-semibold font-sans hover:bg-[#ecb131] transition-colors w-full my-2"
         >
           Get Started
         </Button>

@@ -1,7 +1,7 @@
 function TimeRequired() {
   return (
-    <div id="time-required" className="scroll-mt-24 space-y-4">
-      <h2 className="text-[32px] md:text-5xl text-[#1E1E1E] font-bold leading-[130%]">
+    <div id="time-required" className="scroll-mt-24 space-y-4 text-[#1A1A1A]">
+      <h2 className="text-[32px] md:text-5xl text-[#1E293B] font-bold leading-[130%]">
         Time Required to Register a Private Limited Company
       </h2>
       <p className="md:text-lg">
@@ -13,37 +13,41 @@ function TimeRequired() {
       <div className="md:text-lg space-y-8">
         <ul>
           <li>
-            <span className="font-bold ">Name Approval (3–4 days):</span>{" "}
+            <span className="font-bold text-[#1E293B]">
+              Name Approval (3–4 days):
+            </span>{" "}
             Reserve your company name through the MCA portal.
           </li>
-          <span className="font-bold ">
+          <span className="font-bold text-[#1E293B]">
             Director Identification Number (DIN) (3 days):
           </span>{" "}
           Obtain DIN for all proposed directors.
           <li>
-            <span className="font-bold ">
+            <span className="font-bold text-[#1E293B]">
               Director Identification Number (DIN) (3 days):
             </span>{" "}
             Obtain DIN for all proposed directors.
           </li>
           <li>
-            <span className="font-bold ">
+            <span className="font-bold text-[#1E293B]">
               Digital Signature Certificate (DSC) (2 days):
             </span>{" "}
             Secure a DSC for each director for digital filings.
           </li>
           <li>
-            <span className="font-bold ">MOA & AOA Drafting (2–3 days):</span>{" "}
+            <span className="font-bold text-[#1E293B]">
+              MOA & AOA Drafting (2–3 days):
+            </span>{" "}
             Prepare the Memorandum and Articles of Association.
           </li>
           <li>
-            <span className="font-bold ">
+            <span className="font-bold text-[#1E293B]">
               Filing Incorporation Documents (5–7 days):
             </span>{" "}
             Submit SPICe+ forms and required documents to the MCA.
           </li>
           <li>
-            <span className="font-bold ">
+            <span className="font-bold text-[#1E293B]">
               Certificate of Incorporation (2–3 days):
             </span>{" "}
             Upon approval, the RoC issues your incorporation certificate.
@@ -51,8 +55,9 @@ function TimeRequired() {
         </ul>
 
         <p>
-          <span className="font-bold ">Note:</span> Each step is crucial, and
-          delays can occur due to incomplete documents or government backlogs.
+          <span className="font-bold text-[#1E293B]">Note:</span> Each step is
+          crucial, and delays can occur due to incomplete documents or
+          government backlogs.
         </p>
       </div>
     </div>

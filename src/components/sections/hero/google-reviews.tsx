@@ -1,3 +1,4 @@
+import { Rating } from "@/components/ui/rating";
 import Image from "next/image";
 
 function GoogleReviews() {
@@ -13,16 +14,8 @@ function GoogleReviews() {
 
         <div className="w-px h-6 bg-muted-foreground" />
 
-        <div className="flex items-center">
-          <div className="bg-muted-foreground border rounded-full size-6" />
-          <div className="bg-muted-foreground border rounded-full size-6 -ml-1.5" />
-          <div className="bg-muted-foreground border rounded-full size-6 -ml-1.5" />
-          <div className="bg-muted-foreground border rounded-full size-6 -ml-1.5" />
-        </div>
-      </div>
-
-      <div className="font-medium text-[#F99F0E]">
-        <span className="font-semibold">4.8/5</span> (19k+ Reviews)
+        <Rating rating={4.8} showDivider={false} />
+        <span className="font-medium text-[#F99F0E]">(15k+ Reviews)</span>
       </div>
     </div>
   );

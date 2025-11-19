@@ -9,7 +9,7 @@ function CTASection({ children }: { children: React.ReactNode }) {
   const modalState = useModalOpen();
 
   return (
-    <div className="bg-[#1E293B] flex flex-col items-center justify-center gap-8 md:gap-12 py-12 md:py-28 px-0 md:px-16 fmd:mx-0 rounded-3xl">
+    <div className="bg-[#1E293B] flex flex-col items-center justify-center gap-8 md:gap-12 py-12 md:py-28 px-0 md:px-16 fmd:mx-0">
       <Rating
         rating={4.8}
         starSize="size-6 md:size-10"
@@ -20,7 +20,7 @@ function CTASection({ children }: { children: React.ReactNode }) {
       <div className="space-y-6 flex flex-col items-center justify-center text-[#F9FAFB]">
         {children}
 
-        <p className="md:text-2xl max-w-[310px] md:max-w-max text-center">
+        <p className="md:text-2xl max-w-[310px] md:max-w-max text-center text-[#F9FAFB] font-light">
           India’s highest-rated legal tax and compliance platform.
         </p>
 

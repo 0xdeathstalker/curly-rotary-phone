@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 function DifferencesTable() {
   return (
-    <div id="difference" className="scroll-mt-24 space-y-4">
-      <h2 className="text-[32px] md:text-5xl text-[#1E1E1E] font-bold leading-[130%]">
+    <div id="difference" className="scroll-mt-24 space-y-4 text-[#1A1A1A]">
+      <h2 className="text-[32px] md:text-5xl text-[#1E293B] font-bold leading-[130%]">
         Difference Between Private Limited Company and Other Business Structures
       </h2>
       <p className="text-lg">
@@ -13,24 +15,36 @@ function DifferencesTable() {
 
       <div className="overflow-x-auto">
         <div className="border border-[#6B7280]/42 min-w-[877px]">
-          <div className="grid grid-cols-5 items-center bg-[#EEF4F9] border-b border-gray-300">
-            <div className="p-4 font-bold text-[#1E1E1E]">Criteria</div>
-            <div className="p-4 font-bold text-[#1E1E1E]">
+          <div className="grid grid-cols-5 items-center bg-[#58B09C]/10 border-b border-gray-300">
+            <div className="p-4 font-bold text-[#1E293B]">Criteria</div>
+            <div className="p-4 font-bold text-[#1E293B]">
               Private Limited Company (PVT)
             </div>
-            <div className="p-4 font-bold text-[#1E1E1E]">
+            <Link
+              href="https://taxocity.com/product/opc-reg"
+              target="_blank"
+              className="p-4 font-bold text-[#1E293B] hover:underline underline-offset-2"
+            >
               One Person Company (OPC)
-            </div>
-            <div className="p-4 font-bold text-[#1E1E1E]">
+            </Link>
+            <Link
+              href="https://taxocity.com/product/llp-reg"
+              target="_blank"
+              className="p-4 font-bold text-[#1E293B] hover:underline underline-offset-2"
+            >
               Limited Liability Partnership (LLP)
-            </div>
-            <div className="p-4 font-bold text-[#1E1E1E]">
+            </Link>
+            <Link
+              href="https://taxocity.com/product/sole-prop-reg"
+              target="_blank"
+              className="p-4 font-bold text-[#1E293B] hover:underline underline-offset-2"
+            >
               Sole Proprietorship
-            </div>
+            </Link>
           </div>
 
           <div className="grid grid-cols-5">
-            <div className="p-4 text-[#1E1E1E]">Legal Status</div>
+            <div className="p-4 text-[#1A1A1A]">Legal Status</div>
             <div className="p-4">Separate legal entity</div>
             <div className="p-4">Separate legal entity</div>
             <div className="p-4">Separate legal entity</div>
@@ -38,7 +52,7 @@ function DifferencesTable() {
           </div>
 
           <div className="grid grid-cols-5">
-            <div className="p-4 text-[#1E1E1E]">Liability</div>
+            <div className="p-4 text-[#1A1A1A]">Liability</div>
             <div className="p-4">Limited to shareholding</div>
             <div className="p-4">Limited</div>
             <div className="p-4">Limited</div>
@@ -46,7 +60,7 @@ function DifferencesTable() {
           </div>
 
           <div className="grid grid-cols-5">
-            <div className="p-4 text-[#1E1E1E]">Number of Members</div>
+            <div className="p-4 text-[#1A1A1A]">Number of Members</div>
             <div className="p-4">2–200 members</div>
             <div className="p-4">1 person only</div>
             <div className="p-4">Minimum 2 partners</div>
@@ -54,7 +68,7 @@ function DifferencesTable() {
           </div>
 
           <div className="grid grid-cols-5">
-            <div className="p-4 text-[#1E1E1E]">Compliance Requirements</div>
+            <div className="p-4 text-[#1A1A1A]">Compliance Requirements</div>
             <div className="p-4">
               High (ROC filings, financial statements, DIN, DSC)
             </div>
@@ -64,7 +78,7 @@ function DifferencesTable() {
           </div>
 
           <div className="grid grid-cols-5">
-            <div className="p-4 text-[#1E1E1E]">Tax Benefits</div>
+            <div className="p-4 text-[#1A1A1A]">Tax Benefits</div>
             <div className="p-4">Eligible for deductions and incentives</div>
             <div className="p-4">Similar to Pvt Ltd</div>
             <div className="p-4">Some benefits applicable</div>
@@ -72,7 +86,7 @@ function DifferencesTable() {
           </div>
 
           <div className="grid grid-cols-5">
-            <div className="p-4 text-[#1E1E1E]">Funding Scope</div>
+            <div className="p-4 text-[#1A1A1A]">Funding Scope</div>
             <div className="p-4">
               Easy to raise from financial institutions and investors
             </div>
@@ -82,7 +96,7 @@ function DifferencesTable() {
           </div>
 
           <div className="grid grid-cols-5">
-            <div className="p-4 text-[#1E1E1E]">Company Incorporation</div>
+            <div className="p-4 text-[#1A1A1A]">Company Incorporation</div>
             <div className="p-4">
               Through SPICe+ with DSC, DIN, registered office address proof
             </div>
@@ -92,7 +106,7 @@ function DifferencesTable() {
           </div>
 
           <div className="grid grid-cols-5">
-            <div className="p-4 text-[#1E1E1E]">Registration Authority</div>
+            <div className="p-4 text-[#1A1A1A]">Registration Authority</div>
             <div className="p-4">Registrar of Companies (RoC)</div>
             <div className="p-4">RoC</div>
             <div className="p-4">RoC</div>
@@ -100,7 +114,7 @@ function DifferencesTable() {
           </div>
 
           <div className="grid grid-cols-5">
-            <div className="p-4 text-[#1E1E1E]">Compliance Cost</div>
+            <div className="p-4 text-[#1A1A1A]">Compliance Cost</div>
             <div className="p-4">
               Moderate to High (professional fees, government fees)
             </div>

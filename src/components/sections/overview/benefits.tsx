@@ -1,7 +1,7 @@
 function Benefits() {
   return (
-    <div id="benefits" className="scroll-mt-24 space-y-4">
-      <h2 className="text-[32px] md:text-5xl text-[#1E1E1E] font-bold leading-[130%]">
+    <div id="benefits" className="scroll-mt-24 space-y-4 text-[#1A1A1A]">
+      <h2 className="text-[32px] md:text-5xl text-[#1E293B] font-bold leading-[130%]">
         Benefits of a Private Limited Company In India
       </h2>
       <p className="text-lg">
@@ -13,7 +13,7 @@ function Benefits() {
         <div className="flex items-center gap-4">
           <div className="border border-[#6B7280]/42 rounded-md">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Limited Liability
               </h1>
             </div>
@@ -24,7 +24,7 @@ function Benefits() {
           </div>
           <div className="border border-[#6B7280]/42 rounded-md">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Separate Legal Entity
               </h1>
             </div>
@@ -38,7 +38,7 @@ function Benefits() {
         <div className="flex items-stretch gap-4">
           <div className="border border-[#6B7280]/42 rounded-md">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Easier Access to Capital
               </h1>
             </div>
@@ -49,7 +49,7 @@ function Benefits() {
           </div>
           <div className="border border-[#6B7280]/42 rounded-md">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Tax Benefits
               </h1>
             </div>
@@ -60,7 +60,7 @@ function Benefits() {
           </div>
           <div className="border border-[#6B7280]/42 rounded-md">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Professional Image
               </h1>
             </div>
@@ -74,7 +74,7 @@ function Benefits() {
         <div className="flex items-center gap-4">
           <div className="border border-[#6B7280]/42 rounded-md">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Perpetual Existence
               </h1>
             </div>
@@ -85,7 +85,7 @@ function Benefits() {
           </div>
           <div className="border border-[#6B7280]/42 rounded-md">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Easy Share Transfer
               </h1>
             </div>
@@ -101,7 +101,7 @@ function Benefits() {
         <div className="flex gap-4 w-max">
           <div className="w-[350px] h-[147px] border border-[#6B7280]/42 rounded-md shrink-0">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Limited Liability
               </h1>
             </div>
@@ -112,7 +112,7 @@ function Benefits() {
           </div>
           <div className="w-[350px] h-[147px] border border-[#6B7280]/42 rounded-md shrink-0">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Separate Legal Entity
               </h1>
             </div>
@@ -123,7 +123,7 @@ function Benefits() {
           </div>
           <div className="w-[350px] h-[147px] border border-[#6B7280]/42 rounded-md shrink-0">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Easier Access to Capital
               </h1>
             </div>
@@ -134,7 +134,7 @@ function Benefits() {
           </div>
           <div className="w-[350px] h-[147px] border border-[#6B7280]/42 rounded-md shrink-0">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Tax Benefits
               </h1>
             </div>
@@ -145,7 +145,7 @@ function Benefits() {
           </div>
           <div className="w-[350px] h-[147px] border border-[#6B7280]/42 rounded-md shrink-0">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Professional Image
               </h1>
             </div>
@@ -156,7 +156,7 @@ function Benefits() {
           </div>
           <div className="w-[350px] h-[147px] border border-[#6B7280]/42 rounded-md shrink-0">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Perpetual Existence
               </h1>
             </div>
@@ -167,7 +167,7 @@ function Benefits() {
           </div>
           <div className="w-[350px] h-[147px] border border-[#6B7280]/42 rounded-md shrink-0">
             <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] text-lg">
+              <h1 className="font-semibold text-[#1E293B] text-lg">
                 Easy Share Transfer
               </h1>
             </div>

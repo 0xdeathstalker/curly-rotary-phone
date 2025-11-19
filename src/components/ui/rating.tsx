@@ -9,6 +9,7 @@ interface RatingProps {
   starSize?: string;
   textSize?: string;
   dividerSize?: string;
+  showDivider?: boolean;
 }
 
 export function Rating({
@@ -19,6 +20,7 @@ export function Rating({
   starSize = "size-4",
   textSize = "text-lg",
   dividerSize = "h-4",
+  showDivider = true,
 }: RatingProps) {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
@@ -55,8 +57,16 @@ export function Rating({
       {/* Rating score */}
       {showScore && (
         <>
-          <div className={cn("w-px bg-black mx-2", dividerSize)} />
-          <span className={cn(textSize, "font-semibold text-[#FFA500]")}>
+          {showDivider && (
+            <div className={cn("w-px bg-black mx-2", dividerSize)} />
+          )}
+          <span
+            className={cn(
+              textSize,
+              "font-semibold text-[#FFA500]",
+              !showDivider && "pl-1"
+            )}
+          >
             {rating}/{maxRating}
           </span>
         </>

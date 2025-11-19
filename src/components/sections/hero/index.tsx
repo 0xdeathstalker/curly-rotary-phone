@@ -13,23 +13,28 @@ function Hero() {
         <div className="space-y-6">
           <GoogleReviews />
 
-          <div className="flex items-center gap-2 py-2 px-3 border rounded-xl bg-[#F9FAFB] max-w-[calc(100vw-55px)] md:max-w-2xl overflow-x-auto">
-            <Image
-              src="/logos/guard-check.svg"
-              alt="shield check icon"
-              width={24}
-              height={24}
-            />
-            <span className="text-[#1D364D] text-nowrap">
-              What sets us apart?
-            </span>
+          <div className="flex flex-col md:flex-row items-center gap-2 py-2 px-3 border rounded-xl bg-[#F9FAFB] max-w-[calc(100vw-55px)] md:max-w-2xl overflow-x-hidden">
+            <div className="flex min-w-max items-center gap-2">
+              <Image
+                src="/logos/guard-check.svg"
+                alt="shield check icon"
+                width={24}
+                height={24}
+                className="size-5"
+              />
+              <span className="text-[#1D364D] text-nowrap">
+                What sets us apart?
+              </span>
+            </div>
 
             <TrustableFeaturesCarousel />
           </div>
 
           <div className="space-y-3">
             <h1 className="text-4xl md:text-5xl font-black leading-[120%] text-[#1E293B]">
-              Register Your Private Limited Company in India - Starting @ ₹2,999
+              Register Your Private <br className="hidden md:flex" /> Limited
+              Company in India -
+              <br className="hidden md:flex" /> Starting @ ₹2,999
             </h1>
 
             <p className="md:text-lg leading-normal text-[#1A1A1A]/60 font-normal">

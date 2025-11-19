@@ -13,7 +13,7 @@ export default function DesktopNavigation() {
     <NavigationMenu viewport={false}>
       <NavigationMenuList className="font-sans">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-base">
+          <NavigationMenuTrigger className="text-base bg-transparent hover:bg-transparent">
             Company Incorporation
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -47,7 +47,7 @@ export default function DesktopNavigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-base">
+          <NavigationMenuTrigger className="text-base bg-transparent hover:bg-transparent">
             GST
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -78,7 +78,7 @@ export default function DesktopNavigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-base">
+          <NavigationMenuTrigger className="text-base bg-transparent hover:bg-transparent">
             MCA Compliance
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -119,7 +119,7 @@ export default function DesktopNavigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-base">
+          <NavigationMenuTrigger className="text-base bg-transparent hover:bg-transparent">
             ITR
           </NavigationMenuTrigger>
           <NavigationMenuContent>

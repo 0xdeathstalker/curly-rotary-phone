@@ -232,31 +232,41 @@ const testimonials = [
     id: 1,
     rating: 4.8,
     message:
-      "A customer testimonial that highlights features and answers potential customer doubts about your product or service. Showcase testimonials from a similar demographic to your customers.",
+      "Got my company incorporated with the help of Taxocity. The entire process was handled professionally, and they kept me updated at every step. Highly recommended.",
     image: null,
-    name: "Customer name",
-    position: "Position",
-    company: "Company name",
+    name: "Pankaj Mishra",
+    position: null,
+    company: "Aromatics India Pvt. Ltd.",
   },
   {
     id: 2,
     rating: 4,
     message:
-      "A customer testimonial that highlights features and answers potential customer doubts about your product or service. Showcase testimonials from a similar demographic to your customers.",
+      "Starting a business in India can feel overwhelming with so many legal and compliance requirements — but Taxocity made it look easy. From the very beginning, they guided me through every step. Thank you, Taxocity, for making business setup so seamless!",
     image: null,
-    name: "Customer name",
-    position: "Position",
-    company: "Company name",
+    name: "Prakash Mishra",
+    position: "Head of Finance",
+    company: "Hugel Infra Pvt. Ltd.",
   },
   {
     id: 3,
     rating: 3.5,
     message:
-      "A customer testimonial that highlights features and answers potential customer doubts about your product or service. Showcase testimonials from a similar demographic to your customers.",
+      "Highly recommended! I used Taxocity for my ITR filing this year and the process was super smooth. The team was responsive and cleared all my doubts quickly. Filing taxes has never been this stress-free!",
     image: null,
-    name: "Customer name",
-    position: "Position",
-    company: "Company name",
+    name: "Kumar Guarav Gupta",
+    position: null,
+    company: null,
+  },
+  {
+    id: 3,
+    rating: 3.5,
+    message:
+      "We engaged Taxocity for end-to-end company incorporation. The team demonstrated exceptional domain knowledge throughout the incorporation process. Their support didn’t end at incorporation; we have since retained them for ongoing statutory compliance.",
+    image: null,
+    name: "Ankit Tayal",
+    position: null,
+    company: "PCI Infra projects Pvt. Ltd.",
   },
 ];
 

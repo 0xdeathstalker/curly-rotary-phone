@@ -1,7 +1,7 @@
 function IncorporationProcess() {
   return (
-    <div id="process" className="scroll-mt-24 space-y-4">
-      <h2 className="text-[32px] md:text-5xl text-[#1E1E1E] font-bold leading-[130%]">
+    <div id="process" className="scroll-mt-24 space-y-4 text-[#1E1E1E]">
+      <h2 className="text-[32px] md:text-5xl text-[#1E293B] font-bold leading-[130%]">
         Incorporation Process
       </h2>
       <p className="md:text-lg mb-2">
@@ -9,9 +9,9 @@ function IncorporationProcess() {
         Affairs – MCA)
       </p>
 
-      <div className="space-y-8 md:text-lg">
+      <div className="space-y-4 md:text-lg">
         <div>
-          <h4 className="font-bold mb-1">
+          <h4 className="font-bold mb-1 text-[#1E293B]">
             Step 1: Obtain Digital Signature Certificate (DSC)
           </h4>
           <ul className="space-y-0.5">
@@ -33,7 +33,7 @@ function IncorporationProcess() {
         </div>
 
         <div>
-          <h4 className="font-bold mb-1">
+          <h4 className="font-bold mb-1 text-[#1E293B]">
             Step 2: Apply for Director Identification Number (DIN)
           </h4>
           <ul className="space-y-0.5">
@@ -55,7 +55,7 @@ function IncorporationProcess() {
         </div>
 
         <div>
-          <h4 className="font-bold mb-1">
+          <h4 className="font-bold mb-1 text-[#1E293B]">
             Step 3: Company Name Approval (SPICe+ Part A)
           </h4>
           <ul className="space-y-0.5">
@@ -78,7 +78,7 @@ function IncorporationProcess() {
         </div>
 
         <div>
-          <h4 className="font-bold mb-1">
+          <h4 className="font-bold mb-1 text-[#1E293B]">
             Step 4: Prepare Incorporation Documents
           </h4>
           <ul className="space-y-0.5">
@@ -105,7 +105,7 @@ function IncorporationProcess() {
         </div>
 
         <div>
-          <h4 className="font-bold mb-1">
+          <h4 className="font-bold mb-1 text-[#1E293B]">
             Step 5: File SPICe+ Part B, AGILE-PRO, eMOA, eAOA
           </h4>
           <ul className="space-y-0.5">
@@ -136,7 +136,9 @@ function IncorporationProcess() {
         </div>
 
         <div>
-          <h4 className="font-bold mb-1">Step 6: PAN, TAN & GST Application</h4>
+          <h4 className="font-bold mb-1 text-[#1E293B]">
+            Step 6: PAN, TAN & GST Application
+          </h4>
           <ul className="space-y-0.5">
             <li className="leading-tight flex">
               <span className="mr-2 shrink-0">•</span>
@@ -156,7 +158,7 @@ function IncorporationProcess() {
         </div>
 
         <div>
-          <h4 className="font-bold mb-1">
+          <h4 className="font-bold mb-1 text-[#1E293B]">
             Step 7: Verification by RoC & Certificate of Incorporation
           </h4>
           <ul className="space-y-0.5">
@@ -175,7 +177,7 @@ function IncorporationProcess() {
         </div>
 
         <div>
-          <h4 className="font-bold mb-1">
+          <h4 className="font-bold mb-1 text-[#1E293B]">
             Step 8: Post-Incorporation Compliance
           </h4>
           <ul className="space-y-0.5">

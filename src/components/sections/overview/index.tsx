@@ -21,10 +21,10 @@ function Overview() {
         {/* Content */}
         <div className="flex-1 flex flex-col gap-16 min-w-0">
           <div id="overview" className="scroll-mt-24 space-y-4">
-            <h2 className="text-[32px] md:text-5xl text-[#1E1E1E] font-bold leading-[130%]">
+            <h2 className="text-[32px] md:text-5xl text-[#1E293B] font-bold leading-[130%]">
               Overview
             </h2>
-            <p className="md:text-lg">
+            <p className="md:text-lg text-[#1E1E1E]">
               Private limited company registration in India provides limited
               liability, legal independence, and access to tax benefits.
               Governed by the Companies Act, 2013, it requires a DSC, DIN, and
@@ -61,10 +61,10 @@ function Overview() {
           <TimeRequired />
 
           <div id="govt-fees" className="scroll-mt-24 space-y-4">
-            <h2 className="text-[32px] md:text-5xl text-[#1E1E1E] font-bold leading-[130%]">
+            <h2 className="text-[32px] md:text-5xl text-[#1E293B] font-bold leading-[130%]">
               Pvt Ltd Company Registration Govt Fees
             </h2>
-            <p className="md:text-lg">
+            <p className="md:text-lg text-[#1A1A1A]">
               Government fees for Private Limited Company registration vary from
               state to state and are primarily based on the company’s authorised
               capital. Additional charges may apply depending on stamp duty,

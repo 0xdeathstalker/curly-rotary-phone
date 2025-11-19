@@ -122,7 +122,7 @@ function SidebarItem({
       <p
         className={`text-lg font-sans ${
           active ? "font-bold" : "font-normal"
-        } text-black`}
+        } text-[#1E293B]`}
       >
         {title}
       </p>

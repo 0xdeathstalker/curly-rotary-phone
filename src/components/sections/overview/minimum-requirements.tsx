@@ -1,7 +1,7 @@
 function MinimumRequirements() {
   return (
     <div id="requirements" className="scroll-mt-24 space-y-4">
-      <h2 className="text-[32px] md:text-5xl text-[#1E1E1E] font-bold leading-[130%]">
+      <h2 className="text-[32px] md:text-5xl text-[#1E293B] font-bold leading-[130%]">
         Minimum Requirements for Pvt Ltd Company
       </h2>
       <p className="md:text-lg">
@@ -15,7 +15,7 @@ function MinimumRequirements() {
         <div className="flex items-start gap-4">
           <div className="w-[350px] lg:w-1/3">
             <div className="flex items-center p-3 bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] md:text-lg">
+              <h1 className="font-semibold text-[#1E293B] md:text-lg">
                 Minimum Two Directors
               </h1>
             </div>
@@ -30,7 +30,7 @@ function MinimumRequirements() {
           </div>
           <div className="w-[350px] lg:w-1/3">
             <div className="flex items-center p-3 bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] md:text-lg">
+              <h1 className="font-semibold text-[#1E293B] md:text-lg">
                 Minimum Two Shareholders
               </h1>
             </div>
@@ -54,7 +54,7 @@ function MinimumRequirements() {
           </div>
           <div className="w-[350px] lg:w-1/3">
             <div className="flex items-center p-3 bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] md:text-lg">
+              <h1 className="font-semibold text-[#1E293B] md:text-lg">
                 Registered Office Address
               </h1>
             </div>
@@ -83,7 +83,7 @@ function MinimumRequirements() {
         <div className="flex items-start gap-4">
           <div className="w-[350px] lg:w-1/3">
             <div className="flex items-center p-3 bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] md:text-lg">
+              <h1 className="font-semibold text-[#1E293B] md:text-lg">
                 Digital Signature Certificate (DSC)
               </h1>
             </div>
@@ -103,7 +103,7 @@ function MinimumRequirements() {
 
           <div className="w-[350px] lg:w-1/3">
             <div className="flex items-center p-3 bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] md:text-lg">
+              <h1 className="font-semibold text-[#1E293B] md:text-lg">
                 Director Identification Number (DIN)
               </h1>
             </div>
@@ -123,7 +123,7 @@ function MinimumRequirements() {
 
           <div className="w-[350px] lg:w-1/3">
             <div className="flex items-center p-3 bg-[#58B09C]/10">
-              <h1 className="font-semibold text-[#3F3F3F] md:text-lg">
+              <h1 className="font-semibold text-[#1E293B] md:text-lg">
                 Company Name
               </h1>
             </div>

@@ -1,7 +1,7 @@
 function TypesOfCompanies() {
   return (
     <div id="types" className="scroll-mt-24 space-y-4">
-      <h2 className="text-black text-[32px] md:text-5xl font-bold leading-[130%]">
+      <h2 className="text-[#1E293B] text-[32px] md:text-5xl font-bold leading-[130%]">
         Types of Private Limited Company
       </h2>
 
@@ -15,7 +15,7 @@ function TypesOfCompanies() {
       <div className="space-y-2">
         <div>
           <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-            <h1 className="font-semibold text-[#3F3F3F] md:text-lg">
+            <h1 className="font-semibold text-[#1E293B] md:text-lg">
               Company Limited by shares
             </h1>
           </div>
@@ -31,7 +31,7 @@ function TypesOfCompanies() {
 
         <div>
           <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-            <h1 className="font-semibold text-[#3F3F3F] md:text-lg">
+            <h1 className="font-semibold text-[#1E293B] md:text-lg">
               Company limited by Guarantee
             </h1>
           </div>
@@ -47,7 +47,7 @@ function TypesOfCompanies() {
 
         <div>
           <div className="flex items-center p-3 h-[50px] bg-[#58B09C]/10">
-            <h1 className="font-semibold text-[#3F3F3F] md:text-lg">
+            <h1 className="font-semibold text-[#1E293B] md:text-lg">
               Unlimited Companies
             </h1>
           </div>
