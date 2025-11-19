@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Loader, X } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ interface PaymentData {
   paymentDate: string;
 }
 
-export default function PaymentSuccessPage() {
+function PaymentSuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [countdown, setCountdown] = React.useState(REDIRECTION_TIME);
@@ -87,7 +87,7 @@ export default function PaymentSuccessPage() {
       <div className="font-sans min-h-screen flex items-center justify-center bg-[#1E293B]/5 px-4 py-28">
         <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
           <div className="flex flex-col items-center justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1E293B] mb-4"></div>
+            <Loader className="animate-spin size-14" />
             <p className="text-[#1E293B] font-medium">Validating payment...</p>
           </div>
         </div>
@@ -101,27 +101,13 @@ export default function PaymentSuccessPage() {
       <div className="font-sans min-h-screen flex items-center justify-center bg-[#1E293B]/5 px-4 py-28">
         <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
           <div className="flex flex-col items-center justify-center">
-            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-              <svg
-                className="w-10 h-10 text-red-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-label="Error icon"
-              >
-                <title>Error</title>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+            <div className="size-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+              <X className="text-destructive size-8" />
             </div>
             <h1 className="text-2xl font-bold text-center text-[#1E293B] mb-2">
               Access Denied
             </h1>
-            <p className="text-center text-[#3F3F3F] mb-4">
+            <p className="text-center font-semibold text-[#3F3F3F] mb-4">
               {error || "Invalid or expired payment session"}
             </p>
             <p className="text-center text-sm text-[#3F3F3F]">
@@ -201,5 +187,24 @@ export default function PaymentSuccessPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function PaymentSuccessPage() {
+  return (
+    <React.Suspense
+      fallback={
+        <div className="font-sans min-h-screen flex items-center justify-center bg-[#1E293B]/5 px-4 py-28">
+          <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
+            <div className="flex flex-col items-center justify-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1E293B] mb-4"></div>
+              <p className="text-[#1E293B] font-medium">Loading...</p>
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <PaymentSuccessContent />
+    </React.Suspense>
   );
 }

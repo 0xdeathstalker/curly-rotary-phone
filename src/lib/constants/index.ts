@@ -1,5 +1,5 @@
 const MODAL_INTERVAL = 30000; // 30seconds
-const REDIRECTION_TIME = 10000; // 10seconds
+const REDIRECTION_TIME = 10; // 10seconds
 
 const STATES = [
   {
