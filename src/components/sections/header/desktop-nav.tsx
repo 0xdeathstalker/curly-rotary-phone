@@ -1,4 +1,3 @@
-import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import {
   NavigationMenu,
@@ -9,83 +8,131 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
-function DesktopNavigation() {
+export default function DesktopNavigation() {
   return (
-    <NavigationMenu className="font-sans">
-      <NavigationMenuList className="flex-none">
+    <NavigationMenu viewport={false}>
+      <NavigationMenuList className="font-sans">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-xs md:text-sm lg:text-base">
+          <NavigationMenuTrigger className="text-base">
             Company Incorporation
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="w-max gap-4">
+            <ul className="grid w-max gap-4">
               <li>
-                <NavigationMenuLink
-                  asChild
-                  className="flex-row items-center group"
-                >
-                  <Link href="/" className="text-sm lg:text-base">
-                    <span>Private Limited Company</span>
-                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
-                  </Link>
+                <NavigationMenuLink asChild>
+                  <Link href="/">Privated Company Limited</Link>
                 </NavigationMenuLink>
-                <NavigationMenuLink
-                  asChild
-                  className="flex-row items-center group"
-                >
-                  <Link href="#" className="text-sm lg:text-base">
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/sole-prop-reg">
                     Sole Proprietorship
-                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
                   </Link>
                 </NavigationMenuLink>
-                <NavigationMenuLink
-                  asChild
-                  className="flex-row items-center group"
-                >
-                  <Link href="#" className="text-sm lg:text-base">
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/partnership-reg">
                     Partnership Firm
-                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
                   </Link>
                 </NavigationMenuLink>
-                <NavigationMenuLink
-                  asChild
-                  className="flex-row items-center group"
-                >
-                  <Link href="#" className="text-sm lg:text-base">
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/opc-reg">
                     One Person Company
-                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
                   </Link>
                 </NavigationMenuLink>
-                <NavigationMenuLink
-                  asChild
-                  className="flex-row items-center group"
-                >
-                  <Link href="#" className="text-sm lg:text-base">
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/llp-reg">
                     Limited Liability Partnership
-                    <ChevronRight className="text-[#1A1A1A] size-4 opacity-0 group-hover:opacity-60 -translate-x-1.5 group-hover:translate-x-0 transition-all ease-in-out" />
                   </Link>
                 </NavigationMenuLink>
               </li>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-xs md:text-sm lg:text-base">
+          <NavigationMenuTrigger className="text-base">
             GST
           </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-max gap-4">
+              <li>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/gst-reg">
+                    GST Registration
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/gst-return-filing">
+                    GST Return filing
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/gst-revoke">
+                    GST Revocation/Recovery
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="http://taxocity.com/product/gst-cancel">
+                    GST Cancellation
+                  </Link>
+                </NavigationMenuLink>
+              </li>
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
-
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-xs md:text-sm lg:text-base">
+          <NavigationMenuTrigger className="text-base">
             MCA Compliance
           </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-max gap-4">
+              <li>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/appoint-director">
+                    Appointment of Director
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/change-add">
+                    Change Address
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/change-obj">
+                    Change Objective/Activity
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/close-pvt-ltd">
+                    Close the Pvt. Ltd. Company
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/director-removal">
+                    Removal of Director
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/increase-auth-cap">
+                    Increased Authorized Share Capital
+                  </Link>
+                </NavigationMenuLink>
+              </li>
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
-
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent text-xs md:text-sm lg:text-base">
-            Income Tax Return
+          <NavigationMenuTrigger className="text-base">
+            ITR
           </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[150px] gap-4">
+              <li>
+                <NavigationMenuLink asChild>
+                  <Link href="https://taxocity.com/product/business-itr">
+                    Backlog
+                  </Link>
+                </NavigationMenuLink>
+              </li>
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

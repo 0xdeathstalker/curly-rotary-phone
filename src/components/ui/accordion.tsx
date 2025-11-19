@@ -1,7 +1,6 @@
 "use client";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { Plus } from "lucide-react";
 import type * as React from "react";
 
 import { cn } from "@/lib/utils/index";
@@ -35,15 +34,12 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180",
+          "group focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50",
           className
         )}
         {...props}
       >
         {children}
-        <div className="bg-[#F9B934] rounded-full size-8 flex items-center justify-center shrink-0 transition-transform duration-200">
-          <Plus className="size-4 group-data-[state=open]:rotate-45 transition-transform duration-200" />
-        </div>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );

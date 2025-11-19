@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FAQPlus } from "@/components/ui/faq-plus";
 
 function FAQ() {
   return (
@@ -16,6 +17,7 @@ function FAQ() {
           <AccordionTrigger className="text-base md:text-lg">
             What is the minimum requirement to register a Private Limited
             Company in India?
+            <FAQPlus />
           </AccordionTrigger>
           <AccordionContent className="text-base md:text-lg">
             Content comes here.
@@ -24,6 +26,7 @@ function FAQ() {
         <AccordionItem value="item-2">
           <AccordionTrigger className="text-base md:text-lg">
             How long does the registration process take with TaxoCity?
+            <FAQPlus />
           </AccordionTrigger>
           <AccordionContent className="text-base md:text-lg">
             Content comes here.
@@ -32,6 +35,7 @@ function FAQ() {
         <AccordionItem value="item-3">
           <AccordionTrigger className="text-base md:text-lg">
             What documents are required for company registration?
+            <FAQPlus />
           </AccordionTrigger>
           <AccordionContent className="text-base md:text-lg">
             Content comes here.
@@ -40,6 +44,7 @@ function FAQ() {
         <AccordionItem value="item-4">
           <AccordionTrigger className="text-base md:text-lg">
             Are there any hidden charges apart from the package fee?
+            <FAQPlus />
           </AccordionTrigger>
           <AccordionContent className="text-base md:text-lg">
             Content comes here.
@@ -48,6 +53,7 @@ function FAQ() {
         <AccordionItem value="item-5">
           <AccordionTrigger className="text-base md:text-lg">
             What post-incorporation support does TaxoCity provide?
+            <FAQPlus />
           </AccordionTrigger>
           <AccordionContent className="text-base md:text-lg">
             Content comes here
