@@ -30,8 +30,6 @@ function MultiStepForm({
       countryCode: "+91",
       phone: "",
       state: "",
-      companyName: "",
-      companySizes: "",
     },
   });
 
