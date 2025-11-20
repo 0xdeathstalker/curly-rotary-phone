@@ -33,7 +33,7 @@ async function sendEmail(data: EmailData) {
       process.cwd(),
       "public",
       "logos",
-      "taxocity.png"
+      "taxocity.png",
     );
     const logoBuffer = fs.readFileSync(logoPath);
 
