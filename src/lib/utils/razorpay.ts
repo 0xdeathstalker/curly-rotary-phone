@@ -16,7 +16,7 @@ async function verifyPayment(
   response: any,
   amount: number,
   plan: string,
-  paymentDate: string,
+  paymentDate: string
 ) {
   const _response = await fetch("/api/verify-payment", {
     method: "POST",
@@ -39,6 +39,7 @@ async function purchase({
   plan,
   description,
   amount,
+  onPaymentStart,
 }: {
   name: string | null;
   phone: string | null;
@@ -46,6 +47,7 @@ async function purchase({
   plan: string | null;
   amount: number | null;
   description?: string | null;
+  onPaymentStart?: () => void;
 }) {
   if (!name || !phone || !email || !plan || !description || !amount) {
     throw new Error("Values passed to purchase function can't be null");
@@ -76,10 +78,13 @@ async function purchase({
         response,
         order.amount,
         plan,
-        paymentDate,
+        paymentDate
       );
 
       if (data.isOk) {
+        // triggering loading overlay
+        onPaymentStart?.();
+
         await updateTeleCRMLead({
           phone,
           email,

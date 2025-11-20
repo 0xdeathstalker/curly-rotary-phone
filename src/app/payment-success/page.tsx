@@ -94,7 +94,7 @@ function PaymentSuccessContent() {
         <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
           <div className="space-y-5 flex flex-col items-center justify-center">
             <Loader className="animate-spin size-10" />
-            <p className="text-[#1E293B] font-medium text-2xl">
+            <p className="text-[#1E293B] font-bold text-2xl">
               Validating payment...
             </p>
           </div>
@@ -115,9 +115,9 @@ function PaymentSuccessContent() {
             <h1 className="text-2xl font-bold text-center text-[#1E293B] mb-2">
               Access Denied
             </h1>
-            <p className="text-center font-semibold text-[#3F3F3F] mb-4">
+            {/* <p className="text-center font-semibold text-[#3F3F3F] mb-4">
               {error || "Invalid or expired payment session"}
-            </p>
+            </p> */}
             <p className="text-center text-sm text-[#3F3F3F]">
               Redirecting to home...
             </p>
