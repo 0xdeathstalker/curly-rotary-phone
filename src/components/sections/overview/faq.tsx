@@ -67,7 +67,7 @@ function FAQ() {
             What post-incorporation support does TaxoCity provide?
             <FAQPlus />
           </AccordionTrigger>
-          <AccordionContent className="text-base4 text-[#3F3F3F]">
+          <AccordionContent className="text-base text-[#3F3F3F]">
             <p>
               After incorporation, we provide comprehensive support for all
               Ministry of Corporate Affairs (MCA) compliances to ensure your new

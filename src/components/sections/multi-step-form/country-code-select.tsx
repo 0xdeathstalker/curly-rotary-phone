@@ -45,7 +45,7 @@ export function CountryCodeSelect({
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="p-0 w-[300px]">
+      <PopoverContent className="p-0 w-[300px]" align="start">
         <Command>
           <CommandInput placeholder="Search country..." className="font-sans" />
           <CommandList>

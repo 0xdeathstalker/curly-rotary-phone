@@ -4,7 +4,8 @@ import { CheckCircle, Loader, X } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
-import { REDIRECTION_TIME } from "@/lib/constants";
+// import { REDIRECTION_TIME } from "@/lib/constants";
+import { generatePaymentReceiptPDF } from "@/lib/utils/pdf";
 
 interface PaymentData {
   paymentId: string;
@@ -17,10 +18,10 @@ interface PaymentData {
 function PaymentSuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [countdown, setCountdown] = React.useState(REDIRECTION_TIME);
+  // const [countdown, setCountdown] = React.useState(REDIRECTION_TIME);
   const [isValidating, setIsValidating] = React.useState(true);
   const [paymentData, setPaymentData] = React.useState<PaymentData | null>(
-    null,
+    null
   );
   const [error, setError] = React.useState<string | null>(null);
 
@@ -61,24 +62,29 @@ function PaymentSuccessContent() {
   }, [token, router]);
 
   // starting countdown only after successful validation
-  React.useEffect(() => {
-    if (!isValidating && paymentData) {
-      const timer = setInterval(() => {
-        setCountdown((prev) => prev - 1);
-      }, 1000);
+  // React.useEffect(() => {
+  //   if (!isValidating && paymentData) {
+  //     const timer = setInterval(() => {
+  //       setCountdown((prev) => prev - 1);
+  //     }, 1000);
 
-      return () => clearInterval(timer);
-    }
-  }, [isValidating, paymentData]);
+  //     return () => clearInterval(timer);
+  //   }
+  // }, [isValidating, paymentData]);
 
-  React.useEffect(() => {
-    if (countdown === 0 && paymentData) {
-      router.push("/");
-    }
-  }, [countdown, router, paymentData]);
+  // React.useEffect(() => {
+  //   if (countdown === 0 && paymentData) {
+  //     router.push("/");
+  //   }
+  // }, [countdown, router, paymentData]);
 
   const handleReturnHome = () => {
     router.push("/");
+  };
+
+  const handleDownloadReceipt = async () => {
+    if (!paymentData) return;
+    await generatePaymentReceiptPDF(paymentData);
   };
 
   // loading state
@@ -86,9 +92,11 @@ function PaymentSuccessContent() {
     return (
       <div className="font-sans min-h-screen flex items-center justify-center bg-[#1E293B]/5 px-4 py-28">
         <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
-          <div className="flex flex-col items-center justify-center">
-            <Loader className="animate-spin size-14" />
-            <p className="text-[#1E293B] font-medium">Validating payment...</p>
+          <div className="space-y-5 flex flex-col items-center justify-center">
+            <Loader className="animate-spin size-10" />
+            <p className="text-[#1E293B] font-medium text-2xl">
+              Validating payment...
+            </p>
           </div>
         </div>
       </div>
@@ -123,7 +131,7 @@ function PaymentSuccessContent() {
     <div className="font-sans min-h-screen flex items-center justify-center bg-[#1E293B]/5 px-4 py-28">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+          <div className="size-16 bg-green-100 rounded-full flex items-center justify-center">
             <CheckCircle className="w-10 h-10 text-green-600" />
           </div>
         </div>
@@ -173,18 +181,29 @@ function PaymentSuccessContent() {
           </div>
         </div>
 
-        <Button
-          variant="brand"
-          size="lg"
-          onClick={handleReturnHome}
-          className="w-full"
-        >
-          Return home
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button
+            variant="outline"
+            size="lg"
+            className="font-semibold text-base text-[#1E293B] grow shadow-[inset_0_3px_6px_rgba(255,255,255,0.65),inset_0_-3px_4px_rgba(211,212,213,1),0_4px_10px_rgba(94,57,0,0.25)]"
+            onClick={handleReturnHome}
+          >
+            Return home
+          </Button>
 
-        <p className="text-center text-sm text-[#3F3F3F] mt-4">
+          <Button
+            variant="brand"
+            size="lg"
+            className="grow"
+            onClick={handleDownloadReceipt}
+          >
+            Save Receipt
+          </Button>
+        </div>
+
+        {/* <p className="text-center text-sm text-[#3F3F3F] mt-4">
           Redirecting to home in {countdown} seconds...
-        </p>
+        </p> */}
       </div>
     </div>
   );
