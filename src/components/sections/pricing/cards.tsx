@@ -123,7 +123,10 @@ function PricingCards() {
 
                   <div className="text-[#1E1E1E] text-sm xl:text-base">
                     <div className="flex items-center gap-1 text-nowrap">
-                      <span className="text-base">+ Govt. Fees</span>
+                      +{" "}
+                      <span className="text-base underline underline-offset-2">
+                        Govt. Fees
+                      </span>
                       <GovtFeesDetails>
                         <Button
                           size="icon"

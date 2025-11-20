@@ -32,7 +32,7 @@ function GovtFeesDetails({ children }: { children: React.ReactNode }) {
     if (!userStateData) return false;
 
     const userStateFee = GOVERNMENT_FEES.find(
-      (fee) => fee.state === userStateData.label,
+      (fee) => fee.state === userStateData.label
     );
 
     return !!userStateFee;
@@ -49,7 +49,7 @@ function GovtFeesDetails({ children }: { children: React.ReactNode }) {
     }
 
     const userStateFee = GOVERNMENT_FEES.find(
-      (fee) => fee.state === userStateData.label,
+      (fee) => fee.state === userStateData.label
     );
 
     if (!userStateFee) {
@@ -65,19 +65,19 @@ function GovtFeesDetails({ children }: { children: React.ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="gap-4 font-sans sm:max-w-max max-h-[calc(100vh-100px)]">
+      <DialogContent className="gap-4 font-sans sm:max-w-[900px]">
         <DialogHeader>
-          <DialogTitle className="text-center text-2xl">
+          <DialogTitle className="text-center text-lg sm:text-2xl">
             Breakdown of Government Fees
           </DialogTitle>
         </DialogHeader>
 
-        <div className="border rounded-lg overflow-y-auto max-h-[calc(100vh-200px)]">
-          <div className="">
+        <div className="border rounded-lg overflow-y-auto max-h-[330px]">
+          <div>
             <Table>
               <TableHeader>
-                <TableRow className="h-[78px] text-base text-[#3F3F3F] font-semibold bg-[#6B7280]/40 border-none hover:bg-[#6B7280]/40">
-                  <TableHead className="p-3 rounded-tl-lg whitespace-nowrap">
+                <TableRow className="h-14 text-base text-[#3F3F3F] font-semibold bg-[#6B7280]/40 border-none hover:bg-[#6B7280]/40">
+                  <TableHead className="p-3 rounded-tl-lg whitespace-nowrap font-bold">
                     State of Registration
                   </TableHead>
                   <TableHead className="p-3 whitespace-nowrap">
@@ -85,13 +85,14 @@ function GovtFeesDetails({ children }: { children: React.ReactNode }) {
                     (Inclusive of taxes)
                   </TableHead>
                   <TableHead className="p-3 whitespace-nowrap">
-                    RUN + PAN/TAN <br />
-                    (Inclusive of taxes)
+                    Name Approval
+                    <br />
+                    + PAN/TAN
                   </TableHead>
                   <TableHead className="p-3 whitespace-nowrap">
                     State filing fee (Auth <br /> capital up to ₹1 Lakh)
                   </TableHead>
-                  <TableHead className="p-3 rounded-tr-lg whitespace-nowrap">
+                  <TableHead className="p-3 rounded-tr-lg whitespace-nowrap font-bold">
                     Estimated Total <br /> Amount
                   </TableHead>
                 </TableRow>
@@ -100,17 +101,13 @@ function GovtFeesDetails({ children }: { children: React.ReactNode }) {
                 {orderedFees.map((fee, index) => (
                   <TableRow
                     key={fee.state}
-                    className={`h-[78px] text-base ${
+                    className={`h-14 text-base ${
                       index === 0 && hasUserState
                         ? "font-bold bg-[#58B09C]/80 hover:bg-[#58B09C]/80"
                         : ""
                     }`}
                   >
-                    <TableCell
-                      className={`p-3 whitespace-nowrap ${
-                        index === 0 && hasUserState ? "font-bold" : ""
-                      }`}
-                    >
+                    <TableCell className="p-3 whitespace-nowrap font-bold">
                       {fee.state}
                     </TableCell>
                     <TableCell className="p-3">
@@ -130,6 +127,28 @@ function GovtFeesDetails({ children }: { children: React.ReactNode }) {
               </TableBody>
             </Table>
           </div>
+        </div>
+
+        <div className="space-y-2">
+          <h4 className="font-semibold">Terms & Conditions:</h4>
+
+          <ul className="space-y-2 text-sm">
+            <li className="flex leading-tight">
+              <span className="mr-2 shrink-0">•</span>
+              Government fee, DSC token and courier charges charges are extra
+              which will be collected after expert consultation. You have to pay
+              only the professional fee right now
+            </li>
+            <li className="flex leading-tight">
+              <span className="mr-2 shrink-0">•</span>
+              Application filing time depends on the availability of MCA Portal
+              as many times there are errors in the MCA Portal
+            </li>
+            <li className="flex leading-tight">
+              <span className="mr-2 shrink-0">•</span>
+              Each additional DSC will cost ₹2000 + taxes
+            </li>
+          </ul>
         </div>
       </DialogContent>
     </Dialog>
