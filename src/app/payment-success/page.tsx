@@ -1,9 +1,23 @@
 "use client";
 
+import type { Metadata } from "next";
 import { CheckCircle, Loader, X } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "Payment Successful",
+  description: "Your payment has been successfully processed.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
 // import { REDIRECTION_TIME } from "@/lib/constants";
 import { generatePaymentReceiptPDF } from "@/lib/utils/pdf";
 
