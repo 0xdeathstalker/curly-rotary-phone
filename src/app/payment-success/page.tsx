@@ -1,23 +1,9 @@
 "use client";
 
-import type { Metadata } from "next";
 import { CheckCircle, Loader, X } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
-
-export const metadata: Metadata = {
-  title: "Payment Successful",
-  description: "Your payment has been successfully processed.",
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: {
-      index: false,
-      follow: false,
-    },
-  },
-};
 // import { REDIRECTION_TIME } from "@/lib/constants";
 import { generatePaymentReceiptPDF } from "@/lib/utils/pdf";
 
@@ -35,7 +21,7 @@ function PaymentSuccessContent() {
   // const [countdown, setCountdown] = React.useState(REDIRECTION_TIME);
   const [isValidating, setIsValidating] = React.useState(true);
   const [paymentData, setPaymentData] = React.useState<PaymentData | null>(
-    null,
+    null
   );
   const [error, setError] = React.useState<string | null>(null);
 
