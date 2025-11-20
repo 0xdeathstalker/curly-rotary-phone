@@ -9,9 +9,10 @@ export function Testimonials() {
     <section className="py-20 md:py-28 px-5 md:px-16">
       <div className="max-w-[1256px] mx-auto">
         <h1 className="text-[32px] md:text-5xl leading-[130%] font-bold text-center mb-20 text-[#1E293B]">
-          Why thousands chose Taxocity
+          Don't just take our word for it.
           <br />
-          to scale their practice
+          Hear why countless entrepreneurs <br />
+          choose Taxocity.
         </h1>
 
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">

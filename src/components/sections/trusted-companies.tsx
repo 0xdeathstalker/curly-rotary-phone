@@ -20,17 +20,8 @@ export function TrustedCompanies() {
               <ReviewCard key={`${logo}-${index + 1}`} {...logo} />
             ))}
           </Marquee>
-          <Marquee
-            reverse
-            pauseOnHover
-            className="[--duration:20s] [--gap:100px]"
-          >
-            {companyLogos.map((logo, index) => (
-              <ReviewCard key={`${logo}-${index + -1}`} {...logo} />
-            ))}
-          </Marquee>
-          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-14 bg-linear-to-r" />
-          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-14 bg-linear-to-l" />
+          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-[10%] bg-linear-to-r" />
+          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-[10%] bg-linear-to-l" />
         </div>
       </div>
     </section>
