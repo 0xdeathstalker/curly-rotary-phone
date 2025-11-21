@@ -10,7 +10,7 @@ export function TrustedCompanies() {
             Brands that trusts us
           </h2>
           <p className="md:text-lg text-center px-8 md:px-0 text-[#3F3F3F]">
-            Over 200+ companies incorporated in last 30 years
+            Over 1000+ companies incorporated in last 30 years
           </p>
         </div>
 

@@ -194,52 +194,55 @@ const COMPANY_SIZES = [
   },
 ];
 
-const CARD_CONTENTS = [
+const CARD_CONTENTS: Array<{
+  title: "Name Approval" | "Company Registration" | "Pro";
+  recommended: boolean;
+  description: string;
+  price: number;
+  inclusions: Array<{ title: string }>;
+}> = [
   {
-    title: "Basic",
+    title: "Name Approval",
     recommended: false,
     description:
-      "Start your Pvt Ltd company at the lowest cost in just 30 days",
-    price: 2999,
+      "Register Your Company in Just 7–10 Days – Online & Hassle-Free!",
+    price: 2899,
     inclusions: [
       {
-        title: "Company Registration - End to End",
+        title: "Name Application Fee",
+      },
+      {
+        title: "Instant Filing",
+      },
+      {
+        title: "4 Name Choice",
       },
     ],
   },
   {
-    title: "Advanced",
+    title: "Company Registration",
     recommended: true,
     description:
       "Get your company up and running quickly with must-have compliances included.",
-    price: 7999,
+    price: 6899,
     inclusions: [
       {
-        title: "MSME Reg",
+        title: "MCA Name Approval",
       },
       {
-        title: "GST Registration",
-      },
-    ],
-  },
-  {
-    title: "Pro",
-    recommended: false,
-    description:
-      "All registrations done in one go. Launch your business fully compliant from day one.",
-    price: 16999,
-    inclusions: [
-      {
-        title: "Financial Statement",
+        title: "Company Incorporation",
       },
       {
-        title: "ITR",
+        title: "MOA & AOA Drafting",
       },
       {
-        title: "All Post incorporation",
+        title: "2 DINs for Directors",
       },
       {
-        title: "MCA compliances",
+        title: "PAN & TAN Registration",
+      },
+      {
+        title: "ESI & PF Registration",
       },
     ],
   },
@@ -258,7 +261,7 @@ const TESTIMONIALS = [
   },
   {
     id: 2,
-    rating: 4,
+    rating: 4.3,
     message:
       "Starting a business in India can feel overwhelming with so many legal and compliance requirements — but Taxocity made it look easy. From the very beginning, they guided me through every step. Thank you, Taxocity, for making business setup so seamless!",
     image: null,
@@ -268,7 +271,7 @@ const TESTIMONIALS = [
   },
   {
     id: 3,
-    rating: 3.5,
+    rating: 4.5,
     message:
       "Highly recommended! I used Taxocity for my ITR filing this year and the process was super smooth. The team was responsive and cleared all my doubts quickly. Filing taxes has never been this stress-free!",
     image: null,
@@ -278,7 +281,7 @@ const TESTIMONIALS = [
   },
   {
     id: 3,
-    rating: 3.5,
+    rating: 4.7,
     message:
       "We engaged Taxocity for end-to-end company incorporation. The team demonstrated exceptional domain knowledge throughout the incorporation process. Their support didn’t end at incorporation; we have since retained them for ongoing statutory compliance.",
     image: null,
