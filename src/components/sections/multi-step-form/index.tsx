@@ -6,6 +6,7 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import { useModalOpen, useUserContext } from "@/context/modal";
 import { useTeleCRMMutation } from "@/lib/hooks/useTeleCRMMutation";
+import { useGoogleSheetsMutation } from "@/lib/hooks/useGoogleSheetsMutation";
 import { setCookie } from "@/lib/utils/cookies";
 import { type FormSchema, formSchema } from "./form-schema";
 import { PlanSummary } from "./plan-summary";
@@ -34,6 +35,7 @@ function MultiStepForm({
   });
 
   const teleCRMMutation = useTeleCRMMutation();
+  const googleSheetsMutation = useGoogleSheetsMutation();
 
   const content = [
     {
@@ -41,7 +43,9 @@ function MultiStepForm({
         <UserDetailsForm
           form={form}
           handleNext={onSubmit}
-          isSubmitting={teleCRMMutation.isPending}
+          isSubmitting={
+            teleCRMMutation.isPending || googleSheetsMutation.isPending
+          }
         />
       ),
       label: "User details",
@@ -67,11 +71,21 @@ function MultiStepForm({
       const { name, email, countryCode, phone, state } = form.getValues();
       const fullPhone = `${countryCode} ${phone}`;
 
+      // updating telecrm
       await teleCRMMutation.mutateAsync({
         name,
         email,
         phone: fullPhone,
         state,
+      });
+
+      // updating google sheets
+      await googleSheetsMutation.mutateAsync({
+        phone: fullPhone,
+        email,
+        name,
+        state,
+        payment_status: "pending",
       });
 
       const userData = { name, email, phone: fullPhone, state };

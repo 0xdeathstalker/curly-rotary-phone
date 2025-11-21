@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { COMPANY_SIZES, STATES } from "@/lib/constants";
+import { STATES } from "@/lib/constants";
 
 export const formSchema = z.object({
   name: z

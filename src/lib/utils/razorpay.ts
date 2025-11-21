@@ -2,6 +2,7 @@ import { env } from "@/env";
 import { deleteCookie } from "./cookies";
 import { sendPaymentConfirmationEmail } from "./resend";
 import { updateTeleCRMLead } from "./telecrm";
+import { updateGoogleSheetViaAPI } from "./google-sheets-client";
 
 async function createOrder(amount: number) {
   const response = await fetch("/api/create-order", {
@@ -16,7 +17,7 @@ async function verifyPayment(
   response: any,
   amount: number,
   plan: string,
-  paymentDate: string,
+  paymentDate: string
 ) {
   const _response = await fetch("/api/verify-payment", {
     method: "POST",
@@ -78,13 +79,14 @@ async function purchase({
         response,
         order.amount,
         plan,
-        paymentDate,
+        paymentDate
       );
 
       if (data.isOk) {
         // triggering loading overlay
         onPaymentStart?.();
 
+        // updating telecrm
         await updateTeleCRMLead({
           phone,
           email,
@@ -92,6 +94,18 @@ async function purchase({
           payment_amount: order.amount / 100,
           payment_id: response.razorpay_payment_id,
           payment_status: "completed",
+        });
+
+        // updating sheets with payment info
+        await updateGoogleSheetViaAPI({
+          phone,
+          email,
+          name,
+          order_id: response.razorpay_order_id,
+          payment_amount: order.amount / 100,
+          payment_id: response.razorpay_payment_id,
+          payment_status: "completed",
+          payment_date: paymentDate,
         });
 
         await sendPaymentConfirmationEmail({

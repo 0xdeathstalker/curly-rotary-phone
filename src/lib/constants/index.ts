@@ -1,6 +1,21 @@
 const MODAL_INTERVAL = 30000; // 30seconds
 const REDIRECTION_TIME = 10; // 10seconds
 
+const GOOGLE_SHEET_COLUMNS = {
+  PHONE: 0, // A - Primary unique identifier
+  NAME: 1, // B
+  EMAIL: 2, // C
+  STATE: 3, // D
+  PAYMENT_STATUS: 4, // E
+  PAYMENT_AMOUNT: 5, // F
+  PAYMENT_ID: 6, // G
+  ORDER_ID: 7, // H
+  PAYMENT_DATE: 8, // I
+  LAST_UPDATED: 9, // J
+} as const;
+
+const GOOGLE_SHEET_NAME = "Sheet1";
+
 const STATES = [
   {
     value: "andaman-and-nicobar-islands",
@@ -524,6 +539,8 @@ const GOVERNMENT_FEES = [
 export {
   MODAL_INTERVAL,
   REDIRECTION_TIME,
+  GOOGLE_SHEET_COLUMNS,
+  GOOGLE_SHEET_NAME,
   STATES,
   COMPANY_SIZES,
   CARD_CONTENTS,
